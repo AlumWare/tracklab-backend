@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 namespace TrackLab.Shared.Domain.ValueObjects;
 
 [Owned]
-public class TenantId
+public record TenantId
 {
-    public long Value { get; private set; }
+    public long Value { get; init; }
 
-    private TenantId() {} // requerido por EF
+    public TenantId() { } // requerido por EF
 
     public TenantId(long value)
     {

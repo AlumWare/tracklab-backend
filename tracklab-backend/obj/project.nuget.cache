@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tnwsTEyshlw=",
+  "dgSpecHash": "XQGi+Dcga4E=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Angelo\\RiderProjects\\tracklab-backend\\tracklab-backend\\tracklab-backend.csproj",
+  "projectFilePath": "C:\\Users\\Angelo\\Desktop\\Aplicaciones Web\\tracklab-backend-1\\tracklab-backend\\tracklab-backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Angelo\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Angelo\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",
