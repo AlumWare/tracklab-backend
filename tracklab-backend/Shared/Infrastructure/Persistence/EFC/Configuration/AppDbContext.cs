@@ -30,7 +30,7 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
    /// </summary>
    /// <remarks>
    ///     This method is used to create the database model for the application.
-   ///     It also configures the Warehouse entity.
+   ///     It configures the Warehouse entity with primitive properties.
    /// </remarks>
    /// <param name="builder">
    ///     The model builder for the database context
@@ -38,6 +38,28 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
    protected override void OnModelCreating(ModelBuilder builder)
    {
         builder.UseSnakeCaseNamingConvention();
+        
+        // Configure Warehouse entity with primitive properties
+        builder.Entity<Warehouse>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Id).ValueGeneratedOnAdd();
+            
+            // Primitive properties mapping
+            entity.Property(e => e.TenantIdValue).HasColumnName("tenant_id").IsRequired();
+            entity.Property(e => e.Name).IsRequired().HasMaxLength(255);
+            entity.Property(e => e.Type).HasConversion<string>().HasMaxLength(50);
+            entity.Property(e => e.Street).IsRequired().HasMaxLength(500);
+            entity.Property(e => e.City).IsRequired().HasMaxLength(100);
+            entity.Property(e => e.State).IsRequired().HasMaxLength(100);
+            entity.Property(e => e.PostalCode).IsRequired().HasMaxLength(20);
+            entity.Property(e => e.Country).IsRequired().HasMaxLength(100);
+            entity.Property(e => e.Latitude).IsRequired();
+            entity.Property(e => e.Longitude).IsRequired();
+            entity.Property(e => e.Phone).HasMaxLength(50);
+            entity.Property(e => e.Email).HasMaxLength(255);
+        });
+        
         base.OnModelCreating(builder);
    }
 }

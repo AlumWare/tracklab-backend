@@ -18,20 +18,20 @@ public class WarehouseRepository(AppDbContext context) : BaseRepository<Warehous
     public async Task<IEnumerable<Warehouse>> GetByTenantIdAsync(TenantId tenantId)
     {
         return await Context.Set<Warehouse>()
-            .Where(w => w.TenantId == tenantId)
+            .Where(w => w.TenantIdValue == tenantId.Value)
             .ToListAsync();
     }
     
     public async Task<IEnumerable<Warehouse>> GetByTenantIdAndTypeAsync(TenantId tenantId, WarehouseType type)
     {
         return await Context.Set<Warehouse>()
-            .Where(w => w.TenantId == tenantId && w.Type == type)
+            .Where(w => w.TenantIdValue == tenantId.Value && w.Type == type)
             .ToListAsync();
     }
     
     public async Task<Warehouse?> GetByIdAndTenantIdAsync(int id, TenantId tenantId)
     {
         return await Context.Set<Warehouse>()
-            .FirstOrDefaultAsync(w => w.Id == id && w.TenantId == tenantId);
+            .FirstOrDefaultAsync(w => w.Id == id && w.TenantIdValue == tenantId.Value);
     }
 }

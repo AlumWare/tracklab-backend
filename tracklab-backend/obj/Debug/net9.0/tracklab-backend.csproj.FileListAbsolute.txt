@@ -193,3 +193,4 @@ D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bi
 D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\zh-CN\Humanizer.resources.dll
 D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\zh-Hans\Humanizer.resources.dll
 D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\zh-Hant\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.sourcelink.json
