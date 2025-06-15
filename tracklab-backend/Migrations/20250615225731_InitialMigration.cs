@@ -6,7 +6,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace Alumware.Tracklab.API.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,20 +18,20 @@ namespace Alumware.Tracklab.API.Migrations
                 name: "employees",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
+                    id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     tenant_id = table.Column<long>(type: "bigint", nullable: false),
                     dni = table.Column<string>(type: "longtext", nullable: false),
                     email = table.Column<string>(type: "longtext", nullable: false),
-                    FirstName = table.Column<string>(type: "longtext", nullable: false),
-                    LastName = table.Column<string>(type: "longtext", nullable: false),
-                    PhoneNumber = table.Column<string>(type: "longtext", nullable: false),
-                    PositionId = table.Column<long>(type: "bigint", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false)
+                    first_name = table.Column<string>(type: "longtext", nullable: false),
+                    last_name = table.Column<string>(type: "longtext", nullable: false),
+                    phone_number = table.Column<string>(type: "longtext", nullable: false),
+                    position_id = table.Column<long>(type: "bigint", nullable: false),
+                    status = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_employees", x => x.Id);
+                    table.PrimaryKey("p_k_employees", x => x.id);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -39,14 +39,14 @@ namespace Alumware.Tracklab.API.Migrations
                 name: "positions",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
+                    id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     tenant_id = table.Column<long>(type: "bigint", nullable: false),
-                    Name = table.Column<string>(type: "longtext", nullable: false)
+                    name = table.Column<string>(type: "longtext", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_positions", x => x.Id);
+                    table.PrimaryKey("p_k_positions", x => x.id);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -54,20 +54,20 @@ namespace Alumware.Tracklab.API.Migrations
                 name: "vehicles",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
+                    id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     tenant_id = table.Column<long>(type: "bigint", nullable: false),
-                    LicensePlate = table.Column<string>(type: "longtext", nullable: false),
-                    LoadCapacity = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    PaxCapacity = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
+                    license_plate = table.Column<string>(type: "longtext", nullable: false),
+                    load_capacity = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    pax_capacity = table.Column<int>(type: "int", nullable: false),
+                    status = table.Column<int>(type: "int", nullable: false),
                     location_latitude = table.Column<double>(type: "double", nullable: false),
                     location_longitude = table.Column<double>(type: "double", nullable: false),
-                    ImageAssetIds = table.Column<string>(type: "longtext", nullable: false)
+                    image_asset_ids = table.Column<string>(type: "longtext", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_vehicles", x => x.Id);
+                    table.PrimaryKey("p_k_vehicles", x => x.id);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -75,18 +75,18 @@ namespace Alumware.Tracklab.API.Migrations
                 name: "warehouses",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
+                    id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     tenant_id = table.Column<long>(type: "bigint", nullable: false),
-                    Name = table.Column<string>(type: "longtext", nullable: false),
-                    Type = table.Column<int>(type: "int", nullable: false),
+                    name = table.Column<string>(type: "longtext", nullable: false),
+                    type = table.Column<int>(type: "int", nullable: false),
                     latitude = table.Column<double>(type: "double", nullable: false),
                     longitude = table.Column<double>(type: "double", nullable: false),
                     address = table.Column<string>(type: "longtext", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_warehouses", x => x.Id);
+                    table.PrimaryKey("p_k_warehouses", x => x.id);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
         }
