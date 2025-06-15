@@ -1,0 +1,36 @@
+﻿using Alumware.Tracklab.API.Resource.Domain.Model.Commands;
+using Alumware.Tracklab.API.Resource.Domain.Model.ValueObjects;
+using TrackLab.Shared.Domain.ValueObjects;
+
+namespace Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
+
+public class Warehouse
+{
+    public long Id { get; private set; }
+    public TenantId TenantId { get; private set; }
+
+    public string Name { get; private set; }
+    public EWarehouseType Type { get; private set; }
+
+    public Coordinates Coordinates { get; private set; }
+    public StreetAddress Address { get; private set; }
+
+
+    public Warehouse() { }
+
+    public Warehouse(CreateWarehouseCommand command)
+    {
+        Name = command.Name;
+        Type = command.Type;
+        Coordinates = new Coordinates(command.Latitude, command.Longitude);
+        Address = new StreetAddress(command.Address);
+        TenantId = new TenantId(1);
+    }
+
+    public void UpdateInfo(UpdateWarehouseInfoCommand command)
+    {
+        Name = command.Name;
+        Coordinates = new Coordinates(command.Latitude, command.Longitude);
+        Address = new StreetAddress(command.Address);
+    }
+}
