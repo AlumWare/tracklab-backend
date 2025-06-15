@@ -10,8 +10,8 @@ using TrackLab.Shared.Infrastructure.Persistence.EFC.Configuration;
 namespace Alumware.Tracklab.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250615061104_InitCleanTracklab")]
-    partial class InitCleanTracklab
+    [Migration("20250615084105_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,34 +25,27 @@ namespace Alumware.Tracklab.API.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("first_name");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("last_name");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("phone_number");
+                        .HasColumnType("longtext");
 
                     b.Property<long>("PositionId")
-                        .HasColumnType("bigint")
-                        .HasColumnName("position_id");
+                        .HasColumnType("bigint");
 
                     b.Property<int>("Status")
-                        .HasColumnType("int")
-                        .HasColumnName("status");
+                        .HasColumnType("int");
 
-                    b.HasKey("Id")
-                        .HasName("p_k_employees");
+                    b.HasKey("Id");
 
                     b.ToTable("employees", (string)null);
                 });
@@ -61,16 +54,13 @@ namespace Alumware.Tracklab.API.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("name");
+                        .HasColumnType("longtext");
 
-                    b.HasKey("Id")
-                        .HasName("p_k_positions");
+                    b.HasKey("Id");
 
                     b.ToTable("positions", (string)null);
                 });
@@ -79,33 +69,26 @@ namespace Alumware.Tracklab.API.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint");
 
                     b.PrimitiveCollection<string>("ImageAssetIds")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("image_asset_ids");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("LicensePlate")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("license_plate");
+                        .HasColumnType("longtext");
 
                     b.Property<decimal>("LoadCapacity")
-                        .HasColumnType("decimal(18,2)")
-                        .HasColumnName("load_capacity");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("PaxCapacity")
-                        .HasColumnType("int")
-                        .HasColumnName("pax_capacity");
+                        .HasColumnType("int");
 
                     b.Property<int>("Status")
-                        .HasColumnType("int")
-                        .HasColumnName("status");
+                        .HasColumnType("int");
 
-                    b.HasKey("Id")
-                        .HasName("p_k_vehicles");
+                    b.HasKey("Id");
 
                     b.ToTable("vehicles", (string)null);
                 });
@@ -114,27 +97,23 @@ namespace Alumware.Tracklab.API.Migrations
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasColumnName("id");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("longtext")
-                        .HasColumnName("name");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("Type")
-                        .HasColumnType("int")
-                        .HasColumnName("type");
+                        .HasColumnType("int");
 
-                    b.HasKey("Id")
-                        .HasName("p_k_warehouses");
+                    b.HasKey("Id");
 
                     b.ToTable("warehouses", (string)null);
                 });
 
             modelBuilder.Entity("Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Employee", b =>
                 {
-                    b.OwnsOne("Alumware.Tracklab.API.Resource.Domain.Model.ValueObjects.TenantId", "TenantId", b1 =>
+                    b.OwnsOne("TrackLab.Shared.Domain.ValueObjects.TenantId", "TenantId", b1 =>
                         {
                             b1.Property<long>("EmployeeId")
                                 .HasColumnType("bigint");
@@ -145,7 +124,7 @@ namespace Alumware.Tracklab.API.Migrations
 
                             b1.HasKey("EmployeeId");
 
-                            b1.ToTable("tenant_ids");
+                            b1.ToTable("employees");
 
                             b1.WithOwner()
                                 .HasForeignKey("EmployeeId");
@@ -163,7 +142,7 @@ namespace Alumware.Tracklab.API.Migrations
 
                             b1.HasKey("EmployeeId");
 
-                            b1.ToTable("dnis");
+                            b1.ToTable("employees");
 
                             b1.WithOwner()
                                 .HasForeignKey("EmployeeId");
@@ -181,7 +160,7 @@ namespace Alumware.Tracklab.API.Migrations
 
                             b1.HasKey("EmployeeId");
 
-                            b1.ToTable("emails");
+                            b1.ToTable("employees");
 
                             b1.WithOwner()
                                 .HasForeignKey("EmployeeId");
@@ -199,7 +178,7 @@ namespace Alumware.Tracklab.API.Migrations
 
             modelBuilder.Entity("Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Position", b =>
                 {
-                    b.OwnsOne("Alumware.Tracklab.API.Resource.Domain.Model.ValueObjects.TenantId", "TenantId", b1 =>
+                    b.OwnsOne("TrackLab.Shared.Domain.ValueObjects.TenantId", "TenantId", b1 =>
                         {
                             b1.Property<long>("PositionId")
                                 .HasColumnType("bigint");
@@ -237,13 +216,13 @@ namespace Alumware.Tracklab.API.Migrations
 
                             b1.HasKey("VehicleId");
 
-                            b1.ToTable("coordinates");
+                            b1.ToTable("vehicles");
 
                             b1.WithOwner()
                                 .HasForeignKey("VehicleId");
                         });
 
-                    b.OwnsOne("Alumware.Tracklab.API.Resource.Domain.Model.ValueObjects.TenantId", "TenantId", b1 =>
+                    b.OwnsOne("TrackLab.Shared.Domain.ValueObjects.TenantId", "TenantId", b1 =>
                         {
                             b1.Property<long>("VehicleId")
                                 .HasColumnType("bigint");
@@ -290,7 +269,7 @@ namespace Alumware.Tracklab.API.Migrations
                                 .HasForeignKey("WarehouseId");
                         });
 
-                    b.OwnsOne("Alumware.Tracklab.API.Resource.Domain.Model.ValueObjects.TenantId", "TenantId", b1 =>
+                    b.OwnsOne("TrackLab.Shared.Domain.ValueObjects.TenantId", "TenantId", b1 =>
                         {
                             b1.Property<long>("WarehouseId")
                                 .HasColumnType("bigint");
@@ -319,7 +298,7 @@ namespace Alumware.Tracklab.API.Migrations
 
                             b1.HasKey("WarehouseId");
 
-                            b1.ToTable("street_addresses");
+                            b1.ToTable("warehouses");
 
                             b1.WithOwner()
                                 .HasForeignKey("WarehouseId");

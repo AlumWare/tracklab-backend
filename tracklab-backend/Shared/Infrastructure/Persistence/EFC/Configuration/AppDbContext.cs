@@ -26,7 +26,6 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        builder.UseSnakeCaseNamingConvention();
         base.OnModelCreating(builder);
 
         // === EMPLOYEE ===
@@ -34,7 +33,6 @@ public class AppDbContext : DbContext
         builder.Entity<Employee>().OwnsOne(e => e.TenantId, t =>
         {
             t.Property(p => p.Value).HasColumnName("tenant_id");
-            t.WithOwner(); // evita clave primaria
         });
         builder.Entity<Employee>().OwnsOne(e => e.Dni, d =>
         {
@@ -50,7 +48,6 @@ public class AppDbContext : DbContext
         builder.Entity<Vehicle>().OwnsOne(v => v.TenantId, t =>
         {
             t.Property(p => p.Value).HasColumnName("tenant_id");
-            t.WithOwner();
         });
         builder.Entity<Vehicle>().OwnsOne(v => v.Location, loc =>
         {
@@ -63,7 +60,6 @@ public class AppDbContext : DbContext
         builder.Entity<Warehouse>().OwnsOne(w => w.TenantId, t =>
         {
             t.Property(p => p.Value).HasColumnName("tenant_id");
-            t.WithOwner();
         });
         builder.Entity<Warehouse>().OwnsOne(w => w.Coordinates, c =>
         {
@@ -80,7 +76,6 @@ public class AppDbContext : DbContext
         builder.Entity<Position>().OwnsOne(p => p.TenantId, t =>
         {
             t.Property(p => p.Value).HasColumnName("tenant_id");
-            t.WithOwner();
         });
     }
 }
