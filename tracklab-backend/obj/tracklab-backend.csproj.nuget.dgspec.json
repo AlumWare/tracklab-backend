@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\UPChexk\\2025-I\\Aplicaciones Web\\tracklab\\tracklab-backend\\tracklab-backend\\tracklab-backend.csproj": {}
+    "C:\\Users\\Angelo\\RiderProjects\\tracklab-backend\\tracklab-backend\\tracklab-backend.csproj": {}
   },
   "projects": {
-    "D:\\UPChexk\\2025-I\\Aplicaciones Web\\tracklab\\tracklab-backend\\tracklab-backend\\tracklab-backend.csproj": {
+    "C:\\Users\\Angelo\\RiderProjects\\tracklab-backend\\tracklab-backend\\tracklab-backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\UPChexk\\2025-I\\Aplicaciones Web\\tracklab\\tracklab-backend\\tracklab-backend\\tracklab-backend.csproj",
+        "projectUniqueName": "C:\\Users\\Angelo\\RiderProjects\\tracklab-backend\\tracklab-backend\\tracklab-backend.csproj",
         "projectName": "Alumware.Tracklab.API",
-        "projectPath": "D:\\UPChexk\\2025-I\\Aplicaciones Web\\tracklab\\tracklab-backend\\tracklab-backend\\tracklab-backend.csproj",
-        "packagesPath": "C:\\Users\\sergi\\.nuget\\packages\\",
-        "outputPath": "D:\\UPChexk\\2025-I\\Aplicaciones Web\\tracklab\\tracklab-backend\\tracklab-backend\\obj\\",
+        "projectPath": "C:\\Users\\Angelo\\RiderProjects\\tracklab-backend\\tracklab-backend\\tracklab-backend.csproj",
+        "packagesPath": "C:\\Users\\Angelo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Angelo\\RiderProjects\\tracklab-backend\\tracklab-backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\sergi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Angelo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -54,6 +55,10 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "EFCore.NamingConventions": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "EntityFrameworkCore.CreatedUpdatedDate": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -74,6 +79,12 @@
               "target": "Package",
               "version": "[9.0.6, )"
             },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.6, )"
+            },
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
               "version": "[9.0.6, )"
@@ -81,6 +92,12 @@
             "Microsoft.EntityFrameworkCore.Relational.Design": {
               "target": "Package",
               "version": "[1.1.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.6, )"
             },
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",

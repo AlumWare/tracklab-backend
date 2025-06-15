@@ -2,70 +2,62 @@ using Microsoft.EntityFrameworkCore;
 using TrackLab.Shared.Infrastructure.Persistence.EFC.Configuration;
 using TrackLab.Shared.Domain.Repositories;
 using TrackLab.Shared.Infrastructure.Persistence.EFC.Repositories;
-using TrackLab.Resources.Domain.Repositories;
-using TrackLab.Resources.Infraestructure.Persistence.EFC.Repositories;
-using TrackLab.Resources.Domain.Services;
-using TrackLab.Resources.Application.Internal.CommandServices;
-using TrackLab.Resources.Application.Internal.QueryServices;
+using Alumware.Tracklab.API.Resource.Domain.Repositories;
+using Alumware.Tracklab.API.Resource.Domain.Services;
+using Alumware.Tracklab.API.Resource.Application.Internal.CommandServices;
+using Alumware.Tracklab.API.Resource.Infrastructure.Persistence.Repositories;
+using Alumware.Tracklab.API.Resource.Application.Internal.QueryServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Database configuration
+// Load connection string
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseMySQL(connectionString ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.")));
+    options.UseMySQL(
+        connectionString ?? throw new InvalidOperationException("Missing connection string.")
+    ));
 
-// Repository layer
+// Repository registrations
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IVehicleRepository, VehicleRepository>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IWarehouseRepository, WarehouseRepository>();
+builder.Services.AddScoped<IPositionRepository, PositionRepository>();
 
-// Service layer
-builder.Services.AddScoped<IWarehouseCommandService, WarehouseCommandService>();
+// Query services
+builder.Services.AddScoped<IVehicleQueryService, VehicleQueryService>();
+builder.Services.AddScoped<IEmployeeQueryService, EmployeeQueryService>();
 builder.Services.AddScoped<IWarehouseQueryService, WarehouseQueryService>();
+builder.Services.AddScoped<IPositionQueryService, PositionQueryService>();
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+// Command services
+builder.Services.AddScoped<IVehicleCommandService, VehicleCommandService>();
+builder.Services.AddScoped<IEmployeeCommandService, EmployeeCommandService>();
+builder.Services.AddScoped<IWarehouseCommandService, WarehouseCommandService>();
+builder.Services.AddScoped<IPositionCommandService, PositionCommandService>();
+
+// Add Swagger + Controllers
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// Swagger UI
 app.UseSwagger();
 app.UseSwaggerUI();
 
-// Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
-    //app.MapOpenApi();
-//}
+// Auto-create DB in dev
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.EnsureCreated();
+}
 
+// Middleware
 app.UseHttpsRedirection();
-
+app.UseAuthorization();
 app.MapControllers();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-    {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
-    })
-    .WithName("GetWeatherForecast");
-
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

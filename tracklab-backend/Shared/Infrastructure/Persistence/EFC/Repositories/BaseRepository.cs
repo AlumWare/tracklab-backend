@@ -33,11 +33,10 @@ public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : 
     }
 
     // inheritedDoc
-    public async Task<TEntity?> FindByIdAsync(int id)
+    public async Task<TEntity?> FindByIdAsync(long id)
     {
         return await Context.Set<TEntity>().FindAsync(id);
     }
-
     // inheritedDoc
     public void Update(TEntity entity)
     {
