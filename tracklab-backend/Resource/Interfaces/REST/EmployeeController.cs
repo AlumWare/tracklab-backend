@@ -3,6 +3,7 @@ using Alumware.Tracklab.API.Resource.Domain.Services;
 using Alumware.Tracklab.API.Resource.Interfaces.REST.Resources;
 using Alumware.Tracklab.API.Resource.Interfaces.REST.Transformers;
 using Alumware.Tracklab.API.Resource.Domain.Model.Commands;
+using Alumware.Tracklab.API.Resource.Domain.Model.Queries;
 
 namespace Alumware.Tracklab.API.Resource.Interfaces.REST.Controllers;
 
@@ -21,9 +22,14 @@ public class EmployeeController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<EmployeeResource>>> GetAll()
+    public async Task<ActionResult<IEnumerable<EmployeeResource>>> GetAll(
+        [FromQuery] int? pageSize = null, 
+        [FromQuery] int? pageNumber = null,
+        [FromQuery] string? status = null,
+        [FromQuery] string? position = null)
     {
-        var employees = await _queryService.ListAsync();
+        var query = new GetAllEmployeesQuery(pageSize, pageNumber, status, position);
+        var employees = await _queryService.Handle(query);
         var resources = employees.Select(EmployeeResourceFromEntityAssembler.ToResourceFromEntity);
         return Ok(resources);
     }
@@ -31,7 +37,7 @@ public class EmployeeController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<EmployeeResource>> GetById(long id)
     {
-        var employee = await _queryService.FindByIdAsync(id);
+        var employee = await _queryService.Handle(new GetEmployeeByIdQuery(id));
         if (employee == null) return NotFound();
 
         var resource = EmployeeResourceFromEntityAssembler.ToResourceFromEntity(employee);

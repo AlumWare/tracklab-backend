@@ -3,6 +3,7 @@ using Alumware.Tracklab.API.Resource.Domain.Services;
 using Alumware.Tracklab.API.Resource.Interfaces.REST.Resources;
 using Alumware.Tracklab.API.Resource.Interfaces.REST.Transformers;
 using Alumware.Tracklab.API.Resource.Domain.Model.Commands;
+using Alumware.Tracklab.API.Resource.Domain.Model.Queries;
 
 [ApiController]
 [Route("api/v1/warehouses")]
@@ -19,9 +20,15 @@ public class WarehouseController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<WarehouseResource>>> GetAll()
+    public async Task<ActionResult<IEnumerable<WarehouseResource>>> GetAll(
+        [FromQuery] int? pageSize = null, 
+        [FromQuery] int? pageNumber = null,
+        [FromQuery] string? location = null,
+        [FromQuery] string? type = null,
+        [FromQuery] bool? isActive = null)
     {
-        var warehouses = await _queryService.ListAsync();
+        var query = new GetAllWarehousesQuery(pageSize, pageNumber, location, type, isActive);
+        var warehouses = await _queryService.Handle(query);
         var resources = warehouses.Select(WarehouseResourceFromEntityAssembler.ToResourceFromEntity);
         return Ok(resources);
     }
@@ -29,7 +36,7 @@ public class WarehouseController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<WarehouseResource>> GetById(long id)
     {
-        var warehouse = await _queryService.FindByIdAsync(id);
+        var warehouse = await _queryService.Handle(new GetWarehouseByIdQuery(id));
         if (warehouse is null) return NotFound();
 
         var resource = WarehouseResourceFromEntityAssembler.ToResourceFromEntity(warehouse);
