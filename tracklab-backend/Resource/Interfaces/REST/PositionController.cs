@@ -3,6 +3,7 @@ using Alumware.Tracklab.API.Resource.Domain.Services;
 using Alumware.Tracklab.API.Resource.Interfaces.REST.Resources;
 using Alumware.Tracklab.API.Resource.Interfaces.REST.Transformers;
 using Alumware.Tracklab.API.Resource.Domain.Model.Commands;
+using Alumware.Tracklab.API.Resource.Domain.Model.Queries;
 
 namespace Alumware.Tracklab.API.Resource.Interfaces.REST.Controllers;
 [ApiController]
@@ -20,9 +21,14 @@ public class PositionController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<PositionResource>>> GetAll()
+    public async Task<ActionResult<IEnumerable<PositionResource>>> GetAll(
+        [FromQuery] int? pageSize = null, 
+        [FromQuery] int? pageNumber = null,
+        [FromQuery] string? department = null,
+        [FromQuery] bool? isActive = null)
     {
-        var positions = await _queryService.ListAsync();
+        var query = new GetAllPositionsQuery(pageSize, pageNumber, department, isActive);
+        var positions = await _queryService.Handle(query);
         var resources = positions.Select(PositionResourceFromEntityAssembler.ToResourceFromEntity);
         return Ok(resources);
     }
@@ -30,7 +36,7 @@ public class PositionController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<PositionResource>> GetById(long id)
     {
-        var position = await _queryService.FindByIdAsync(id);
+        var position = await _queryService.Handle(new GetPositionByIdQuery(id));
         if (position is null) return NotFound();
 
         var resource = PositionResourceFromEntityAssembler.ToResourceFromEntity(position);

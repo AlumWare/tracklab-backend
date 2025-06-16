@@ -1,0 +1,816 @@
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\appsettings.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\tracklab-backend.staticwebassets.endpoints.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\tracklab-backend.exe
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\tracklab-backend.deps.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\tracklab-backend.runtimeconfig.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\tracklab-backend.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\tracklab-backend.pdb
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\BCrypt.Net-Next.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\BouncyCastle.Cryptography.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\EntityFrameworkCore.CreatedUpdatedDate.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Google.Protobuf.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\K4os.Compression.LZ4.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\K4os.Hash.xxHash.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\MySql.Data.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\MySql.EntityFrameworkCore.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.Annotations.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.Security.Permissions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.Windows.Extensions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ZstdSharp.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\comerr64.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\gssapi64.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\krb5_64.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\krbcc64.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.csproj.AssemblyReference.cache
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.AssemblyInfoInputs.cache
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.AssemblyInfo.cs
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.csproj.CoreCompileInputs.cache
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\obj\Debug\net9.0\scopedcss\bundle\tracklab-backend.styles.css
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab.AE70451F.Up2Date
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\obj\Debug\net9.0\refint\tracklab-backend.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.pdb
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.genruntimeconfig.cache
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend\tracklab-backend\obj\Debug\net9.0\ref\tracklab-backend.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\appsettings.Development.json
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\appsettings.json
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.staticwebassets.endpoints.json
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.exe
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.deps.json
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.runtimeconfig.json
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.pdb
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\BCrypt.Net-Next.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\BouncyCastle.Cryptography.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\EntityFrameworkCore.CreatedUpdatedDate.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Google.Protobuf.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\K4os.Compression.LZ4.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\K4os.Compression.LZ4.Streams.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\K4os.Hash.xxHash.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.OpenApi.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\MySql.Data.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\MySql.EntityFrameworkCore.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.Annotations.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.Security.Permissions.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.Windows.Extensions.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ZstdSharp.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\comerr64.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\gssapi64.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\k5sprt64.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\krb5_64.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\krbcc64.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.csproj.AssemblyReference.cache
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.GeneratedMSBuildEditorConfig.editorconfig
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.AssemblyInfoInputs.cache
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.AssemblyInfo.cs
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.csproj.CoreCompileInputs.cache
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\obj\Debug\net9.0\Alumware.Tracklab.API.MvcApplicationPartsAssemblyInfo.cs
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\obj\Debug\net9.0\Alumware.Tracklab.API.MvcApplicationPartsAssemblyInfo.cache
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\obj\Debug\net9.0\scopedcss\bundle\Alumware.Tracklab.API.styles.css
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\obj\Debug\net9.0\staticwebassets.build.json
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\obj\Debug\net9.0\staticwebassets.build.json.cache
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\obj\Debug\net9.0\staticwebassets.development.json
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab.AE70451F.Up2Date
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\obj\Debug\net9.0\Alumware.Tracklab.API.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\obj\Debug\net9.0\refint\Alumware.Tracklab.API.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\obj\Debug\net9.0\Alumware.Tracklab.API.pdb
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.genruntimeconfig.cache
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\obj\Debug\net9.0\ref\Alumware.Tracklab.API.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Humanizer.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\af\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ar\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\az\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\bg\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\bn-BD\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\cs\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\da\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\de\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\el\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\es\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\fa\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\fi-FI\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\fr\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\fr-BE\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\he\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\hr\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\hu\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\hy\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\id\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\is\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\it\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ja\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ko-KR\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ku\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\lv\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ms-MY\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\mt\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\nb\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\nb-NO\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\nl\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\pl\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\pt\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ro\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ru\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\sk\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\sl\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\sr\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\sr-Latn\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\sv\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\th-TH\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\tr\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\uk\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\uz-Cyrl-UZ\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\uz-Latn-UZ\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\vi\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\zh-CN\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\zh-Hans\Humanizer.resources.dll
+D:\UPChexk\2025-I\Aplicaciones Web\tracklab\tracklab-backend\tracklab-backend\bin\Debug\net9.0\zh-Hant\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\appsettings.json
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.staticwebassets.endpoints.json
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.exe
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.deps.json
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.runtimeconfig.json
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.pdb
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\BCrypt.Net-Next.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\BouncyCastle.Cryptography.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\EFCore.NamingConventions.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\EntityFrameworkCore.CreatedUpdatedDate.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Google.Protobuf.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Humanizer.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\K4os.Compression.LZ4.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\K4os.Hash.xxHash.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Mono.TextTemplating.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\MySql.Data.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\MySql.EntityFrameworkCore.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.Annotations.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.CodeDom.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.Composition.Convention.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.Composition.Hosting.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.Composition.Runtime.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.Composition.TypedParts.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.Security.Permissions.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.Windows.Extensions.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ZstdSharp.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\af\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ar\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\az\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\bg\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\bn-BD\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\cs\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\da\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\de\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\el\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\es\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\fa\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\fi-FI\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\fr\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\fr-BE\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\he\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\hr\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\hu\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\hy\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\id\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\is\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\it\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ja\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ko-KR\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ku\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\lv\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ms-MY\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\mt\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\nb\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\nb-NO\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\nl\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\pl\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\pt\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ro\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ru\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\sk\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\sl\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\sr\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\sr-Latn\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\sv\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\th-TH\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\tr\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\uk\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\uz-Cyrl-UZ\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\uz-Latn-UZ\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\vi\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\zh-CN\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\zh-Hans\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\zh-Hant\Humanizer.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\comerr64.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\gssapi64.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\krb5_64.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\krbcc64.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.csproj.AssemblyReference.cache
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.AssemblyInfoInputs.cache
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.AssemblyInfo.cs
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.csproj.CoreCompileInputs.cache
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\obj\Debug\net9.0\Alumware.Tracklab.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\obj\Debug\net9.0\Alumware.Tracklab.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.sourcelink.json
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\obj\Debug\net9.0\scopedcss\bundle\Alumware.Tracklab.API.styles.css
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab.AE70451F.Up2Date
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\obj\Debug\net9.0\Alumware.Tracklab.API.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\obj\Debug\net9.0\refint\Alumware.Tracklab.API.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\obj\Debug\net9.0\Alumware.Tracklab.API.pdb
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\obj\Debug\net9.0\tracklab-backend.genruntimeconfig.cache
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\obj\Debug\net9.0\ref\Alumware.Tracklab.API.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.Build.Locator.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\System.Text.Json.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\RiderProjects\tracklab-backend\tracklab-backend\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.exe
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\EntityFrameworkCore.CreatedUpdatedDate.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Humanizer.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\MySql.Data.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\MySql.EntityFrameworkCore.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.Annotations.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\System.Security.Permissions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\System.Text.Json.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\appsettings.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.staticwebassets.endpoints.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\BCrypt.Net-Next.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\BouncyCastle.Cryptography.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\EFCore.NamingConventions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Google.Protobuf.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\K4os.Compression.LZ4.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\K4os.Hash.xxHash.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.Build.Locator.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Mono.TextTemplating.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\System.CodeDom.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\System.Composition.Convention.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\System.Composition.Hosting.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\System.Composition.Runtime.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\System.Composition.TypedParts.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\System.Windows.Extensions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ZstdSharp.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\af\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ar\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\az\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\bg\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\bn-BD\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\cs\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\da\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\de\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\el\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\es\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\fa\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\fi-FI\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\fr\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\fr-BE\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\he\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\hr\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\hu\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\hy\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\id\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\is\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\it\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ja\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ko-KR\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ku\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\lv\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ms-MY\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\mt\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\nb\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\nb-NO\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\nl\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\pl\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\pt\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ro\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ru\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\sk\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\sl\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\sr\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\sr-Latn\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\sv\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\th-TH\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\tr\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\uk\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\uz-Cyrl-UZ\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\uz-Latn-UZ\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\vi\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\zh-CN\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\zh-Hans\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\zh-Hant\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\comerr64.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\gssapi64.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\krb5_64.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\krbcc64.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\obj\Debug\net9.0\tracklab-backend.csproj.AssemblyReference.cache
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\obj\Debug\net9.0\tracklab-backend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\obj\Debug\net9.0\tracklab-backend.AssemblyInfoInputs.cache
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\obj\Debug\net9.0\tracklab-backend.AssemblyInfo.cs
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\obj\Debug\net9.0\tracklab-backend.csproj.CoreCompileInputs.cache
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\obj\Debug\net9.0\Alumware.Tracklab.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\obj\Debug\net9.0\Alumware.Tracklab.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\obj\Debug\net9.0\tracklab-backend.sourcelink.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\obj\Debug\net9.0\scopedcss\bundle\Alumware.Tracklab.API.styles.css
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\obj\Debug\net9.0\tracklab.AE70451F.Up2Date
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\obj\Debug\net9.0\Alumware.Tracklab.API.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\obj\Debug\net9.0\refint\Alumware.Tracklab.API.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\obj\Debug\net9.0\Alumware.Tracklab.API.pdb
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.deps.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.runtimeconfig.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.pdb
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\obj\Debug\net9.0\tracklab-backend.genruntimeconfig.cache
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-1\tracklab-backend\obj\Debug\net9.0\ref\Alumware.Tracklab.API.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\appsettings.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.staticwebassets.endpoints.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.exe
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.deps.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.runtimeconfig.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Alumware.Tracklab.API.pdb
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\BCrypt.Net-Next.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\BouncyCastle.Cryptography.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\EFCore.NamingConventions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\EntityFrameworkCore.CreatedUpdatedDate.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Google.Protobuf.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Humanizer.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\K4os.Compression.LZ4.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\K4os.Hash.xxHash.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.Build.Locator.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Mono.TextTemplating.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\MySql.Data.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\MySql.EntityFrameworkCore.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.Annotations.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\System.CodeDom.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\System.Composition.Convention.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\System.Composition.Hosting.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\System.Composition.Runtime.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\System.Composition.TypedParts.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\System.Security.Permissions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\System.Text.Json.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\System.Windows.Extensions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ZstdSharp.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\af\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ar\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\az\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\bg\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\bn-BD\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\cs\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\da\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\de\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\el\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\es\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\fa\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\fi-FI\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\fr\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\fr-BE\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\he\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\hr\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\hu\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\hy\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\id\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\is\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\it\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ja\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ko-KR\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ku\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\lv\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ms-MY\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\mt\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\nb\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\nb-NO\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\nl\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\pl\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\pt\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ro\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ru\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\sk\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\sl\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\sr\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\sr-Latn\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\sv\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\th-TH\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\tr\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\uk\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\uz-Cyrl-UZ\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\uz-Latn-UZ\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\vi\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\zh-CN\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\zh-Hans\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\zh-Hant\Humanizer.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\comerr64.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\gssapi64.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\krb5_64.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\runtimes\win-x64\native\krbcc64.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\obj\Debug\net9.0\tracklab-backend.csproj.AssemblyReference.cache
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\obj\Debug\net9.0\tracklab-backend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\obj\Debug\net9.0\tracklab-backend.AssemblyInfoInputs.cache
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\obj\Debug\net9.0\tracklab-backend.AssemblyInfo.cs
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\obj\Debug\net9.0\tracklab-backend.csproj.CoreCompileInputs.cache
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\obj\Debug\net9.0\Alumware.Tracklab.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\obj\Debug\net9.0\Alumware.Tracklab.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\obj\Debug\net9.0\tracklab-backend.sourcelink.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\obj\Debug\net9.0\scopedcss\bundle\Alumware.Tracklab.API.styles.css
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\obj\Debug\net9.0\tracklab.AE70451F.Up2Date
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\obj\Debug\net9.0\Alumware.Tracklab.API.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\obj\Debug\net9.0\refint\Alumware.Tracklab.API.dll
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\obj\Debug\net9.0\Alumware.Tracklab.API.pdb
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\obj\Debug\net9.0\tracklab-backend.genruntimeconfig.cache
+C:\Users\Angelo\Desktop\Aplicaciones Web\tracklab-backend-2\tracklab-backend\obj\Debug\net9.0\ref\Alumware.Tracklab.API.dll
