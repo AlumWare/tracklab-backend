@@ -1,18 +1,54 @@
 ﻿using Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
+using Alumware.Tracklab.API.Resource.Domain.Model.Queries;
+using Alumware.Tracklab.API.Resource.Domain.Model.ValueObjects;
 using Alumware.Tracklab.API.Resource.Domain.Repositories;
 using Alumware.Tracklab.API.Resource.Domain.Services;
 
 namespace Alumware.Tracklab.API.Resource.Application.Internal.QueryServices;
 
-public class VehicleQueryService(IVehicleRepository vehicleRepository) : IVehicleQueryService
+public class VehicleQueryService : IVehicleQueryService
 {
-    public async Task<IEnumerable<Vehicle>> ListAsync()
+    private readonly IVehicleRepository _vehicleRepository;
+
+    public VehicleQueryService(IVehicleRepository vehicleRepository)
     {
-        return await vehicleRepository.ListAsync();
+        _vehicleRepository = vehicleRepository;
     }
 
-    public async Task<Vehicle?> FindByIdAsync(long id)
+    public async Task<IEnumerable<Vehicle>> Handle(GetAllVehiclesQuery query)
     {
-        return await vehicleRepository.FindByIdAsync(id);
+        var vehicles = await _vehicleRepository.ListAsync();
+        
+        // Aplicar filtros si están especificados
+        if (!string.IsNullOrEmpty(query.Status))
+        {
+            if (Enum.TryParse<EVehicleStatus>(query.Status, out var status))
+            {
+                vehicles = vehicles.Where(v => v.Status == status);
+            }
+        }
+        
+        if (!string.IsNullOrEmpty(query.LicensePlate))
+        {
+            vehicles = vehicles.Where(v => v.LicensePlate.Contains(query.LicensePlate, StringComparison.OrdinalIgnoreCase));
+        }
+        
+        // Nota: El filtro Type no existe en el modelo actual de Vehicle
+        // Solo aplicamos paginación
+        
+        // Aplicar paginación si está especificada
+        if (query.PageSize.HasValue && query.PageNumber.HasValue)
+        {
+            vehicles = vehicles
+                .Skip((query.PageNumber.Value - 1) * query.PageSize.Value)
+                .Take(query.PageSize.Value);
+        }
+        
+        return vehicles;
+    }
+
+    public async Task<Vehicle?> Handle(GetVehicleByIdQuery query)
+    {
+        return await _vehicleRepository.FindByIdAsync(query.Id);
     }
 }
