@@ -6,6 +6,7 @@ using Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 using Alumware.Tracklab.API.Resource.Domain.Model.ValueObjects;
 using TrackLab.Shared.Domain.ValueObjects;
 using TrackLab.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
+using TrackLab.IAM.Domain.Model.Aggregates;
 
 namespace TrackLab.Shared.Infrastructure.Persistence.EFC.Configuration;
 
@@ -17,6 +18,10 @@ public class AppDbContext : DbContext
     public DbSet<Employee> Employees => Set<Employee>();
     public DbSet<Warehouse> Warehouses => Set<Warehouse>();
     public DbSet<Position> Positions => Set<Position>();
+    
+    // IAM Context
+    public DbSet<User> Users => Set<User>();
+    public DbSet<Tenant> Tenants => Set<Tenant>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
@@ -89,6 +94,54 @@ public class AppDbContext : DbContext
         {
             t.Property(p => p.Value).HasColumnName("tenant_id");
             t.WithOwner().HasForeignKey("Id");
+        });
+
+        // === IAM CONTEXT ===
+        
+        // === USER ===
+        builder.Entity<User>().ToTable("users");
+        builder.Entity<User>().HasKey(u => u.Id);
+        builder.Entity<User>().OwnsOne(u => u.TenantId, t =>
+        {
+            t.Property(p => p.Value).HasColumnName("tenant_id");
+            t.WithOwner().HasForeignKey("Id");
+        });
+        builder.Entity<User>().OwnsOne(u => u.Email, e =>
+        {
+            e.Property(p => p.Value).HasColumnName("email");
+            e.WithOwner().HasForeignKey("Id");
+        });
+        
+        // Configurar roles como una propiedad string separado por comas
+        builder.Entity<User>()
+            .Property(u => u.RolesInternal)
+            .HasConversion(
+                roles => string.Join(",", roles.Select(r => r.Name)),
+                rolesString => rolesString.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(name => TrackLab.IAM.Domain.Model.ValueObjects.Role.FromName(name))
+                    .ToList()
+            )
+            .HasColumnName("roles");
+            
+        // Ignorar completamente la propiedad Roles de solo lectura
+        builder.Entity<User>()
+            .Ignore(u => u.Roles);
+            
+        // Asegurar que no se creen tablas adicionales para roles
+        builder.Ignore<TrackLab.IAM.Domain.Model.ValueObjects.Role>();
+
+        // === TENANT ===
+        builder.Entity<Tenant>().ToTable("tenants");
+        builder.Entity<Tenant>().HasKey(t => t.Id);
+        builder.Entity<Tenant>().OwnsOne(t => t.Email, e =>
+        {
+            e.Property(p => p.Value).HasColumnName("email");
+            e.WithOwner().HasForeignKey("Id");
+        });
+        builder.Entity<Tenant>().OwnsOne(t => t.PhoneNumber, p =>
+        {
+            p.Property(p => p.Value).HasColumnName("phone_number");
+            p.WithOwner().HasForeignKey("Id");
         });
     }
 }

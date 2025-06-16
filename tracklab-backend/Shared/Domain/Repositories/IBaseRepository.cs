@@ -7,5 +7,6 @@
         void Update(TEntity entity);
         void Remove(TEntity entity);
         Task<IEnumerable<TEntity>> ListAsync();
+        Task<int> SaveChangesAsync();
     }
 }

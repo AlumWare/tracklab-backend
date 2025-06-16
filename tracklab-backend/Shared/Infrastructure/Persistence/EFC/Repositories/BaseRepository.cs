@@ -54,4 +54,10 @@ public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : 
     {
         return await Context.Set<TEntity>().ToListAsync();
     }
+
+    // inheritedDoc
+    public async Task<int> SaveChangesAsync()
+    {
+        return await Context.SaveChangesAsync();
+    }
 }

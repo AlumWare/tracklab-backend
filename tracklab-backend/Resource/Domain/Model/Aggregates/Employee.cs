@@ -1,6 +1,7 @@
 ﻿using Alumware.Tracklab.API.Resource.Domain.Model.Commands;
 using Alumware.Tracklab.API.Resource.Domain.Model.ValueObjects;
 using TrackLab.Shared.Domain.ValueObjects;
+using SharedEmail = TrackLab.Shared.Domain.ValueObjects.Email;
 
 namespace Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 
@@ -9,7 +10,7 @@ public class Employee
     public long Id { get; private set; }
     public TenantId TenantId { get; private set; }
     public Dni Dni { get; private set; }
-    public Email Email { get; private set; }
+    public SharedEmail Email { get; private set; }
     public string FirstName { get; private set; }
     public string LastName { get; private set; }
     public string PhoneNumber { get; private set; }
@@ -23,7 +24,7 @@ public class Employee
     public Employee(CreateEmployeeCommand command)
     {
         Dni = new Dni(command.Dni);
-        Email = new Email(command.Email);
+        Email = new SharedEmail(command.Email);
         FirstName = command.FirstName;
         LastName = command.LastName;
         PhoneNumber = command.PhoneNumber;
