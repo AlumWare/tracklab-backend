@@ -10,19 +10,19 @@ public record Email
         @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$",
         RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
-    public string Value { get; init; }
+    public string Value { get; private set; } = null!;
 
     public Email() { } // requerido por EF
 
     public Email(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
-            throw new ArgumentException("Email cannot be null or empty");
+            throw new ArgumentException("El email no puede estar vacío", nameof(value));
         
         if (!EmailRegex.IsMatch(value))
-            throw new ArgumentException("Invalid email format");
-
-        Value = value.ToLowerInvariant();
+            throw new ArgumentException("El formato del email no es válido", nameof(value));
+        
+        Value = value;
     }
 
     public override string ToString() => Value;

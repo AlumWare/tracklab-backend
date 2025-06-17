@@ -140,7 +140,7 @@ public class AuthenticationController : ControllerBase
     /// </summary>
     [HttpGet("profile")]
     [Authorize]
-    public async Task<IActionResult> GetProfile()
+    public IActionResult GetProfile()
     {
         try
         {
