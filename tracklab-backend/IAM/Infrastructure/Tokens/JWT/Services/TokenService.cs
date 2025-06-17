@@ -111,13 +111,16 @@ public class TokenService : ITokenService
             
             if (userIdClaim != null && int.TryParse(userIdClaim.Value, out var userId))
             {
+                await Task.CompletedTask; // Avoid CS1998 warning
                 return userId;
             }
 
+            await Task.CompletedTask; // Avoid CS1998 warning
             return null;
         }
         catch
         {
+            await Task.CompletedTask; // Avoid CS1998 warning
             return null;
         }
     }

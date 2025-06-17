@@ -8,12 +8,12 @@ namespace Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 public class Employee
 {
     public long Id { get; private set; }
-    public TenantId TenantId { get; private set; }
-    public Dni Dni { get; private set; }
-    public SharedEmail Email { get; private set; }
-    public string FirstName { get; private set; }
-    public string LastName { get; private set; }
-    public string PhoneNumber { get; private set; }
+    public TenantId TenantId { get; private set; } = null!;
+    public Dni Dni { get; private set; } = null!;
+    public SharedEmail Email { get; private set; } = null!;
+    public string FirstName { get; private set; } = null!;
+    public string LastName { get; private set; } = null!;
+    public string PhoneNumber { get; private set; } = null!;
     public long PositionId { get; private set; }
     public EEmployeeStatus Status { get; private set; }
 
@@ -41,5 +41,10 @@ public class Employee
     public void ChangePosition(ChangeEmployeePositionCommand command)
     {
         PositionId = command.NewPositionId;
+    }
+
+    public void SetTenantId(TenantId tenantId)
+    {
+        TenantId = tenantId;
     }
 }

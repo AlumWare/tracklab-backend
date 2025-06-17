@@ -115,6 +115,7 @@ public class UserRepository : BaseRepository<User>, IUserRepository
         }
 
         Remove(user);
+        await Task.CompletedTask; // Avoid CS1998 warning
     }
 
     public async Task<(IEnumerable<User> Users, int TotalCount)> FindPaginatedAsync(int page, int size, string? searchTerm = null)

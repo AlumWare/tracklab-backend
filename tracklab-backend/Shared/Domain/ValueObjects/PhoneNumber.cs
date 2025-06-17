@@ -10,22 +10,19 @@ public record PhoneNumber
         @"^\+?[1-9]\d{1,14}$", // Formato internacional básico
         RegexOptions.Compiled);
 
-    public string Value { get; init; }
+    public string Value { get; private set; } = null!;
 
     public PhoneNumber() { } // requerido por EF
 
     public PhoneNumber(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
-            throw new ArgumentException("Phone number cannot be null or empty");
-
-        // Limpiar el número (remover espacios, guiones, paréntesis)
-        var cleanedNumber = Regex.Replace(value, @"[\s\-\(\)]", "");
+            throw new ArgumentException("El número de teléfono no puede estar vacío", nameof(value));
         
-        if (!PhoneRegex.IsMatch(cleanedNumber))
-            throw new ArgumentException("Invalid phone number format");
-
-        Value = cleanedNumber;
+        if (!PhoneRegex.IsMatch(value))
+            throw new ArgumentException("El formato del número de teléfono no es válido", nameof(value));
+        
+        Value = value;
     }
 
     public override string ToString() => Value;

@@ -8,13 +8,13 @@ namespace Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 public class Vehicle
 {
     public long Id { get; private set; }
-    public TenantId TenantId { get; private set; }
-    public string LicensePlate { get; private set; }
+    public TenantId TenantId { get; private set; } = null!;
+    public string LicensePlate { get; private set; } = null!;
     public decimal LoadCapacity { get; private set; }
     public int PaxCapacity { get; private set; }
     public EVehicleStatus Status { get; private set; }
-    public Coordinates Location { get; private set; }
-    public List<long> ImageAssetIds { get; private set; }
+    public Coordinates Location { get; private set; } = null!;
+    public List<long> ImageAssetIds { get; private set; } = null!;
     
     public Vehicle() { }
 
@@ -43,5 +43,10 @@ public class Vehicle
 
     public void Delete(DeleteVehicleCommand command)
     {
+    }
+
+    public void SetTenantId(TenantId tenantId)
+    {
+        TenantId = tenantId;
     }
 }
