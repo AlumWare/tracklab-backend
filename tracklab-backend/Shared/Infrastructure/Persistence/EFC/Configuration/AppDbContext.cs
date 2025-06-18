@@ -18,6 +18,7 @@ public class AppDbContext : DbContext
     public DbSet<Employee> Employees => Set<Employee>();
     public DbSet<Warehouse> Warehouses => Set<Warehouse>();
     public DbSet<Position> Positions => Set<Position>();
+    public DbSet<Product> Products => Set<Product>();
     
     // IAM Context
     public DbSet<User> Users => Set<User>();
@@ -94,6 +95,21 @@ public class AppDbContext : DbContext
         {
             t.Property(p => p.Value).HasColumnName("tenant_id");
             t.WithOwner().HasForeignKey("Id");
+        });
+
+        // === PRODUCT ===
+        builder.Entity<Product>().ToTable("products");
+        builder.Entity<Product>().HasKey(p => p.Id);
+        builder.Entity<Product>().OwnsOne(p => p.TenantId, t =>
+        {
+            t.Property(p => p.Value).HasColumnName("tenant_id");
+            t.WithOwner().HasForeignKey("Id");
+        });
+        builder.Entity<Product>().OwnsOne(p => p.Price, price =>
+        {
+            price.Property(p => p.Amount).HasColumnName("price_amount");
+            price.Property(p => p.Currency).HasColumnName("price_currency");
+            price.WithOwner().HasForeignKey("Id");
         });
 
         // === IAM CONTEXT ===
