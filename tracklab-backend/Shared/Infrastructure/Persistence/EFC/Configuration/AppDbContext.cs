@@ -4,6 +4,8 @@ using EFCore.NamingConventions;
 
 using Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 using Alumware.Tracklab.API.Resource.Domain.Model.ValueObjects;
+using Alumware.Tracklab.API.Order.Domain.Model.Aggregates;
+using Alumware.Tracklab.API.Order.Domain.Model.Entities;
 using TrackLab.Shared.Domain.ValueObjects;
 using TrackLab.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
 using TrackLab.IAM.Domain.Model.Aggregates;
@@ -19,6 +21,10 @@ public class AppDbContext : DbContext
     public DbSet<Warehouse> Warehouses => Set<Warehouse>();
     public DbSet<Position> Positions => Set<Position>();
     public DbSet<Product> Products => Set<Product>();
+    
+    // Order Context
+    public DbSet<Order> Orders => Set<Order>();
+    public DbSet<OrderItem> OrderItems => Set<OrderItem>();
     
     // IAM Context
     public DbSet<User> Users => Set<User>();
@@ -106,6 +112,37 @@ public class AppDbContext : DbContext
             t.WithOwner().HasForeignKey("Id");
         });
         builder.Entity<Product>().OwnsOne(p => p.Price, price =>
+        {
+            price.Property(p => p.Amount).HasColumnName("price_amount");
+            price.Property(p => p.Currency).HasColumnName("price_currency");
+            price.WithOwner().HasForeignKey("Id");
+        });
+
+        // === ORDER ===
+        builder.Entity<Order>().ToTable("orders");
+        builder.Entity<Order>().HasKey(o => o.OrderId);
+        builder.Entity<Order>().OwnsOne(o => o.TenantId, t =>
+        {
+            t.Property(p => p.Value).HasColumnName("customer_id");
+            t.WithOwner().HasForeignKey("OrderId");
+        });
+        builder.Entity<Order>().OwnsOne(o => o.LogisticsId, l =>
+        {
+            l.Property(p => p.Value).HasColumnName("logistics_id");
+            l.WithOwner().HasForeignKey("OrderId");
+        });
+        builder.Entity<Order>().Property(o => o.OrderDate).HasColumnName("order_date");
+        builder.Entity<Order>().Property(o => o.Status).HasColumnName("status");
+
+        // === ORDER ITEM ===
+        builder.Entity<OrderItem>().ToTable("order_items");
+        builder.Entity<OrderItem>().HasKey(oi => oi.Id);
+        builder.Entity<OrderItem>().OwnsOne(oi => oi.ProductId, p =>
+        {
+            p.Property(pid => pid.Value).HasColumnName("product_id");
+            p.WithOwner().HasForeignKey("Id");
+        });
+        builder.Entity<OrderItem>().OwnsOne(oi => oi.Price, price =>
         {
             price.Property(p => p.Amount).HasColumnName("price_amount");
             price.Property(p => p.Currency).HasColumnName("price_currency");
