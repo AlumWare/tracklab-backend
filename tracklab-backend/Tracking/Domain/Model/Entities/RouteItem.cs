@@ -1,0 +1,25 @@
+using Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects;
+
+namespace Alumware.Tracklab.API.Tracking.Domain.Model.Entities;
+
+public class RouteItem
+{
+    public long Id { get; private set; }
+    public WarehouseId WarehouseId { get; private set; } = null!;
+    public DateTime? CompletedAt { get; private set; }
+    public bool IsCompleted { get; private set; }
+
+    public RouteItem() { }
+
+    public RouteItem(WarehouseId warehouseId)
+    {
+        WarehouseId = warehouseId;
+        IsCompleted = false;
+    }
+
+    public void MarkAsCompleted()
+    {
+        IsCompleted = true;
+        CompletedAt = DateTime.UtcNow;
+    }
+} 

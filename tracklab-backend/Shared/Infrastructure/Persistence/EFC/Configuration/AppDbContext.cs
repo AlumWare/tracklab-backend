@@ -9,6 +9,9 @@ using Alumware.Tracklab.API.Order.Domain.Model.Entities;
 using TrackLab.Shared.Domain.ValueObjects;
 using TrackLab.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
 using TrackLab.IAM.Domain.Model.Aggregates;
+using Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates;
+using Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects;
+using RouteAggregate = Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates.Route;
 
 namespace TrackLab.Shared.Infrastructure.Persistence.EFC.Configuration;
 
@@ -29,6 +32,11 @@ public class AppDbContext : DbContext
     // IAM Context
     public DbSet<User> Users => Set<User>();
     public DbSet<Tenant> Tenants => Set<Tenant>();
+
+    // Tracking Context
+    public DbSet<RouteAggregate> Routes => Set<RouteAggregate>();
+    public DbSet<Container> Containers => Set<Container>();
+    public DbSet<TrackingEvent> TrackingEvents => Set<TrackingEvent>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
@@ -196,5 +204,60 @@ public class AppDbContext : DbContext
             p.Property(p => p.Value).HasColumnName("phone_number");
             p.WithOwner().HasForeignKey("Id");
         });
+
+        // === TRACKING ===
+        builder.Entity<RouteAggregate>().ToTable("routes");
+        builder.Entity<RouteAggregate>().HasKey(r => r.RouteId);
+        builder.Entity<RouteAggregate>().OwnsOne(r => r.VehicleId, v =>
+        {
+            v.Property(p => p.Value).HasColumnName("vehicle_id");
+            v.WithOwner().HasForeignKey("RouteId");
+        });
+        builder.Entity<RouteAggregate>().OwnsMany(r => r.RouteItems, ri =>
+        {
+            ri.WithOwner().HasForeignKey("RouteId");
+            ri.Property(p => p.WarehouseId).HasConversion(
+                v => v.Value,
+                v => new Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects.WarehouseId(v)
+            ).HasColumnName("warehouse_id");
+            ri.Property(p => p.IsCompleted).HasColumnName("is_completed");
+            ri.Property(p => p.CompletedAt).HasColumnName("completed_at");
+        });
+        builder.Entity<RouteAggregate>().OwnsMany(r => r.Orders, o =>
+        {
+            o.WithOwner().HasForeignKey("RouteId");
+            o.Property(p => p.Value).HasColumnName("order_id");
+        });
+
+        builder.Entity<Container>().ToTable("containers");
+        builder.Entity<Container>().HasKey(c => c.ContainerId);
+        builder.Entity<Container>().OwnsOne(c => c.OrderId, o =>
+        {
+            o.Property(p => p.Value).HasColumnName("order_id");
+            o.WithOwner().HasForeignKey("ContainerId");
+        });
+        builder.Entity<Container>().OwnsOne(c => c.WarehouseId, w =>
+        {
+            w.Property(p => p.Value).HasColumnName("warehouse_id");
+            w.WithOwner().HasForeignKey("ContainerId");
+        });
+        builder.Entity<Container>().OwnsMany(c => c.ShipItems, si =>
+        {
+            si.WithOwner().HasForeignKey("ContainerId");
+            si.Property(p => p.ProductId).HasColumnName("product_id");
+            si.Property(p => p.Quantity).HasColumnName("quantity");
+            si.HasKey("ContainerId", "ProductId");
+        });
+
+        builder.Entity<TrackingEvent>().ToTable("tracking_events");
+        builder.Entity<TrackingEvent>().HasKey(e => e.EventId);
+        builder.Entity<TrackingEvent>().Property(e => e.ContainerId).HasColumnName("container_id");
+        builder.Entity<TrackingEvent>().OwnsOne(e => e.WarehouseId, w =>
+        {
+            w.Property(p => p.Value).HasColumnName("warehouse_id");
+            w.WithOwner().HasForeignKey("EventId");
+        });
+        builder.Entity<TrackingEvent>().Property(e => e.Type).HasColumnName("type");
+        builder.Entity<TrackingEvent>().Property(e => e.EventTime).HasColumnName("event_time");
     }
 }
