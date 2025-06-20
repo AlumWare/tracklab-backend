@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Alumware.Tracklab.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e6a00d5ea0ef7a7f24d971af340fdd2c4432b0a3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d1640c97785811e3f775f55fac7e0dc01e6efa87")]
 [assembly: System.Reflection.AssemblyProductAttribute("Alumware.Tracklab.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Alumware.Tracklab.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
