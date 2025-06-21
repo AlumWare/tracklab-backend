@@ -20,7 +20,7 @@ public class Product
         Name = command.Name;
         Description = command.Description;
         Price = new Price(command.PriceAmount, command.PriceCurrency);
-        TenantId = new TenantId(1);
+        // El TenantId se establecerá desde el servicio usando el contexto actual
     }
 
     public void UpdateInfo(UpdateProductInfoCommand command)
