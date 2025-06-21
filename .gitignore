@@ -1,4 +1,5 @@
 # Build results
+**/bin/
 bin/
 **/obj/
 out/

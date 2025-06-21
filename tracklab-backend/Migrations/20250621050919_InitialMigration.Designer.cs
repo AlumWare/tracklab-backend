@@ -11,8 +11,8 @@ using TrackLab.Shared.Infrastructure.Persistence.EFC.Configuration;
 namespace Alumware.Tracklab.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250619043807_AddTrackingContext")]
-    partial class AddTrackingContext
+    [Migration("20250621050919_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -774,7 +774,6 @@ namespace Alumware.Tracklab.API.Migrations
                                 .HasColumnType("bigint");
 
                             b1.Property<long>("ProductId")
-                                .ValueGeneratedOnAdd()
                                 .HasColumnType("bigint")
                                 .HasColumnName("product_id");
 
