@@ -17,7 +17,7 @@ public class OrderItem
     public OrderItem(long productId, int quantity, Price price)
     {
         if (quantity <= 0)
-            throw new ArgumentException("La cantidad debe ser mayor que 0", nameof(quantity));
+            throw new ArgumentException("La cantidad debe ser mayor a 0", nameof(quantity));
         
         ProductId = new ProductId(productId);
         Quantity = quantity;

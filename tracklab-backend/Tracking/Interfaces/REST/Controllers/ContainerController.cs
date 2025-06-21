@@ -51,7 +51,7 @@ public class ContainerController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = container.ContainerId }, resource);
     }
 
-    [HttpPut("{id}/node")]
+    [HttpPut("{id}/nodes")]
     public async Task<ActionResult<ContainerResource>> UpdateCurrentNode(long id, [FromBody] UpdateContainerNodeCommand command)
     {
         var container = await _containerCommandService.UpdateCurrentNodeAsync(command with { ContainerId = id });
