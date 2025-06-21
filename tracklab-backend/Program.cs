@@ -9,6 +9,14 @@ using Alumware.Tracklab.API.Resource.Infrastructure.Persistence.Repositories;
 using Alumware.Tracklab.API.Resource.Application.Internal.QueryServices;
 using TrackLab.IAM.Infrastructure.Configuration;
 using TrackLab.Shared.Infrastructure.Documentation.OpenApi.Configuration;
+using Alumware.Tracklab.API.Order.Domain.Repositories;
+using Alumware.Tracklab.API.Order.Domain.Services;
+using Alumware.Tracklab.API.Order.Application.Internal.CommandServices;
+using Alumware.Tracklab.API.Order.Infrastructure.Persistence.Repositories;
+using Alumware.Tracklab.API.Tracking.Domain.Repositories;
+using Alumware.Tracklab.API.Tracking.Domain.Services;
+using Alumware.Tracklab.API.Tracking.Application.Internal.CommandServices;
+using Alumware.Tracklab.API.Tracking.Infrastructure.Persistence.EFC.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,22 +30,43 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // Repository registrations
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+// Resource Context
 builder.Services.AddScoped<IVehicleRepository, VehicleRepository>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IWarehouseRepository, WarehouseRepository>();
 builder.Services.AddScoped<IPositionRepository, PositionRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+// Order Context
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+
+// Tracking Context
+builder.Services.AddScoped<IContainerRepository, ContainerRepository>();
+builder.Services.AddScoped<IRouteRepository, RouteRepository>();
+builder.Services.AddScoped<ITrackingEventRepository, TrackingEventRepository>();
 
 // Query services
 builder.Services.AddScoped<IVehicleQueryService, VehicleQueryService>();
 builder.Services.AddScoped<IEmployeeQueryService, EmployeeQueryService>();
 builder.Services.AddScoped<IWarehouseQueryService, WarehouseQueryService>();
 builder.Services.AddScoped<IPositionQueryService, PositionQueryService>();
+builder.Services.AddScoped<IProductQueryService, ProductQueryService>();
 
 // Command services
 builder.Services.AddScoped<IVehicleCommandService, VehicleCommandService>();
 builder.Services.AddScoped<IEmployeeCommandService, EmployeeCommandService>();
 builder.Services.AddScoped<IWarehouseCommandService, WarehouseCommandService>();
 builder.Services.AddScoped<IPositionCommandService, PositionCommandService>();
+builder.Services.AddScoped<IProductCommandService, ProductCommandService>();
+
+// Order Command services
+builder.Services.AddScoped<IOrderCommandService, OrderCommandService>();
+
+// Tracking Command services
+builder.Services.AddScoped<IContainerCommandService, ContainerCommandService>();
+builder.Services.AddScoped<IRouteCommandService, RouteCommandService>();
+builder.Services.AddScoped<ITrackingEventCommandService, TrackingEventCommandService>();
 
 // Add IAM Configuration
 builder.Services.AddIamConfiguration(builder.Configuration);

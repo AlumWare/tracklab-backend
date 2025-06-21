@@ -24,7 +24,7 @@ public class Warehouse
         Type = command.Type;
         Coordinates = new Coordinates(command.Latitude, command.Longitude);
         Address = new StreetAddress(command.Address);
-        TenantId = new TenantId(1);
+        // El TenantId se establecerá desde el servicio usando el contexto actual
     }
 
     public void UpdateInfo(UpdateWarehouseInfoCommand command)

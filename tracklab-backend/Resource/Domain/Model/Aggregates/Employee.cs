@@ -30,7 +30,7 @@ public class Employee
         PhoneNumber = command.PhoneNumber;
         PositionId = command.PositionId;
         Status = EEmployeeStatus.Available;
-        TenantId = new TenantId(1);
+        // El TenantId se establecerá desde el servicio usando el contexto actual
     }
 
     public void UpdateStatus(UpdateEmployeeStatusCommand command)

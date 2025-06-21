@@ -16,7 +16,7 @@ public class Position
     public Position(CreatePositionCommand command)
     {
         Name = command.Name;
-        TenantId = new TenantId(1); // temporal o configurable
+        // El TenantId se establecerá desde el servicio usando el contexto actual
     }
 
     public void UpdateName(UpdatePositionNameCommand command)
