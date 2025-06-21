@@ -81,19 +81,4 @@ app.UseIamConfiguration();
 // Map controllers
 app.MapControllers();
 
-// Add a welcome endpoint
-app.MapGet("/", () => new
-{
-    message = "¡Bienvenido a TrackLab API!",
-    version = "v1.0",
-    documentation = "/swagger",
-    endpoints = new
-    {
-        health_public = "/api/v1/health/public",
-        health_protected = "/api/v1/health/protected",
-        auth_signup = "/api/v1/authentication/sign-up",
-        auth_signin = "/api/v1/authentication/sign-in"
-    }
-});
-
 app.Run();
