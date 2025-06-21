@@ -222,11 +222,13 @@ public class AppDbContext : DbContext
             ).HasColumnName("warehouse_id");
             ri.Property(p => p.IsCompleted).HasColumnName("is_completed");
             ri.Property(p => p.CompletedAt).HasColumnName("completed_at");
+            ri.HasKey("Id");
         });
         builder.Entity<RouteAggregate>().OwnsMany(r => r.Orders, o =>
         {
             o.WithOwner().HasForeignKey("RouteId");
             o.Property(p => p.Value).HasColumnName("order_id");
+            o.HasKey("Id");
         });
 
         builder.Entity<Container>().ToTable("containers");
@@ -246,7 +248,7 @@ public class AppDbContext : DbContext
             si.WithOwner().HasForeignKey("ContainerId");
             si.Property(p => p.ProductId).HasColumnName("product_id");
             si.Property(p => p.Quantity).HasColumnName("quantity");
-            si.HasKey("ContainerId", "ProductId");
+            si.HasKey("Id");
         });
 
         builder.Entity<TrackingEvent>().ToTable("tracking_events");
