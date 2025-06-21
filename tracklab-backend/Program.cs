@@ -8,6 +8,7 @@ using Alumware.Tracklab.API.Resource.Application.Internal.CommandServices;
 using Alumware.Tracklab.API.Resource.Infrastructure.Persistence.Repositories;
 using Alumware.Tracklab.API.Resource.Application.Internal.QueryServices;
 using TrackLab.IAM.Infrastructure.Configuration;
+using TrackLab.IAM.Application.Internal.OutboundServices;
 using TrackLab.Shared.Infrastructure.Documentation.OpenApi.Configuration;
 using Alumware.Tracklab.API.Order.Domain.Repositories;
 using Alumware.Tracklab.API.Order.Domain.Services;
@@ -80,26 +81,40 @@ builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
 
-// Auto-create DB in dev
+// Auto-recreate DB and seed data
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    dbContext.Database.EnsureCreated();
+    var hashingService = scope.ServiceProvider.GetRequiredService<IHashingService>();
+    
+    // Delete and recreate the database (for development)
+    Console.WriteLine("Deleting existing database...");
+    await dbContext.Database.EnsureDeletedAsync();
+    Console.WriteLine("Creating new database...");
+    await dbContext.Database.EnsureCreatedAsync();
+
+    
+    // Seed the database
+    await DbSeeder.SeedAsync(dbContext, hashingService);
 }
 
-// Configure the HTTP request pipeline
-if (app.Environment.IsDevelopment())
+// Swagger config ( production and development )
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "TrackLab API v1");
+    c.RoutePrefix = "swagger";
+    c.DocumentTitle = "TrackLab API Documentation";
+    c.DefaultModelsExpandDepth(-1); 
+    c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None); 
+    
+    // Production config
+    if (!app.Environment.IsDevelopment())
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "TrackLab API v1");
-        c.RoutePrefix = "swagger";
-        c.DocumentTitle = "TrackLab API Documentation";
-        c.DefaultModelsExpandDepth(-1); // Hide schemas section by default
-        c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None); // Collapse all operations by default
-    });
-}
+        c.DisplayRequestDuration();
+        c.ShowExtensions();
+    }
+});
 
 // Middleware pipeline
 app.UseHttpsRedirection();
