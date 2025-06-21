@@ -771,7 +771,6 @@ namespace Alumware.Tracklab.API.Migrations
                                 .HasColumnType("bigint");
 
                             b1.Property<long>("ProductId")
-                                .ValueGeneratedOnAdd()
                                 .HasColumnType("bigint")
                                 .HasColumnName("product_id");
 
