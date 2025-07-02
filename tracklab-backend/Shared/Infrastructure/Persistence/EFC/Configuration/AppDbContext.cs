@@ -163,11 +163,12 @@ public class AppDbContext : DbContext
         // === USER ===
         builder.Entity<User>().ToTable("users");
         builder.Entity<User>().HasKey(u => u.Id);
-        builder.Entity<User>().OwnsOne(u => u.TenantId, t =>
-        {
-            t.Property(p => p.Value).HasColumnName("tenant_id");
-            t.WithOwner().HasForeignKey("Id");
-        });
+        // Configurar relación User-Tenant
+        builder.Entity<User>()
+            .HasOne(u => u.Tenant)
+            .WithMany(t => t.Users)
+            .HasForeignKey(u => u.TenantId)
+            .OnDelete(DeleteBehavior.Restrict);
         builder.Entity<User>().OwnsOne(u => u.Email, e =>
         {
             e.Property(p => p.Value).HasColumnName("email");

@@ -46,7 +46,7 @@ public class HealthController : ControllerBase
             {
                 id = currentUser.Id,
                 username = currentUser.Username,
-                tenantId = currentUser.TenantId.Value,
+                tenantId = currentUser.TenantId,
                 roles = currentUser.GetRoleNames()
             } : null
         });
@@ -78,7 +78,7 @@ public class HealthController : ControllerBase
             {
                 id = currentUser.Id,
                 username = currentUser.Username,
-                tenantId = currentUser.TenantId.Value,
+                tenantId = currentUser.TenantId,
                 roles = currentUser.GetRoleNames(),
                 isAdmin = currentUser.IsAdmin()
             }
