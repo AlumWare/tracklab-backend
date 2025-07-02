@@ -35,7 +35,7 @@ public class UserRepository : BaseRepository<User>, IUserRepository
         if (_tenantContext.HasTenant)
         {
             var currentTenantId = _tenantContext.CurrentTenantId!.Value;
-            query = query.Where(u => u.TenantId.Value == currentTenantId);
+            query = query.Where(u => u.TenantId == currentTenantId);
         }
         
         return query;
@@ -53,10 +53,10 @@ public class UserRepository : BaseRepository<User>, IUserRepository
             .FirstOrDefaultAsync(u => u.Email.Value == email);
     }
 
-    public async Task<User?> FindByUsernameAndTenantAsync(string username, TenantId tenantId)
+    public async Task<User?> FindByUsernameAndTenantAsync(string username, long tenantId)
     {
         return await Context.Set<User>()
-            .FirstOrDefaultAsync(u => u.Username == username && u.TenantId.Value == tenantId.Value);
+            .FirstOrDefaultAsync(u => u.Username == username && u.TenantId == tenantId);
     }
 
     public async Task<IEnumerable<User>> FindAllAsync()
@@ -89,9 +89,9 @@ public class UserRepository : BaseRepository<User>, IUserRepository
     public async Task<User> SaveAsync(User user)
     {
         // Ensure tenant is set if creating new user
-        if (user.Id == 0 && _tenantContext.HasTenant && user.TenantId.Value == 0)
+        if (user.Id == 0 && _tenantContext.HasTenant && user.TenantId == 0)
         {
-            user.TenantId = new TenantId(_tenantContext.CurrentTenantId!.Value);
+            user.TenantId = _tenantContext.CurrentTenantId!.Value;
         }
 
         if (user.Id == 0)
@@ -109,7 +109,7 @@ public class UserRepository : BaseRepository<User>, IUserRepository
     public async Task DeleteAsync(User user)
     {
         // Verify user belongs to current tenant for security
-        if (_tenantContext.HasTenant && user.TenantId.Value != _tenantContext.CurrentTenantId!.Value)
+        if (_tenantContext.HasTenant && user.TenantId != _tenantContext.CurrentTenantId!.Value)
         {
             throw new UnauthorizedAccessException("Cannot delete user from different tenant");
         }
