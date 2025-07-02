@@ -9,6 +9,7 @@ public partial class Vehicle
 {
     public long Id { get; private set; }
     public TenantId TenantId { get; private set; } = null!;
+    public TrackLab.IAM.Domain.Model.Aggregates.Tenant Tenant { get; set; } = null!;
     public string LicensePlate { get; private set; } = null!;
     public decimal LoadCapacity { get; private set; }
     public int PaxCapacity { get; private set; }

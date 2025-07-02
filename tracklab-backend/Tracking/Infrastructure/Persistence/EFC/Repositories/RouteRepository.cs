@@ -30,7 +30,7 @@ public class RouteRepository : BaseRepository<RouteAggregate>, IRouteRepository
         if (query.VehicleId.HasValue)
             routesQuery = routesQuery.Where(r => r.VehicleId.Value == query.VehicleId.Value);
         if (query.OrderId.HasValue)
-            routesQuery = routesQuery.Where(r => r.Orders.Any(o => o.Value == query.OrderId.Value));
+            routesQuery = routesQuery.Where(r => r.Orders.Any(o => o.OrderId == query.OrderId.Value));
         if (query.PageSize.HasValue && query.PageNumber.HasValue)
             routesQuery = routesQuery.Skip((query.PageNumber.Value - 1) * query.PageSize.Value).Take(query.PageSize.Value);
         return await routesQuery.ToListAsync();

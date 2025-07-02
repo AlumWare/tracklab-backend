@@ -7,6 +7,7 @@ public partial class OrderItem
 {
     public long Id { get; private set; }
     public ProductId ProductId { get; private set; } = null!;
+    public Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Product Product { get; set; } = null!;
     public int Quantity { get; private set; }
     public Price Price { get; private set; } = null!;
 

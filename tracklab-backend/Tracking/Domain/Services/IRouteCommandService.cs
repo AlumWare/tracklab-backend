@@ -7,5 +7,5 @@ public interface IRouteCommandService
 {
     Task<RouteAggregate> CreateAsync(CreateRouteCommand command);
     Task<RouteAggregate> AddNodeAsync(AddNodeCommand command);
-    Task<RouteAggregate> AddOrderAsync(AddOrderToRouteCommand command);
+    Task<RouteAggregate> AddOrderAsync(long routeId, Alumware.Tracklab.API.Order.Domain.Model.Aggregates.Order order);
 } 

@@ -8,6 +8,8 @@ public partial class Position
 {
     public long Id { get; private set; }
     public TenantId TenantId { get; private set; } = null!;
+    public TrackLab.IAM.Domain.Model.Aggregates.Tenant Tenant { get; set; } = null!;
+    public List<Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Employee> Employees { get; set; } = new();
     public string Name { get; private set; } = null!;
     
     public Position() { }

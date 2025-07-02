@@ -9,11 +9,14 @@ public partial class Order
 {
     public long OrderId { get; private set; }
     public TenantId TenantId { get; private set; } = null!; // CustomerId
+    public TrackLab.IAM.Domain.Model.Aggregates.Tenant Customer { get; set; } = null!;
     public TenantId LogisticsId { get; private set; } = null!; // LogisticsId
+    public TrackLab.IAM.Domain.Model.Aggregates.Tenant Logistics { get; set; } = null!;
     public string ShippingAddress { get; private set; } = null!;
     public DateTime OrderDate { get; private set; }
     public OrderStatus Status { get; private set; }
     public List<OrderItem> OrderItems { get; private set; } = null!;
+    public List<Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates.Route> Routes { get; set; } = new();
 
     // Constructor requerido por EF Core
     public Order() { }

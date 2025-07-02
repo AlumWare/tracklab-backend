@@ -8,6 +8,7 @@ public partial class Warehouse
 {
     public long Id { get; private set; }
     public TenantId TenantId { get; private set; } = null!;
+    public TrackLab.IAM.Domain.Model.Aggregates.Tenant Tenant { get; set; } = null!;
 
     public string Name { get; private set; } = null!;
     public EWarehouseType Type { get; private set; }
