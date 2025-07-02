@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates;
 
-public class Container
+public partial class Container
 {
     public long ContainerId { get; private set; }
     public OrderId OrderId { get; private set; } = null!;

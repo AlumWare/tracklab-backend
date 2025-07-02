@@ -2,7 +2,7 @@ using Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects;
 
 namespace Alumware.Tracklab.API.Tracking.Domain.Model.Entities;
 
-public class RouteItem
+public partial class RouteItem
 {
     public long Id { get; private set; }
     public WarehouseId WarehouseId { get; private set; } = null!;

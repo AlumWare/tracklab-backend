@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates;
 
-public class Route
+public partial class Route
 {
     public long RouteId { get; private set; }
     public List<RouteItem> RouteItems { get; private set; } = new();
