@@ -4,7 +4,7 @@ using TrackLab.Shared.Domain.ValueObjects;
 
 namespace Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 
-public class Warehouse
+public partial class Warehouse
 {
     public long Id { get; private set; }
     public TenantId TenantId { get; private set; } = null!;

@@ -5,7 +5,7 @@ using SharedEmail = TrackLab.Shared.Domain.ValueObjects.Email;
 
 namespace Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 
-public class Employee
+public partial class Employee
 {
     public long Id { get; private set; }
     public TenantId TenantId { get; private set; } = null!;
