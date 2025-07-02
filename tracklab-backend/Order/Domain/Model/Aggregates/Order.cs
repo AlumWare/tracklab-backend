@@ -5,7 +5,7 @@ using TrackLab.Shared.Domain.ValueObjects;
 
 namespace Alumware.Tracklab.API.Order.Domain.Model.Aggregates;
 
-public class Order
+public partial class Order
 {
     public long OrderId { get; private set; }
     public TenantId TenantId { get; private set; } = null!; // CustomerId
