@@ -3,7 +3,7 @@ using TrackLab.Shared.Domain.ValueObjects;
 
 namespace Alumware.Tracklab.API.Order.Domain.Model.Entities;
 
-public class OrderItem
+public partial class OrderItem
 {
     public long Id { get; private set; }
     public ProductId ProductId { get; private set; } = null!;

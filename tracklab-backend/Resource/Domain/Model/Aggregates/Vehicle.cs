@@ -5,7 +5,7 @@ using TenantId = TrackLab.Shared.Domain.ValueObjects.TenantId;
 
 namespace Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 
-public class Vehicle
+public partial class Vehicle
 {
     public long Id { get; private set; }
     public TenantId TenantId { get; private set; } = null!;
