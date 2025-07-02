@@ -7,6 +7,7 @@ public partial class Product
 {
     public long Id { get; private set; }
     public TenantId TenantId { get; private set; } = null!;
+    public TrackLab.IAM.Domain.Model.Aggregates.Tenant Tenant { get; set; } = null!;
     public string Name { get; private set; } = null!;
     public string Description { get; private set; } = null!;
     public Price Price { get; private set; } = null!;

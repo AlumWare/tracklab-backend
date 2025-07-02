@@ -7,7 +7,9 @@ public partial class TrackingEvent
 {
     public long EventId { get; private set; }
     public long ContainerId { get; private set; }
+    public Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates.Container Container { get; set; } = null!;
     public WarehouseId WarehouseId { get; private set; } = null!;
+    public Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Warehouse Warehouse { get; set; } = null!;
     public EventType Type { get; private set; }
     public DateTime EventTime { get; private set; }
 

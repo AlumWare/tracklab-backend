@@ -11,7 +11,7 @@ public static class RouteResourceFromEntityAssembler
             route.RouteId,
             route.VehicleId.Value,
             route.RouteItems.Select(ToRouteItemResourceFromEntity),
-            route.Orders.Select(o => o.Value)
+            route.Orders.Select(o => o.OrderId)
         );
     }
 

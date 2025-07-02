@@ -39,12 +39,12 @@ public class RouteCommandService : IRouteCommandService
         return route;
     }
 
-    public async Task<RouteAggregate> AddOrderAsync(AddOrderToRouteCommand command)
+    public async Task<RouteAggregate> AddOrderAsync(long routeId, Alumware.Tracklab.API.Order.Domain.Model.Aggregates.Order order)
     {
-        var route = await _routeRepository.GetByIdAsync(new GetRouteByIdQuery(command.RouteId));
+        var route = await _routeRepository.GetByIdAsync(new GetRouteByIdQuery(routeId));
         if (route == null)
-            throw new KeyNotFoundException($"Ruta {command.RouteId} no encontrada.");
-        route.AddOrder(command);
+            throw new KeyNotFoundException($"Ruta {routeId} no encontrada.");
+        route.AddOrder(order);
         _routeRepository.Update(route);
         await _unitOfWork.CompleteAsync(); // Persistir los cambios
         return route;

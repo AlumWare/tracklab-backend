@@ -8,8 +8,11 @@ public partial class Container
 {
     public long ContainerId { get; private set; }
     public OrderId OrderId { get; private set; } = null!;
-    public List<ShipItem> ShipItems { get; private set; } = new();
+    public Alumware.Tracklab.API.Order.Domain.Model.Aggregates.Order Order { get; set; } = null!;
     public WarehouseId WarehouseId { get; private set; } = null!;
+    public Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Warehouse Warehouse { get; set; } = null!;
+    public List<ShipItem> ShipItems { get; private set; } = new();
+    public List<Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates.TrackingEvent> TrackingEvents { get; set; } = new();
 
     public Container() { }
 
