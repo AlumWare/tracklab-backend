@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 using Alumware.Tracklab.API.Resource.Domain.Repositories;
-using TrackLab.Shared.Domain.ValueObjects;
 using TrackLab.Shared.Infrastructure.Multitenancy;
 using TrackLab.Shared.Infrastructure.Persistence.EFC.Configuration;
 using TrackLab.Shared.Infrastructure.Persistence.EFC.Repositories;
@@ -35,7 +34,7 @@ public class PositionRepository : BaseRepository<Position>, IPositionRepository
         if (_tenantContext.HasTenant)
         {
             var currentTenantId = _tenantContext.CurrentTenantId!.Value;
-            query = query.Where(p => p.TenantId.Value == currentTenantId);
+            query = query.Where(p => p.TenantId == currentTenantId);
         }
         
         return query;
@@ -57,9 +56,9 @@ public class PositionRepository : BaseRepository<Position>, IPositionRepository
     public Position SaveAsync(Position position)
     {
         // Ensure tenant is set if creating new position
-        if (position.Id == 0 && _tenantContext.HasTenant && position.TenantId.Value == 0)
+        if (position.Id == 0 && _tenantContext.HasTenant && position.TenantId == 0)
         {
-            position.SetTenantId(new TenantId(_tenantContext.CurrentTenantId!.Value));
+            position.SetTenantId(_tenantContext.CurrentTenantId!.Value);
         }
 
         if (position.Id == 0)
@@ -77,7 +76,7 @@ public class PositionRepository : BaseRepository<Position>, IPositionRepository
     public void DeleteAsync(Position position)
     {
         // Verify position belongs to current tenant for security
-        if (_tenantContext.HasTenant && position.TenantId.Value != _tenantContext.CurrentTenantId!.Value)
+        if (_tenantContext.HasTenant && position.TenantId != _tenantContext.CurrentTenantId!.Value)
         {
             throw new UnauthorizedAccessException("Cannot delete position from different tenant");
         }

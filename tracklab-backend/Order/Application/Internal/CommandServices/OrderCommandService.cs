@@ -31,7 +31,7 @@ public class OrderCommandService : IOrderCommandService
         // Establecer el tenant_id desde el contexto actual
         if (_tenantContext.HasTenant)
         {
-            order.SetTenantId(new TrackLab.Shared.Domain.ValueObjects.TenantId(_tenantContext.CurrentTenantId!.Value));
+            order.SetTenantId(_tenantContext.CurrentTenantId!.Value);
         }
         
         await _orderRepository.AddAsync(order);

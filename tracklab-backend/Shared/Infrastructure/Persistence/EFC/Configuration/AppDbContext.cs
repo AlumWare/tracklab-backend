@@ -52,11 +52,6 @@ public class AppDbContext : DbContext
         // === EMPLOYEE ===
         builder.Entity<Employee>().ToTable("employees");
         builder.Entity<Employee>().HasKey(e => e.Id);
-        builder.Entity<Employee>().OwnsOne(e => e.TenantId, t =>
-        {
-            t.Property(p => p.Value).HasColumnName("tenant_id");
-            t.WithOwner().HasForeignKey("Id");
-        });
         builder.Entity<Employee>().OwnsOne(e => e.Dni, d =>
         {
             d.Property(p => p.Value).HasColumnName("dni");
@@ -71,11 +66,6 @@ public class AppDbContext : DbContext
         // === VEHICLE ===
         builder.Entity<Vehicle>().ToTable("vehicles");
         builder.Entity<Vehicle>().HasKey(v => v.Id);
-        builder.Entity<Vehicle>().OwnsOne(v => v.TenantId, t =>
-        {
-            t.Property(p => p.Value).HasColumnName("tenant_id");
-            t.WithOwner().HasForeignKey("Id");
-        });
         builder.Entity<Vehicle>().OwnsOne(v => v.Location, loc =>
         {
             loc.Property(p => p.Latitude).HasColumnName("location_latitude");
@@ -86,11 +76,6 @@ public class AppDbContext : DbContext
         // === WAREHOUSE ===
         builder.Entity<Warehouse>().ToTable("warehouses");
         builder.Entity<Warehouse>().HasKey(w => w.Id);
-        builder.Entity<Warehouse>().OwnsOne(w => w.TenantId, t =>
-        {
-            t.Property(p => p.Value).HasColumnName("tenant_id");
-            t.WithOwner().HasForeignKey("Id");
-        });
         builder.Entity<Warehouse>().OwnsOne(w => w.Coordinates, c =>
         {
             c.Property(p => p.Latitude).HasColumnName("latitude");
@@ -106,20 +91,11 @@ public class AppDbContext : DbContext
         // === POSITION ===
         builder.Entity<Position>().ToTable("positions");
         builder.Entity<Position>().HasKey(p => p.Id);
-        builder.Entity<Position>().OwnsOne(p => p.TenantId, t =>
-        {
-            t.Property(p => p.Value).HasColumnName("tenant_id");
-            t.WithOwner().HasForeignKey("Id");
-        });
+        builder.Entity<Position>().Property(p => p.Name).HasColumnName("name");
 
         // === PRODUCT ===
         builder.Entity<Product>().ToTable("products");
         builder.Entity<Product>().HasKey(p => p.Id);
-        builder.Entity<Product>().OwnsOne(p => p.TenantId, t =>
-        {
-            t.Property(p => p.Value).HasColumnName("tenant_id");
-            t.WithOwner().HasForeignKey("Id");
-        });
         builder.Entity<Product>().OwnsOne(p => p.Price, price =>
         {
             price.Property(p => p.Amount).HasColumnName("price_amount");
@@ -130,16 +106,6 @@ public class AppDbContext : DbContext
         // === ORDER ===
         builder.Entity<Order>().ToTable("orders");
         builder.Entity<Order>().HasKey(o => o.OrderId);
-        builder.Entity<Order>().OwnsOne(o => o.TenantId, t =>
-        {
-            t.Property(p => p.Value).HasColumnName("customer_id");
-            t.WithOwner().HasForeignKey("OrderId");
-        });
-        builder.Entity<Order>().OwnsOne(o => o.LogisticsId, l =>
-        {
-            l.Property(p => p.Value).HasColumnName("logistics_id");
-            l.WithOwner().HasForeignKey("OrderId");
-        });
         builder.Entity<Order>().Property(o => o.OrderDate).HasColumnName("order_date");
         builder.Entity<Order>().Property(o => o.Status).HasColumnName("status");
 
@@ -252,35 +218,35 @@ public class AppDbContext : DbContext
         builder.Entity<Vehicle>()
             .HasOne(v => v.Tenant)
             .WithMany(t => t.Vehicles)
-            .HasForeignKey("tenant_id")
+            .HasForeignKey(v => v.TenantId)
             .OnDelete(DeleteBehavior.Restrict);
 
         // Tenant → Warehouses
         builder.Entity<Warehouse>()
             .HasOne(w => w.Tenant)
             .WithMany(t => t.Warehouses)
-            .HasForeignKey("tenant_id")
+            .HasForeignKey(w => w.TenantId)
             .OnDelete(DeleteBehavior.Restrict);
 
         // Tenant → Products
         builder.Entity<Product>()
             .HasOne(p => p.Tenant)
             .WithMany(t => t.Products)
-            .HasForeignKey("tenant_id")
+            .HasForeignKey(p => p.TenantId)
             .OnDelete(DeleteBehavior.Restrict);
 
         // Tenant → Employees
         builder.Entity<Employee>()
             .HasOne(e => e.Tenant)
             .WithMany(t => t.Employees)
-            .HasForeignKey("tenant_id")
+            .HasForeignKey(e => e.TenantId)
             .OnDelete(DeleteBehavior.Restrict);
 
         // Tenant → Positions
         builder.Entity<Position>()
             .HasOne(p => p.Tenant)
             .WithMany(t => t.Positions)
-            .HasForeignKey("tenant_id")
+            .HasForeignKey(p => p.TenantId)
             .OnDelete(DeleteBehavior.Restrict);
 
         // Position → Employees
@@ -385,5 +351,19 @@ public class AppDbContext : DbContext
                 v => new Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects.WarehouseId(v)
             )
             .HasColumnName("warehouse_id");
+
+        // Tenant → Orders (Customer)
+        builder.Entity<Order>()
+            .HasOne(o => o.Customer)
+            .WithMany()
+            .HasForeignKey("customer_id")
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Tenant → Orders (Logistics)
+        builder.Entity<Order>()
+            .HasOne(o => o.Logistics)
+            .WithMany()
+            .HasForeignKey("logistics_id")
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

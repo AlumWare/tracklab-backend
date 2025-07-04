@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 using Alumware.Tracklab.API.Resource.Domain.Model.Queries;
 using Alumware.Tracklab.API.Resource.Domain.Repositories;
-using TrackLab.Shared.Domain.ValueObjects;
 using TrackLab.Shared.Infrastructure.Multitenancy;
 using TrackLab.Shared.Infrastructure.Persistence.EFC.Configuration;
 using TrackLab.Shared.Infrastructure.Persistence.EFC.Repositories;
@@ -36,7 +35,7 @@ public class ProductRepository : BaseRepository<Product>, IProductRepository
         if (_tenantContext.HasTenant)
         {
             var currentTenantId = _tenantContext.CurrentTenantId!.Value;
-            query = query.Where(p => p.TenantId.Value == currentTenantId);
+            query = query.Where(p => p.TenantId == currentTenantId);
         }
         
         return query;

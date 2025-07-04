@@ -30,7 +30,7 @@ public class VehicleCommandService : IVehicleCommandService
         // Establecer el tenant_id desde el contexto actual
         if (_tenantContext.HasTenant)
         {
-            vehicle.SetTenantId(new TrackLab.Shared.Domain.ValueObjects.TenantId(_tenantContext.CurrentTenantId!.Value));
+            vehicle.SetTenantId(_tenantContext.CurrentTenantId!.Value);
         }
         
         await _vehicleRepository.AddAsync(vehicle);

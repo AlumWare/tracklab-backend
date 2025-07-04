@@ -8,9 +8,9 @@ namespace Alumware.Tracklab.API.Order.Domain.Model.Aggregates;
 public partial class Order
 {
     public long OrderId { get; private set; }
-    public TenantId TenantId { get; private set; } = null!; // CustomerId
+    public long TenantId { get; private set; } // CustomerId
     public TrackLab.IAM.Domain.Model.Aggregates.Tenant Customer { get; set; } = null!;
-    public TenantId LogisticsId { get; private set; } = null!; // LogisticsId
+    public long LogisticsId { get; private set; } // LogisticsId
     public TrackLab.IAM.Domain.Model.Aggregates.Tenant Logistics { get; set; } = null!;
     public string ShippingAddress { get; private set; } = null!;
     public DateTime OrderDate { get; private set; }
@@ -24,8 +24,8 @@ public partial class Order
     // Constructor de dominio
     public Order(CreateOrderCommand command)
     {
-        TenantId = new TenantId(command.CustomerId);
-        LogisticsId = new TenantId(command.LogisticsId);
+        TenantId = command.CustomerId;
+        LogisticsId = command.LogisticsId;
         ShippingAddress = command.ShippingAddress;
         OrderDate = DateTime.UtcNow;
         Status = OrderStatus.Pending;
@@ -48,7 +48,7 @@ public partial class Order
         return OrderItems.Sum(item => item.GetTotalPrice());
     }
 
-    public void SetTenantId(TenantId tenantId)
+    public void SetTenantId(long tenantId)
     {
         TenantId = tenantId;
     }

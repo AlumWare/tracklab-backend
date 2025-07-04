@@ -26,6 +26,14 @@ namespace Alumware.Tracklab.API.Migrations
                         .HasColumnType("bigint")
                         .HasColumnName("order_id");
 
+                    b.Property<DateTimeOffset?>("CreatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("created_at");
+
+                    b.Property<long>("LogisticsId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("logistics_id");
+
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("order_date");
@@ -39,10 +47,32 @@ namespace Alumware.Tracklab.API.Migrations
                         .HasColumnType("int")
                         .HasColumnName("status");
 
+                    b.Property<long>("TenantId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("tenant_id");
+
+                    b.Property<DateTimeOffset?>("UpdatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("updated_at");
+
+                    b.Property<long>("customer_id")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("logistics_id")
+                        .HasColumnType("bigint");
+
                     b.HasKey("OrderId")
                         .HasName("p_k_orders");
 
-                    b.ToTable("orders", (string)null);
+                    b.HasIndex("customer_id");
+
+                    b.HasIndex("logistics_id");
+
+                    b.ToTable("orders", null, t =>
+                        {
+                            t.Property("logistics_id")
+                                .HasColumnName("logistics_id1");
+                        });
                 });
 
             modelBuilder.Entity("Alumware.Tracklab.API.Order.Domain.Model.Entities.OrderItem", b =>
@@ -52,6 +82,10 @@ namespace Alumware.Tracklab.API.Migrations
                         .HasColumnType("bigint")
                         .HasColumnName("id");
 
+                    b.Property<DateTimeOffset?>("CreatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("created_at");
+
                     b.Property<long?>("OrderId")
                         .HasColumnType("bigint")
                         .HasColumnName("order_id");
@@ -60,13 +94,26 @@ namespace Alumware.Tracklab.API.Migrations
                         .HasColumnType("int")
                         .HasColumnName("quantity");
 
+                    b.Property<DateTimeOffset?>("UpdatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("updated_at");
+
+                    b.Property<long>("product_id")
+                        .HasColumnType("bigint");
+
                     b.HasKey("Id")
                         .HasName("p_k_order_items");
 
                     b.HasIndex("OrderId")
                         .HasDatabaseName("i_x_order_items_order_id");
 
-                    b.ToTable("order_items", (string)null);
+                    b.HasIndex("product_id");
+
+                    b.ToTable("order_items", null, t =>
+                        {
+                            t.Property("product_id")
+                                .HasColumnName("OrderItem_product_id");
+                        });
                 });
 
             modelBuilder.Entity("Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Employee", b =>
@@ -75,6 +122,10 @@ namespace Alumware.Tracklab.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasColumnName("id");
+
+                    b.Property<DateTimeOffset?>("CreatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("created_at");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -99,8 +150,22 @@ namespace Alumware.Tracklab.API.Migrations
                         .HasColumnType("int")
                         .HasColumnName("status");
 
+                    b.Property<long>("TenantId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("tenant_id");
+
+                    b.Property<DateTimeOffset?>("UpdatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("updated_at");
+
                     b.HasKey("Id")
                         .HasName("p_k_employees");
+
+                    b.HasIndex("PositionId")
+                        .HasDatabaseName("i_x_employees_position_id");
+
+                    b.HasIndex("TenantId")
+                        .HasDatabaseName("i_x_employees_tenant_id");
 
                     b.ToTable("employees", (string)null);
                 });
@@ -112,13 +177,28 @@ namespace Alumware.Tracklab.API.Migrations
                         .HasColumnType("bigint")
                         .HasColumnName("id");
 
+                    b.Property<DateTimeOffset?>("CreatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("created_at");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext")
                         .HasColumnName("name");
 
+                    b.Property<long>("TenantId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("tenant_id");
+
+                    b.Property<DateTimeOffset?>("UpdatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("updated_at");
+
                     b.HasKey("Id")
                         .HasName("p_k_positions");
+
+                    b.HasIndex("TenantId")
+                        .HasDatabaseName("i_x_positions_tenant_id");
 
                     b.ToTable("positions", (string)null);
                 });
@@ -130,6 +210,10 @@ namespace Alumware.Tracklab.API.Migrations
                         .HasColumnType("bigint")
                         .HasColumnName("id");
 
+                    b.Property<DateTimeOffset?>("CreatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("created_at");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("longtext")
@@ -140,8 +224,19 @@ namespace Alumware.Tracklab.API.Migrations
                         .HasColumnType("longtext")
                         .HasColumnName("name");
 
+                    b.Property<long>("TenantId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("tenant_id");
+
+                    b.Property<DateTimeOffset?>("UpdatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("updated_at");
+
                     b.HasKey("Id")
                         .HasName("p_k_products");
+
+                    b.HasIndex("TenantId")
+                        .HasDatabaseName("i_x_products_tenant_id");
 
                     b.ToTable("products", (string)null);
                 });
@@ -152,6 +247,10 @@ namespace Alumware.Tracklab.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasColumnName("id");
+
+                    b.Property<DateTimeOffset?>("CreatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("created_at");
 
                     b.PrimitiveCollection<string>("ImageAssetIds")
                         .IsRequired()
@@ -175,8 +274,19 @@ namespace Alumware.Tracklab.API.Migrations
                         .HasColumnType("int")
                         .HasColumnName("status");
 
+                    b.Property<long>("TenantId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("tenant_id");
+
+                    b.Property<DateTimeOffset?>("UpdatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("updated_at");
+
                     b.HasKey("Id")
                         .HasName("p_k_vehicles");
+
+                    b.HasIndex("TenantId")
+                        .HasDatabaseName("i_x_vehicles_tenant_id");
 
                     b.ToTable("vehicles", (string)null);
                 });
@@ -188,17 +298,32 @@ namespace Alumware.Tracklab.API.Migrations
                         .HasColumnType("bigint")
                         .HasColumnName("id");
 
+                    b.Property<DateTimeOffset?>("CreatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("created_at");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext")
                         .HasColumnName("name");
 
+                    b.Property<long>("TenantId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("tenant_id");
+
                     b.Property<int>("Type")
                         .HasColumnType("int")
                         .HasColumnName("type");
 
+                    b.Property<DateTimeOffset?>("UpdatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("updated_at");
+
                     b.HasKey("Id")
                         .HasName("p_k_warehouses");
+
+                    b.HasIndex("TenantId")
+                        .HasDatabaseName("i_x_warehouses_tenant_id");
 
                     b.ToTable("warehouses", (string)null);
                 });
@@ -210,10 +335,35 @@ namespace Alumware.Tracklab.API.Migrations
                         .HasColumnType("bigint")
                         .HasColumnName("container_id");
 
+                    b.Property<DateTimeOffset?>("CreatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("created_at");
+
+                    b.Property<DateTimeOffset?>("UpdatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("updated_at");
+
+                    b.Property<long>("order_id")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("warehouse_id")
+                        .HasColumnType("bigint");
+
                     b.HasKey("ContainerId")
                         .HasName("p_k_containers");
 
-                    b.ToTable("containers", (string)null);
+                    b.HasIndex("order_id");
+
+                    b.HasIndex("warehouse_id");
+
+                    b.ToTable("containers", null, t =>
+                        {
+                            t.Property("order_id")
+                                .HasColumnName("Container_order_id");
+
+                            t.Property("warehouse_id")
+                                .HasColumnName("Container_warehouse_id");
+                        });
                 });
 
             modelBuilder.Entity("Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates.Route", b =>
@@ -223,10 +373,27 @@ namespace Alumware.Tracklab.API.Migrations
                         .HasColumnType("bigint")
                         .HasColumnName("route_id");
 
+                    b.Property<DateTimeOffset?>("CreatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("created_at");
+
+                    b.Property<DateTimeOffset?>("UpdatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("updated_at");
+
+                    b.Property<long>("vehicle_id")
+                        .HasColumnType("bigint");
+
                     b.HasKey("RouteId")
                         .HasName("p_k_routes");
 
-                    b.ToTable("routes", (string)null);
+                    b.HasIndex("vehicle_id");
+
+                    b.ToTable("routes", null, t =>
+                        {
+                            t.Property("vehicle_id")
+                                .HasColumnName("Route_vehicle_id");
+                        });
                 });
 
             modelBuilder.Entity("Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates.TrackingEvent", b =>
@@ -240,6 +407,10 @@ namespace Alumware.Tracklab.API.Migrations
                         .HasColumnType("bigint")
                         .HasColumnName("container_id");
 
+                    b.Property<DateTimeOffset?>("CreatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("created_at");
+
                     b.Property<DateTime>("EventTime")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("event_time");
@@ -248,9 +419,74 @@ namespace Alumware.Tracklab.API.Migrations
                         .HasColumnType("int")
                         .HasColumnName("type");
 
+                    b.Property<DateTimeOffset?>("UpdatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("updated_at");
+
+                    b.Property<long>("warehouse_id")
+                        .HasColumnType("bigint");
+
                     b.HasKey("EventId");
 
-                    b.ToTable("tracking_events", (string)null);
+                    b.HasIndex("ContainerId")
+                        .HasDatabaseName("i_x_tracking_events_container_id");
+
+                    b.HasIndex("warehouse_id");
+
+                    b.ToTable("tracking_events", null, t =>
+                        {
+                            t.Property("warehouse_id")
+                                .HasColumnName("TrackingEvent_warehouse_id");
+                        });
+                });
+
+            modelBuilder.Entity("Alumware.Tracklab.API.Tracking.Domain.Model.Entities.RouteItem", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasColumnName("id");
+
+                    b.Property<DateTime?>("CompletedAt")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("completed_at");
+
+                    b.Property<DateTimeOffset?>("CreatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("created_at");
+
+                    b.Property<bool>("IsCompleted")
+                        .HasColumnType("tinyint(1)")
+                        .HasColumnName("is_completed");
+
+                    b.Property<long>("RouteId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("route_id");
+
+                    b.Property<DateTimeOffset?>("UpdatedDate")
+                        .HasColumnType("datetime")
+                        .HasColumnName("updated_at");
+
+                    b.Property<long>("WarehouseId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("warehouse_id");
+
+                    b.Property<long>("warehouse_id")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id")
+                        .HasName("p_k_route_items");
+
+                    b.HasIndex("RouteId")
+                        .HasDatabaseName("i_x_route_items_route_id");
+
+                    b.HasIndex("warehouse_id");
+
+                    b.ToTable("route_items", t =>
+                        {
+                            t.Property("warehouse_id")
+                                .HasColumnName("warehouse_id1");
+                        });
                 });
 
             modelBuilder.Entity("TrackLab.IAM.Domain.Model.Aggregates.Tenant", b =>
@@ -345,6 +581,10 @@ namespace Alumware.Tracklab.API.Migrations
                         .HasColumnType("longtext")
                         .HasColumnName("roles");
 
+                    b.Property<long>("TenantId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("tenant_id");
+
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -354,56 +594,46 @@ namespace Alumware.Tracklab.API.Migrations
                     b.HasKey("Id")
                         .HasName("p_k_users");
 
+                    b.HasIndex("TenantId")
+                        .HasDatabaseName("i_x_users_tenant_id");
+
                     b.ToTable("users", (string)null);
+                });
+
+            modelBuilder.Entity("routes_orders", b =>
+                {
+                    b.Property<long>("RouteId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("OrderId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("RouteId", "OrderId");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("routes_orders", (string)null);
                 });
 
             modelBuilder.Entity("Alumware.Tracklab.API.Order.Domain.Model.Aggregates.Order", b =>
                 {
-                    b.OwnsOne("TrackLab.Shared.Domain.ValueObjects.TenantId", "LogisticsId", b1 =>
-                        {
-                            b1.Property<long>("OrderId")
-                                .HasColumnType("bigint")
-                                .HasColumnName("order_id");
+                    b.HasOne("TrackLab.IAM.Domain.Model.Aggregates.Tenant", "Customer")
+                        .WithMany()
+                        .HasForeignKey("customer_id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("f_k_orders__tenants_tenant_id");
 
-                            b1.Property<long>("Value")
-                                .HasColumnType("bigint")
-                                .HasColumnName("logistics_id");
+                    b.HasOne("TrackLab.IAM.Domain.Model.Aggregates.Tenant", "Logistics")
+                        .WithMany()
+                        .HasForeignKey("logistics_id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("f_k_orders__tenants_logistics_id");
 
-                            b1.HasKey("OrderId")
-                                .HasName("p_k_orders");
+                    b.Navigation("Customer");
 
-                            b1.ToTable("orders");
-
-                            b1.WithOwner()
-                                .HasForeignKey("OrderId")
-                                .HasConstraintName("f_k_orders_orders_order_id");
-                        });
-
-                    b.OwnsOne("TrackLab.Shared.Domain.ValueObjects.TenantId", "TenantId", b1 =>
-                        {
-                            b1.Property<long>("OrderId")
-                                .HasColumnType("bigint")
-                                .HasColumnName("order_id");
-
-                            b1.Property<long>("Value")
-                                .HasColumnType("bigint")
-                                .HasColumnName("customer_id");
-
-                            b1.HasKey("OrderId")
-                                .HasName("p_k_orders");
-
-                            b1.ToTable("orders");
-
-                            b1.WithOwner()
-                                .HasForeignKey("OrderId")
-                                .HasConstraintName("f_k_orders_orders_order_id");
-                        });
-
-                    b.Navigation("LogisticsId")
-                        .IsRequired();
-
-                    b.Navigation("TenantId")
-                        .IsRequired();
+                    b.Navigation("Logistics");
                 });
 
             modelBuilder.Entity("Alumware.Tracklab.API.Order.Domain.Model.Entities.OrderItem", b =>
@@ -411,7 +641,15 @@ namespace Alumware.Tracklab.API.Migrations
                     b.HasOne("Alumware.Tracklab.API.Order.Domain.Model.Aggregates.Order", null)
                         .WithMany("OrderItems")
                         .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .HasConstraintName("f_k_order_items_orders_order_id");
+
+                    b.HasOne("Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("product_id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("f_k_order_items__products_product_id1");
 
                     b.OwnsOne("TrackLab.Shared.Domain.ValueObjects.Price", "Price", b1 =>
                         {
@@ -457,12 +695,28 @@ namespace Alumware.Tracklab.API.Migrations
                     b.Navigation("Price")
                         .IsRequired();
 
+                    b.Navigation("Product");
+
                     b.Navigation("ProductId")
                         .IsRequired();
                 });
 
             modelBuilder.Entity("Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Employee", b =>
                 {
+                    b.HasOne("Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Position", "Position")
+                        .WithMany("Employees")
+                        .HasForeignKey("PositionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("f_k_employees__positions_position_id");
+
+                    b.HasOne("TrackLab.IAM.Domain.Model.Aggregates.Tenant", "Tenant")
+                        .WithMany("Employees")
+                        .HasForeignKey("TenantId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("f_k_employees__tenants_tenant_id");
+
                     b.OwnsOne("TrackLab.Shared.Domain.ValueObjects.Email", "Email", b1 =>
                         {
                             b1.Property<long>("Id")
@@ -472,24 +726,6 @@ namespace Alumware.Tracklab.API.Migrations
                                 .IsRequired()
                                 .HasColumnType("longtext")
                                 .HasColumnName("email");
-
-                            b1.HasKey("Id");
-
-                            b1.ToTable("employees");
-
-                            b1.WithOwner()
-                                .HasForeignKey("Id")
-                                .HasConstraintName("f_k_employees_employees_employee_id");
-                        });
-
-                    b.OwnsOne("TrackLab.Shared.Domain.ValueObjects.TenantId", "TenantId", b1 =>
-                        {
-                            b1.Property<long>("Id")
-                                .HasColumnType("bigint");
-
-                            b1.Property<long>("Value")
-                                .HasColumnType("bigint")
-                                .HasColumnName("tenant_id");
 
                             b1.HasKey("Id");
 
@@ -525,36 +761,32 @@ namespace Alumware.Tracklab.API.Migrations
                     b.Navigation("Email")
                         .IsRequired();
 
-                    b.Navigation("TenantId")
-                        .IsRequired();
+                    b.Navigation("Position");
+
+                    b.Navigation("Tenant");
                 });
 
             modelBuilder.Entity("Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Position", b =>
                 {
-                    b.OwnsOne("TrackLab.Shared.Domain.ValueObjects.TenantId", "TenantId", b1 =>
-                        {
-                            b1.Property<long>("Id")
-                                .HasColumnType("bigint");
+                    b.HasOne("TrackLab.IAM.Domain.Model.Aggregates.Tenant", "Tenant")
+                        .WithMany("Positions")
+                        .HasForeignKey("TenantId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("f_k_positions__tenants_tenant_id");
 
-                            b1.Property<long>("Value")
-                                .HasColumnType("bigint")
-                                .HasColumnName("tenant_id");
-
-                            b1.HasKey("Id");
-
-                            b1.ToTable("positions");
-
-                            b1.WithOwner()
-                                .HasForeignKey("Id")
-                                .HasConstraintName("f_k_positions_positions_position_id");
-                        });
-
-                    b.Navigation("TenantId")
-                        .IsRequired();
+                    b.Navigation("Tenant");
                 });
 
             modelBuilder.Entity("Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Product", b =>
                 {
+                    b.HasOne("TrackLab.IAM.Domain.Model.Aggregates.Tenant", "Tenant")
+                        .WithMany("Products")
+                        .HasForeignKey("TenantId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("f_k_products__tenants_tenant_id");
+
                     b.OwnsOne("TrackLab.Shared.Domain.ValueObjects.Price", "Price", b1 =>
                         {
                             b1.Property<long>("Id")
@@ -578,33 +810,21 @@ namespace Alumware.Tracklab.API.Migrations
                                 .HasConstraintName("f_k_products_products_product_id");
                         });
 
-                    b.OwnsOne("TrackLab.Shared.Domain.ValueObjects.TenantId", "TenantId", b1 =>
-                        {
-                            b1.Property<long>("Id")
-                                .HasColumnType("bigint");
-
-                            b1.Property<long>("Value")
-                                .HasColumnType("bigint")
-                                .HasColumnName("tenant_id");
-
-                            b1.HasKey("Id");
-
-                            b1.ToTable("products");
-
-                            b1.WithOwner()
-                                .HasForeignKey("Id")
-                                .HasConstraintName("f_k_products_products_product_id");
-                        });
-
                     b.Navigation("Price")
                         .IsRequired();
 
-                    b.Navigation("TenantId")
-                        .IsRequired();
+                    b.Navigation("Tenant");
                 });
 
             modelBuilder.Entity("Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Vehicle", b =>
                 {
+                    b.HasOne("TrackLab.IAM.Domain.Model.Aggregates.Tenant", "Tenant")
+                        .WithMany("Vehicles")
+                        .HasForeignKey("TenantId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("f_k_vehicles__tenants_tenant_id");
+
                     b.OwnsOne("Alumware.Tracklab.API.Resource.Domain.Model.ValueObjects.Coordinates", "Location", b1 =>
                         {
                             b1.Property<long>("Id")
@@ -627,33 +847,21 @@ namespace Alumware.Tracklab.API.Migrations
                                 .HasConstraintName("f_k_vehicles_vehicles_vehicle_id");
                         });
 
-                    b.OwnsOne("TrackLab.Shared.Domain.ValueObjects.TenantId", "TenantId", b1 =>
-                        {
-                            b1.Property<long>("Id")
-                                .HasColumnType("bigint");
-
-                            b1.Property<long>("Value")
-                                .HasColumnType("bigint")
-                                .HasColumnName("tenant_id");
-
-                            b1.HasKey("Id");
-
-                            b1.ToTable("vehicles");
-
-                            b1.WithOwner()
-                                .HasForeignKey("Id")
-                                .HasConstraintName("f_k_vehicles_vehicles_vehicle_id");
-                        });
-
                     b.Navigation("Location")
                         .IsRequired();
 
-                    b.Navigation("TenantId")
-                        .IsRequired();
+                    b.Navigation("Tenant");
                 });
 
             modelBuilder.Entity("Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Warehouse", b =>
                 {
+                    b.HasOne("TrackLab.IAM.Domain.Model.Aggregates.Tenant", "Tenant")
+                        .WithMany("Warehouses")
+                        .HasForeignKey("TenantId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("f_k_warehouses__tenants_tenant_id");
+
                     b.OwnsOne("Alumware.Tracklab.API.Resource.Domain.Model.ValueObjects.Coordinates", "Coordinates", b1 =>
                         {
                             b1.Property<long>("Id")
@@ -666,24 +874,6 @@ namespace Alumware.Tracklab.API.Migrations
                             b1.Property<double>("Longitude")
                                 .HasColumnType("double")
                                 .HasColumnName("longitude");
-
-                            b1.HasKey("Id");
-
-                            b1.ToTable("warehouses");
-
-                            b1.WithOwner()
-                                .HasForeignKey("Id")
-                                .HasConstraintName("f_k_warehouses_warehouses_warehouse_id");
-                        });
-
-                    b.OwnsOne("TrackLab.Shared.Domain.ValueObjects.TenantId", "TenantId", b1 =>
-                        {
-                            b1.Property<long>("Id")
-                                .HasColumnType("bigint");
-
-                            b1.Property<long>("Value")
-                                .HasColumnType("bigint")
-                                .HasColumnName("tenant_id");
 
                             b1.HasKey("Id");
 
@@ -719,31 +909,24 @@ namespace Alumware.Tracklab.API.Migrations
                     b.Navigation("Coordinates")
                         .IsRequired();
 
-                    b.Navigation("TenantId")
-                        .IsRequired();
+                    b.Navigation("Tenant");
                 });
 
             modelBuilder.Entity("Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates.Container", b =>
                 {
-                    b.OwnsOne("Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects.OrderId", "OrderId", b1 =>
-                        {
-                            b1.Property<long>("ContainerId")
-                                .HasColumnType("bigint")
-                                .HasColumnName("container_id");
+                    b.HasOne("Alumware.Tracklab.API.Order.Domain.Model.Aggregates.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("order_id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("f_k_containers_orders_order_id1");
 
-                            b1.Property<long>("Value")
-                                .HasColumnType("bigint")
-                                .HasColumnName("order_id");
-
-                            b1.HasKey("ContainerId")
-                                .HasName("p_k_containers");
-
-                            b1.ToTable("containers");
-
-                            b1.WithOwner()
-                                .HasForeignKey("ContainerId")
-                                .HasConstraintName("f_k_containers_containers_container_id");
-                        });
+                    b.HasOne("Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Warehouse", "Warehouse")
+                        .WithMany()
+                        .HasForeignKey("warehouse_id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("f_k_containers_warehouses_warehouse_id1");
 
                     b.OwnsOne("Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects.WarehouseId", "WarehouseId", b1 =>
                         {
@@ -765,8 +948,32 @@ namespace Alumware.Tracklab.API.Migrations
                                 .HasConstraintName("f_k_containers_containers_container_id");
                         });
 
+                    b.OwnsOne("Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects.OrderId", "OrderId", b1 =>
+                        {
+                            b1.Property<long>("ContainerId")
+                                .HasColumnType("bigint")
+                                .HasColumnName("container_id");
+
+                            b1.Property<long>("Value")
+                                .HasColumnType("bigint")
+                                .HasColumnName("order_id");
+
+                            b1.HasKey("ContainerId")
+                                .HasName("p_k_containers");
+
+                            b1.ToTable("containers");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ContainerId")
+                                .HasConstraintName("f_k_containers_containers_container_id");
+                        });
+
                     b.OwnsMany("Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects.ShipItem", "ShipItems", b1 =>
                         {
+                            b1.Property<int>("Id")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int");
+
                             b1.Property<long>("ContainerId")
                                 .HasColumnType("bigint");
 
@@ -778,7 +985,9 @@ namespace Alumware.Tracklab.API.Migrations
                                 .HasColumnType("bigint")
                                 .HasColumnName("quantity");
 
-                            b1.HasKey("ContainerId", "ProductId");
+                            b1.HasKey("Id");
+
+                            b1.HasIndex("ContainerId");
 
                             b1.ToTable("ship_items");
 
@@ -787,10 +996,14 @@ namespace Alumware.Tracklab.API.Migrations
                                 .HasConstraintName("f_k_ship_items_containers_container_id");
                         });
 
+                    b.Navigation("Order");
+
                     b.Navigation("OrderId")
                         .IsRequired();
 
                     b.Navigation("ShipItems");
+
+                    b.Navigation("Warehouse");
 
                     b.Navigation("WarehouseId")
                         .IsRequired();
@@ -798,61 +1011,12 @@ namespace Alumware.Tracklab.API.Migrations
 
             modelBuilder.Entity("Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates.Route", b =>
                 {
-                    b.OwnsMany("Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects.OrderId", "Orders", b1 =>
-                        {
-                            b1.Property<long>("RouteId")
-                                .HasColumnType("bigint")
-                                .HasColumnName("route_id");
-
-                            b1.Property<int>("Id")
-                                .ValueGeneratedOnAdd()
-                                .HasColumnType("int")
-                                .HasColumnName("id");
-
-                            b1.Property<long>("Value")
-                                .HasColumnType("bigint")
-                                .HasColumnName("order_id");
-
-                            b1.HasKey("RouteId", "Id")
-                                .HasName("p_k_routes__orders");
-
-                            b1.ToTable("routes__orders");
-
-                            b1.WithOwner()
-                                .HasForeignKey("RouteId")
-                                .HasConstraintName("f_k_routes__orders_routes_route_id");
-                        });
-
-                    b.OwnsMany("Alumware.Tracklab.API.Tracking.Domain.Model.Entities.RouteItem", "RouteItems", b1 =>
-                        {
-                            b1.Property<long>("RouteId")
-                                .HasColumnType("bigint");
-
-                            b1.Property<long>("Id")
-                                .ValueGeneratedOnAdd()
-                                .HasColumnType("bigint")
-                                .HasColumnName("id");
-
-                            b1.Property<DateTime?>("CompletedAt")
-                                .HasColumnType("datetime(6)")
-                                .HasColumnName("completed_at");
-
-                            b1.Property<bool>("IsCompleted")
-                                .HasColumnType("tinyint(1)")
-                                .HasColumnName("is_completed");
-
-                            b1.Property<long>("WarehouseId")
-                                .HasColumnType("bigint")
-                                .HasColumnName("warehouse_id");
-
-                            b1.HasKey("RouteId", "Id");
-
-                            b1.ToTable("route_items");
-
-                            b1.WithOwner()
-                                .HasForeignKey("RouteId")
-                                .HasConstraintName("f_k_route_items_routes_route_id");
-                        });
+                    b.HasOne("Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Vehicle", "Vehicle")
+                        .WithMany()
+                        .HasForeignKey("vehicle_id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("f_k_routes_vehicles_vehicle_id1");
 
                     b.OwnsOne("Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects.VehicleId", "VehicleId", b1 =>
                         {
@@ -874,9 +1038,7 @@ namespace Alumware.Tracklab.API.Migrations
                                 .HasConstraintName("f_k_routes_routes_route_id");
                         });
 
-                    b.Navigation("Orders");
-
-                    b.Navigation("RouteItems");
+                    b.Navigation("Vehicle");
 
                     b.Navigation("VehicleId")
                         .IsRequired();
@@ -884,6 +1046,20 @@ namespace Alumware.Tracklab.API.Migrations
 
             modelBuilder.Entity("Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates.TrackingEvent", b =>
                 {
+                    b.HasOne("Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates.Container", "Container")
+                        .WithMany("TrackingEvents")
+                        .HasForeignKey("ContainerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("f_k_tracking_events_containers_container_id");
+
+                    b.HasOne("Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Warehouse", "Warehouse")
+                        .WithMany()
+                        .HasForeignKey("warehouse_id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("f_k_tracking_events_warehouses_warehouse_id1");
+
                     b.OwnsOne("Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects.WarehouseId", "WarehouseId", b1 =>
                         {
                             b1.Property<long>("EventId")
@@ -902,8 +1078,33 @@ namespace Alumware.Tracklab.API.Migrations
                                 .HasConstraintName("f_k_tracking_events_tracking_events_tracking_event_temp_id");
                         });
 
+                    b.Navigation("Container");
+
+                    b.Navigation("Warehouse");
+
                     b.Navigation("WarehouseId")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Alumware.Tracklab.API.Tracking.Domain.Model.Entities.RouteItem", b =>
+                {
+                    b.HasOne("Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates.Route", "Route")
+                        .WithMany("RouteItems")
+                        .HasForeignKey("RouteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("f_k_route_items_routes_route_id");
+
+                    b.HasOne("Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Warehouse", "Warehouse")
+                        .WithMany()
+                        .HasForeignKey("warehouse_id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("f_k_route_items_warehouses_warehouse_id1");
+
+                    b.Navigation("Route");
+
+                    b.Navigation("Warehouse");
                 });
 
             modelBuilder.Entity("TrackLab.IAM.Domain.Model.Aggregates.Tenant", b =>
@@ -953,6 +1154,13 @@ namespace Alumware.Tracklab.API.Migrations
 
             modelBuilder.Entity("TrackLab.IAM.Domain.Model.Aggregates.User", b =>
                 {
+                    b.HasOne("TrackLab.IAM.Domain.Model.Aggregates.Tenant", "Tenant")
+                        .WithMany("Users")
+                        .HasForeignKey("TenantId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("f_k_users_tenants_tenant_id");
+
                     b.OwnsOne("TrackLab.Shared.Domain.ValueObjects.Email", "Email", b1 =>
                         {
                             b1.Property<long>("Id")
@@ -972,34 +1180,62 @@ namespace Alumware.Tracklab.API.Migrations
                                 .HasConstraintName("f_k_users_users_user_id");
                         });
 
-                    b.OwnsOne("TrackLab.Shared.Domain.ValueObjects.TenantId", "TenantId", b1 =>
-                        {
-                            b1.Property<long>("Id")
-                                .HasColumnType("bigint");
-
-                            b1.Property<long>("Value")
-                                .HasColumnType("bigint")
-                                .HasColumnName("tenant_id");
-
-                            b1.HasKey("Id");
-
-                            b1.ToTable("users");
-
-                            b1.WithOwner()
-                                .HasForeignKey("Id")
-                                .HasConstraintName("f_k_users_users_user_id");
-                        });
-
                     b.Navigation("Email")
                         .IsRequired();
 
-                    b.Navigation("TenantId")
-                        .IsRequired();
+                    b.Navigation("Tenant");
+                });
+
+            modelBuilder.Entity("routes_orders", b =>
+                {
+                    b.HasOne("Alumware.Tracklab.API.Order.Domain.Model.Aggregates.Order", null)
+                        .WithMany()
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_routes_orders_order");
+
+                    b.HasOne("Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates.Route", null)
+                        .WithMany()
+                        .HasForeignKey("RouteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_routes_orders_route");
                 });
 
             modelBuilder.Entity("Alumware.Tracklab.API.Order.Domain.Model.Aggregates.Order", b =>
                 {
                     b.Navigation("OrderItems");
+                });
+
+            modelBuilder.Entity("Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Position", b =>
+                {
+                    b.Navigation("Employees");
+                });
+
+            modelBuilder.Entity("Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates.Container", b =>
+                {
+                    b.Navigation("TrackingEvents");
+                });
+
+            modelBuilder.Entity("Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates.Route", b =>
+                {
+                    b.Navigation("RouteItems");
+                });
+
+            modelBuilder.Entity("TrackLab.IAM.Domain.Model.Aggregates.Tenant", b =>
+                {
+                    b.Navigation("Employees");
+
+                    b.Navigation("Positions");
+
+                    b.Navigation("Products");
+
+                    b.Navigation("Users");
+
+                    b.Navigation("Vehicles");
+
+                    b.Navigation("Warehouses");
                 });
 #pragma warning restore 612, 618
         }

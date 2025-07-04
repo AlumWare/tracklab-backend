@@ -6,7 +6,7 @@ namespace Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 public partial class Product
 {
     public long Id { get; private set; }
-    public TenantId TenantId { get; private set; } = null!;
+    public long TenantId { get; private set; }
     public TrackLab.IAM.Domain.Model.Aggregates.Tenant Tenant { get; set; } = null!;
     public string Name { get; private set; } = null!;
     public string Description { get; private set; } = null!;
@@ -21,7 +21,7 @@ public partial class Product
         Name = command.Name;
         Description = command.Description;
         Price = new Price(command.PriceAmount, command.PriceCurrency);
-        // El TenantId se establecerá desde el servicio usando el contexto actual
+        // El TenantId se establecerá desde el contexto actual
     }
 
     public void UpdateInfo(UpdateProductInfoCommand command)
@@ -31,7 +31,7 @@ public partial class Product
         Price = new Price(command.PriceAmount, command.PriceCurrency);
     }
 
-    public void SetTenantId(TenantId tenantId)
+    public void SetTenantId(long tenantId)
     {
         TenantId = tenantId;
     }

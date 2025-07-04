@@ -1,14 +1,12 @@
 ﻿using  Alumware.Tracklab.API.Resource.Domain.Model.Commands;
 using  Alumware.Tracklab.API.Resource.Domain.Model.ValueObjects;
-using TrackLab.Shared.Domain.ValueObjects;
-using TenantId = TrackLab.Shared.Domain.ValueObjects.TenantId;
 
 namespace Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 
 public partial class Vehicle
 {
     public long Id { get; private set; }
-    public TenantId TenantId { get; private set; } = null!;
+    public long TenantId { get; private set; }
     public TrackLab.IAM.Domain.Model.Aggregates.Tenant Tenant { get; set; } = null!;
     public string LicensePlate { get; private set; } = null!;
     public decimal LoadCapacity { get; private set; }
@@ -46,7 +44,7 @@ public partial class Vehicle
     {
     }
 
-    public void SetTenantId(TenantId tenantId)
+    public void SetTenantId(long tenantId)
     {
         TenantId = tenantId;
     }
