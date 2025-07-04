@@ -4,10 +4,11 @@ using TrackLab.Shared.Domain.ValueObjects;
 
 namespace Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 
-public class Warehouse
+public partial class Warehouse
 {
     public long Id { get; private set; }
     public TenantId TenantId { get; private set; } = null!;
+    public TrackLab.IAM.Domain.Model.Aggregates.Tenant Tenant { get; set; } = null!;
 
     public string Name { get; private set; } = null!;
     public EWarehouseType Type { get; private set; }
@@ -24,7 +25,7 @@ public class Warehouse
         Type = command.Type;
         Coordinates = new Coordinates(command.Latitude, command.Longitude);
         Address = new StreetAddress(command.Address);
-        TenantId = new TenantId(1);
+        // El TenantId se establecerá desde el servicio usando el contexto actual
     }
 
     public void UpdateInfo(UpdateWarehouseInfoCommand command)

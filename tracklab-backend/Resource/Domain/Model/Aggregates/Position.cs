@@ -4,10 +4,12 @@ using TrackLab.Shared.Domain.ValueObjects;
 
 namespace Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 
-public class Position
+public partial class Position
 {
     public long Id { get; private set; }
     public TenantId TenantId { get; private set; } = null!;
+    public TrackLab.IAM.Domain.Model.Aggregates.Tenant Tenant { get; set; } = null!;
+    public List<Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Employee> Employees { get; set; } = new();
     public string Name { get; private set; } = null!;
     
     public Position() { }
@@ -16,7 +18,7 @@ public class Position
     public Position(CreatePositionCommand command)
     {
         Name = command.Name;
-        TenantId = new TenantId(1); // temporal o configurable
+        // El TenantId se establecerá desde el servicio usando el contexto actual
     }
 
     public void UpdateName(UpdatePositionNameCommand command)

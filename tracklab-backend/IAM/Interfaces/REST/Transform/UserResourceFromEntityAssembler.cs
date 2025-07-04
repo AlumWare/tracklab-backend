@@ -18,7 +18,7 @@ public static class UserResourceFromEntityAssembler
             entity.LastName,
             entity.GetFullName(),
             entity.Active,
-            entity.TenantId.Value,
+            entity.TenantId,
             entity.GetRoleNames()
         );
     }

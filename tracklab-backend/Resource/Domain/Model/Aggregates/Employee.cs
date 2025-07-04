@@ -5,16 +5,18 @@ using SharedEmail = TrackLab.Shared.Domain.ValueObjects.Email;
 
 namespace Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 
-public class Employee
+public partial class Employee
 {
     public long Id { get; private set; }
     public TenantId TenantId { get; private set; } = null!;
+    public TrackLab.IAM.Domain.Model.Aggregates.Tenant Tenant { get; set; } = null!;
     public Dni Dni { get; private set; } = null!;
     public SharedEmail Email { get; private set; } = null!;
     public string FirstName { get; private set; } = null!;
     public string LastName { get; private set; } = null!;
     public string PhoneNumber { get; private set; } = null!;
     public long PositionId { get; private set; }
+    public Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Position Position { get; set; } = null!;
     public EEmployeeStatus Status { get; private set; }
 
     // Constructor requerido por EF Core
@@ -30,7 +32,7 @@ public class Employee
         PhoneNumber = command.PhoneNumber;
         PositionId = command.PositionId;
         Status = EEmployeeStatus.Available;
-        TenantId = new TenantId(1);
+        // El TenantId se establecerá desde el servicio usando el contexto actual
     }
 
     public void UpdateStatus(UpdateEmployeeStatusCommand command)

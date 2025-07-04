@@ -77,7 +77,7 @@ public class UserCommandService : IUserCommandService
             new TrackLab.Shared.Domain.ValueObjects.Email(command.Email),
             command.FirstName,
             command.LastName,
-            new TenantId(tenant.Id),
+            tenant.Id,
             roles
         );
 
@@ -136,7 +136,7 @@ public class UserCommandService : IUserCommandService
             new TrackLab.Shared.Domain.ValueObjects.Email(command.Email),
             command.FirstName,
             command.LastName,
-            new TenantId(currentTenantId.Value),
+            currentTenantId.Value,
             roles
         );
 
