@@ -1,8 +1,10 @@
 # Build results
+**/bin/
 bin/
-obj/
+**/obj/
+**/obj
 out/
-
+obj/
 # Visual Studio
 .vs/
 *.suo

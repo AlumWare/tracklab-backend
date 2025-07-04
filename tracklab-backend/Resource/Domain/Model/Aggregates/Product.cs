@@ -3,10 +3,11 @@ using TrackLab.Shared.Domain.ValueObjects;
 
 namespace Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 
-public class Product
+public partial class Product
 {
     public long Id { get; private set; }
     public TenantId TenantId { get; private set; } = null!;
+    public TrackLab.IAM.Domain.Model.Aggregates.Tenant Tenant { get; set; } = null!;
     public string Name { get; private set; } = null!;
     public string Description { get; private set; } = null!;
     public Price Price { get; private set; } = null!;
@@ -20,7 +21,7 @@ public class Product
         Name = command.Name;
         Description = command.Description;
         Price = new Price(command.PriceAmount, command.PriceCurrency);
-        TenantId = new TenantId(1);
+        // El TenantId se establecerá desde el servicio usando el contexto actual
     }
 
     public void UpdateInfo(UpdateProductInfoCommand command)

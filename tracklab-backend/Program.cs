@@ -8,7 +8,16 @@ using Alumware.Tracklab.API.Resource.Application.Internal.CommandServices;
 using Alumware.Tracklab.API.Resource.Infrastructure.Persistence.Repositories;
 using Alumware.Tracklab.API.Resource.Application.Internal.QueryServices;
 using TrackLab.IAM.Infrastructure.Configuration;
+using TrackLab.IAM.Application.Internal.OutboundServices;
 using TrackLab.Shared.Infrastructure.Documentation.OpenApi.Configuration;
+using Alumware.Tracklab.API.Order.Domain.Repositories;
+using Alumware.Tracklab.API.Order.Domain.Services;
+using Alumware.Tracklab.API.Order.Application.Internal.CommandServices;
+using Alumware.Tracklab.API.Order.Infrastructure.Persistence.Repositories;
+using Alumware.Tracklab.API.Tracking.Domain.Repositories;
+using Alumware.Tracklab.API.Tracking.Domain.Services;
+using Alumware.Tracklab.API.Tracking.Application.Internal.CommandServices;
+using Alumware.Tracklab.API.Tracking.Infrastructure.Persistence.EFC.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,22 +31,43 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // Repository registrations
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+// Resource Context
 builder.Services.AddScoped<IVehicleRepository, VehicleRepository>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IWarehouseRepository, WarehouseRepository>();
 builder.Services.AddScoped<IPositionRepository, PositionRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+// Order Context
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+
+// Tracking Context
+builder.Services.AddScoped<IContainerRepository, ContainerRepository>();
+builder.Services.AddScoped<IRouteRepository, RouteRepository>();
+builder.Services.AddScoped<ITrackingEventRepository, TrackingEventRepository>();
 
 // Query services
 builder.Services.AddScoped<IVehicleQueryService, VehicleQueryService>();
 builder.Services.AddScoped<IEmployeeQueryService, EmployeeQueryService>();
 builder.Services.AddScoped<IWarehouseQueryService, WarehouseQueryService>();
 builder.Services.AddScoped<IPositionQueryService, PositionQueryService>();
+builder.Services.AddScoped<IProductQueryService, ProductQueryService>();
 
 // Command services
 builder.Services.AddScoped<IVehicleCommandService, VehicleCommandService>();
 builder.Services.AddScoped<IEmployeeCommandService, EmployeeCommandService>();
 builder.Services.AddScoped<IWarehouseCommandService, WarehouseCommandService>();
 builder.Services.AddScoped<IPositionCommandService, PositionCommandService>();
+builder.Services.AddScoped<IProductCommandService, ProductCommandService>();
+
+// Order Command services
+builder.Services.AddScoped<IOrderCommandService, OrderCommandService>();
+
+// Tracking Command services
+builder.Services.AddScoped<IContainerCommandService, ContainerCommandService>();
+builder.Services.AddScoped<IRouteCommandService, RouteCommandService>();
+builder.Services.AddScoped<ITrackingEventCommandService, TrackingEventCommandService>();
 
 // Add IAM Configuration
 builder.Services.AddIamConfiguration(builder.Configuration);
@@ -51,26 +81,40 @@ builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
 
-// Auto-create DB in dev
+// Auto-recreate DB and seed data
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    dbContext.Database.EnsureCreated();
+    var hashingService = scope.ServiceProvider.GetRequiredService<IHashingService>();
+    
+    // Delete and recreate the database (for development)
+    Console.WriteLine("Deleting existing database...");
+    await dbContext.Database.EnsureDeletedAsync();
+    Console.WriteLine("Creating new database...");
+    await dbContext.Database.EnsureCreatedAsync();
+
+    
+    // Seed the database
+    await DbSeeder.SeedAsync(dbContext, hashingService);
 }
 
-// Configure the HTTP request pipeline
-if (app.Environment.IsDevelopment())
+// Swagger config ( production and development )
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "TrackLab API v1");
+    c.RoutePrefix = "swagger";
+    c.DocumentTitle = "TrackLab API Documentation";
+    c.DefaultModelsExpandDepth(-1); 
+    c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None); 
+    
+    // Production config
+    if (!app.Environment.IsDevelopment())
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "TrackLab API v1");
-        c.RoutePrefix = "swagger";
-        c.DocumentTitle = "TrackLab API Documentation";
-        c.DefaultModelsExpandDepth(-1); // Hide schemas section by default
-        c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None); // Collapse all operations by default
-    });
-}
+        c.DisplayRequestDuration();
+        c.ShowExtensions();
+    }
+});
 
 // Middleware pipeline
 app.UseHttpsRedirection();
@@ -80,20 +124,5 @@ app.UseIamConfiguration();
 
 // Map controllers
 app.MapControllers();
-
-// Add a welcome endpoint
-app.MapGet("/", () => new
-{
-    message = "¡Bienvenido a TrackLab API!",
-    version = "v1.0",
-    documentation = "/swagger",
-    endpoints = new
-    {
-        health_public = "/api/v1/health/public",
-        health_protected = "/api/v1/health/protected",
-        auth_signup = "/api/v1/authentication/sign-up",
-        auth_signin = "/api/v1/authentication/sign-in"
-    }
-});
 
 app.Run();

@@ -22,7 +22,7 @@ public interface IUserRepository : IBaseRepository<User>
     /// <summary>
     /// Find user by username and tenant (cross-tenant for authentication)
     /// </summary>
-    Task<User?> FindByUsernameAndTenantAsync(string username, TenantId tenantId);
+    Task<User?> FindByUsernameAndTenantAsync(string username, long tenantId);
     
     /// <summary>
     /// Get all users within current tenant
