@@ -30,7 +30,7 @@ public class ProductCommandService : IProductCommandService
         // Establecer el tenant_id desde el contexto actual
         if (_tenantContext.HasTenant)
         {
-            product.SetTenantId(new TrackLab.Shared.Domain.ValueObjects.TenantId(_tenantContext.CurrentTenantId!.Value));
+            product.SetTenantId(_tenantContext.CurrentTenantId!.Value);
         }
         
         await _productRepository.AddAsync(product);

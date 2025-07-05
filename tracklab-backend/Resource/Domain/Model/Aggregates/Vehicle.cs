@@ -1,14 +1,13 @@
 ﻿using  Alumware.Tracklab.API.Resource.Domain.Model.Commands;
 using  Alumware.Tracklab.API.Resource.Domain.Model.ValueObjects;
-using TrackLab.Shared.Domain.ValueObjects;
-using TenantId = TrackLab.Shared.Domain.ValueObjects.TenantId;
+using System.Text.RegularExpressions;
 
 namespace Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 
 public partial class Vehicle
 {
     public long Id { get; private set; }
-    public TenantId TenantId { get; private set; } = null!;
+    public long TenantId { get; private set; }
     public TrackLab.IAM.Domain.Model.Aggregates.Tenant Tenant { get; set; } = null!;
     public string LicensePlate { get; private set; } = null!;
     public decimal LoadCapacity { get; private set; }
@@ -16,21 +15,33 @@ public partial class Vehicle
     public EVehicleStatus Status { get; private set; }
     public Coordinates Location { get; private set; } = null!;
     public List<long> ImageAssetIds { get; private set; } = null!;
+    public decimal Tonnage { get; private set; }
     
     public Vehicle() { }
 
     public Vehicle(CreateVehicleCommand command)
     {
+        // Validación de placa: ABC-123
+        if (!Regex.IsMatch(command.LicensePlate, @"^[A-Z]{3}-\d{3}$"))
+            throw new ArgumentException("License plate must be in format ABC-123 (3 uppercase letters, hyphen, 3 digits).", nameof(command.LicensePlate));
+        // Validación de capacidad de carga
+        if (command.LoadCapacity < 10 || command.LoadCapacity > 50)
+            throw new ArgumentException("Load capacity must be between 10 and 50.", nameof(command.LoadCapacity));
+        if (command.Tonnage <= 0)
+            throw new ArgumentException("Tonnage must be greater than 0.", nameof(command.Tonnage));
         LicensePlate = command.LicensePlate;
         LoadCapacity = command.LoadCapacity;
         PaxCapacity = command.PaxCapacity;
         Location = command.Location;
         Status = EVehicleStatus.Available;
         ImageAssetIds = new List<long>();
+        Tonnage = command.Tonnage;
     }
 
     public void UpdateStatus(UpdateVehicleStatusCommand command)
     {
+        if (command.NewStatus != EVehicleStatus.Available && command.NewStatus != EVehicleStatus.NotAvailable)
+            throw new ArgumentException("Status must be either 'Available' or 'NotAvailable'", nameof(command.NewStatus));
         Status = command.NewStatus;
     }
 
@@ -46,7 +57,7 @@ public partial class Vehicle
     {
     }
 
-    public void SetTenantId(TenantId tenantId)
+    public void SetTenantId(long tenantId)
     {
         TenantId = tenantId;
     }

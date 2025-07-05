@@ -3,5 +3,7 @@
 [Serializable]
 public class InvalidEmployeeStatusException : Exception
 {
-    public InvalidEmployeeStatusException(string status) : base("Invalid status. Value: " + status) {}
+    public InvalidEmployeeStatusException() : base("Invalid employee status.") {}
+    public InvalidEmployeeStatusException(string message) : base(message) {}
+    public InvalidEmployeeStatusException(string message, Exception inner) : base(message, inner) {}
 }

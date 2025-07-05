@@ -13,11 +13,13 @@ public class OrderController : ControllerBase
 {
     private readonly IOrderCommandService _orderCommandService;
     private readonly IOrderQueryService _orderQueryService;
+    private readonly ITrackingEventCommandService _trackingEventCommandService;
 
-    public OrderController(IOrderCommandService orderCommandService, IOrderQueryService orderQueryService)
+    public OrderController(IOrderCommandService orderCommandService, IOrderQueryService orderQueryService, ITrackingEventCommandService trackingEventCommandService)
     {
         _orderCommandService = orderCommandService;
         _orderQueryService = orderQueryService;
+        _trackingEventCommandService = trackingEventCommandService;
     }
 
     [HttpGet]
@@ -88,5 +90,49 @@ public class OrderController : ControllerBase
         var command = new DeleteOrderCommand(id);
         await _orderCommandService.DeleteAsync(command);
         return NoContent();
+    }
+
+    [HttpPost("{orderId}/assign-vehicle")]
+    public async Task<ActionResult<OrderResource>> AssignVehicle(long orderId, [FromBody] AssignVehicleResource resource)
+    {
+        var command = AssignVehicleCommandFromResourceAssembler.ToCommandFromResource(orderId, resource);
+        var order = await _orderCommandService.AssignVehicleAsync(command);
+        var orderResource = OrderResourceFromEntityAssembler.ToResourceFromEntity(order);
+        return Ok(orderResource);
+    }
+
+    [HttpPost("{orderId}/route")]
+    public async Task<ActionResult<OrderResource>> SetRoute(long orderId, [FromBody] RouteResource resource)
+    {
+        var command = SetRouteCommandFromResourceAssembler.ToCommandFromResource(resource with { OrderId = orderId });
+        var order = await _orderCommandService.SetRouteAsync(command);
+        var orderResource = OrderResourceFromEntityAssembler.ToResourceFromEntity(order);
+        return Ok(orderResource);
+    }
+
+    [HttpPut("{orderId}/route")]
+    public async Task<ActionResult<OrderResource>> UpdateRoute(long orderId, [FromBody] RouteResource resource)
+    {
+        var command = SetRouteCommandFromResourceAssembler.ToCommandFromResource(resource with { OrderId = orderId });
+        var order = await _orderCommandService.SetRouteAsync(command);
+        var orderResource = OrderResourceFromEntityAssembler.ToResourceFromEntity(order);
+        return Ok(orderResource);
+    }
+
+    [HttpPost("{orderId}/tracking")]
+    public async Task<IActionResult> RegisterTrackingEvent(long orderId, [FromBody] TrackingEventResource resource)
+    {
+        if (orderId != resource.OrderId)
+            return BadRequest("El ID de la orden no coincide");
+        var command = RegisterTrackingEventCommandFromResourceAssembler.ToCommand(resource);
+        var trackingEvent = await _trackingEventCommandService.RegisterTrackingEventAsync(command);
+        return Ok(trackingEvent);
+    }
+
+    [HttpGet("{orderId}/tracking")]
+    public async Task<IActionResult> GetTrackingEvents(long orderId)
+    {
+        var events = await _trackingEventCommandService.GetTrackingEventsAsync(orderId);
+        return Ok(events);
     }
 } 

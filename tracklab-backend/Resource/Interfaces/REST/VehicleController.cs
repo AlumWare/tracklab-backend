@@ -40,18 +40,17 @@ public class VehicleController : ControllerBase
     {
         var vehicle = await _queryService.Handle(new GetVehicleByIdQuery(id));
         if (vehicle == null) return NotFound();
-
         var resource = VehicleResourceFromEntityAssembler.ToResourceFromEntity(vehicle);
         return Ok(resource);
     }
 
     [HttpPost]
-    public async Task<ActionResult> Create([FromBody] CreateVehicleResource resource)
+    public async Task<ActionResult<VehicleResource>> Create([FromBody] CreateVehicleResource resource)
     {
         var command = CreateVehicleCommandFromResourceAssembler.ToCommandFromResource(resource);
         var vehicle = await _commandService.Handle(command);
-
-        return CreatedAtAction(nameof(GetById), new { id = vehicle.Id }, null);
+        var vehicleResource = VehicleResourceFromEntityAssembler.ToResourceFromEntity(vehicle);
+        return CreatedAtAction(nameof(GetById), new { id = vehicle.Id }, vehicleResource);
     }
 
     [HttpPut("{id}")]

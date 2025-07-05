@@ -12,7 +12,8 @@ public static class CreateVehicleCommandFromResourceAssembler
             resource.LicensePlate,
             resource.LoadCapacity,
             resource.PaxCapacity,
-            new Coordinates(resource.Latitude, resource.Longitude)
+            new Coordinates(resource.Latitude, resource.Longitude),
+            resource.Tonnage
         );
     }
 }

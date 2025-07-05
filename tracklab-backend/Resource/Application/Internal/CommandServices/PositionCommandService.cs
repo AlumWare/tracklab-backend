@@ -30,7 +30,7 @@ public class PositionCommandService : IPositionCommandService
         // Establecer el tenant_id desde el contexto actual
         if (_tenantContext.HasTenant)
         {
-            position.SetTenantId(new TrackLab.Shared.Domain.ValueObjects.TenantId(_tenantContext.CurrentTenantId!.Value));
+            position.SetTenantId(_tenantContext.CurrentTenantId!.Value);
         }
         
         await _positionRepository.AddAsync(position);

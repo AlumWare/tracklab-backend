@@ -3,5 +3,7 @@
 [Serializable]
 public class InvalidEmployeePositionIdException : Exception
 {
-    public InvalidEmployeePositionIdException(string positionId) : base("Invalid position id. Value: " + positionId) {}
+    public InvalidEmployeePositionIdException() : base("Invalid employee position ID.") {}
+    public InvalidEmployeePositionIdException(string message) : base(message) {}
+    public InvalidEmployeePositionIdException(string message, Exception inner) : base(message, inner) {}
 }

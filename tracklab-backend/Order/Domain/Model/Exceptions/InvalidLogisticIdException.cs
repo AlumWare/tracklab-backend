@@ -3,5 +3,7 @@
 [Serializable]
 public class InvalidLogisticIdException : Exception
 {
-    public InvalidLogisticIdException(long logisticId) : base("Invalid logistic ID. ID: " + logisticId) {}
+    public InvalidLogisticIdException() : base("Invalid logistic ID for order.") {}
+    public InvalidLogisticIdException(string message) : base(message) {}
+    public InvalidLogisticIdException(string message, Exception inner) : base(message, inner) {}
 }

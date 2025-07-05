@@ -11,7 +11,9 @@ public static class CreateProductCommandFromResourceAssembler
             resource.Name,
             resource.Description,
             resource.PriceAmount,
-            resource.PriceCurrency
+            resource.PriceCurrency,
+            resource.Category,
+            resource.Stock
         );
     }
 } 

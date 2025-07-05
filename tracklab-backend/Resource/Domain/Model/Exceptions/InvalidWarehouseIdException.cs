@@ -3,5 +3,7 @@
 [Serializable]
 public class InvalidWarehouseIdException : Exception
 {
-    public InvalidWarehouseIdException(int id) : base("Invalid warehouse id. Value: " + id) { }
+    public InvalidWarehouseIdException() : base("Invalid warehouse ID.") {}
+    public InvalidWarehouseIdException(string message) : base(message) {}
+    public InvalidWarehouseIdException(string message, Exception inner) : base(message, inner) {}
 }

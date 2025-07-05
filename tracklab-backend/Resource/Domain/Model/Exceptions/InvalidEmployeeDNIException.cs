@@ -3,5 +3,7 @@
 [Serializable]
 public class InvalidEmployeeDNIException : Exception
 {
-    public InvalidEmployeeDNIException(string dni) : base("Invalid DNI. Value: " + dni) {}
+    public InvalidEmployeeDNIException() : base("Invalid employee DNI.") {}
+    public InvalidEmployeeDNIException(string message) : base(message) {}
+    public InvalidEmployeeDNIException(string message, Exception inner) : base(message, inner) {}
 }

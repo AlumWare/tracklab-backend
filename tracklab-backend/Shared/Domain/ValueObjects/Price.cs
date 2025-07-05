@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using System.Text.RegularExpressions;
 
 namespace TrackLab.Shared.Domain.ValueObjects;
 
@@ -13,11 +14,11 @@ public record Price
     public Price(decimal amount, string currency)
     {
         if (amount < 0)
-            throw new ArgumentException("El monto no puede ser negativo", nameof(amount));
-        
+            throw new ArgumentException("Amount cannot be negative", nameof(amount));
         if (string.IsNullOrWhiteSpace(currency))
-            throw new ArgumentException("La moneda no puede estar vacía", nameof(currency));
-        
+            throw new ArgumentException("Currency cannot be empty", nameof(currency));
+        if (!Regex.IsMatch(currency, @"^[a-zA-Z]+$"))
+            throw new ArgumentException("Currency must contain only letters", nameof(currency));
         Amount = amount;
         Currency = currency.ToUpper();
     }

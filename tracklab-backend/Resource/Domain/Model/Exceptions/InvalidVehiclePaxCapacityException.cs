@@ -3,5 +3,7 @@
 [Serializable]
 public class InvalidVehiclePaxCapacityException : Exception
 {
-    public InvalidVehiclePaxCapacityException(int paxCapacity) : base("Invalid vehicle pax capacity. Value: " + paxCapacity) { }
+    public InvalidVehiclePaxCapacityException() : base("Invalid vehicle passenger capacity.") {}
+    public InvalidVehiclePaxCapacityException(string message) : base(message) {}
+    public InvalidVehiclePaxCapacityException(string message, Exception inner) : base(message, inner) {}
 }

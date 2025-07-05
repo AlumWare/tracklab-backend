@@ -3,5 +3,7 @@
 [Serializable]
 public class NullOrEmptyStreetAddressException : Exception
 {
-    public NullOrEmptyStreetAddressException() : base("Address cannot be null or empty.") { }
+    public NullOrEmptyStreetAddressException() : base("Street address cannot be null or empty.") {}
+    public NullOrEmptyStreetAddressException(string message) : base(message) {}
+    public NullOrEmptyStreetAddressException(string message, Exception inner) : base(message, inner) {}
 }

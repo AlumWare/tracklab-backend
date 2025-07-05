@@ -5,5 +5,7 @@ public record ProductResource(
     string Name,
     string Description,
     decimal PriceAmount,
-    string PriceCurrency
+    string PriceCurrency,
+    string Category,
+    int Stock
 ); 

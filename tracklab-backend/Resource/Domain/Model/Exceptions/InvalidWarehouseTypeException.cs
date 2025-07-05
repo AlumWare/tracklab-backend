@@ -3,5 +3,7 @@
 [Serializable]
 public class InvalidWarehouseTypeException : Exception
 {
-    public InvalidWarehouseTypeException(int type) : base("Invalid warehouse type. Value: " + type) { }
+    public InvalidWarehouseTypeException() : base("Invalid warehouse type.") {}
+    public InvalidWarehouseTypeException(string message) : base(message) {}
+    public InvalidWarehouseTypeException(string message, Exception inner) : base(message, inner) {}
 }

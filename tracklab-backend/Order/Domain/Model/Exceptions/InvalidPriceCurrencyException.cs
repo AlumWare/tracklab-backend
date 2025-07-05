@@ -3,5 +3,7 @@
 [Serializable]
 public class InvalidPriceCurrencyException : Exception
 {
-    public InvalidPriceCurrencyException(string priceCurrency) : base("Invalid price currency. Value: " + priceCurrency) { }
+    public InvalidPriceCurrencyException() : base("Invalid price currency for order.") {}
+    public InvalidPriceCurrencyException(string message) : base(message) {}
+    public InvalidPriceCurrencyException(string message, Exception inner) : base(message, inner) {}
 }

@@ -3,6 +3,7 @@
 [Serializable]
 public class NullOrEmptyEmployeeFirstNameException : Exception
 {
-    public NullOrEmptyEmployeeFirstNameException() : base("First name cannot be null or empty!")
-    {}
+    public NullOrEmptyEmployeeFirstNameException() : base("Employee first name cannot be null or empty.") {}
+    public NullOrEmptyEmployeeFirstNameException(string message) : base(message) {}
+    public NullOrEmptyEmployeeFirstNameException(string message, Exception inner) : base(message, inner) {}
 }

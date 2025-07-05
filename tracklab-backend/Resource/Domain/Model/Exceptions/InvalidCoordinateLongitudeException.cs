@@ -3,5 +3,7 @@
 [Serializable]
 public class InvalidCoordinateLongitudeException : Exception
 {
-    public InvalidCoordinateLongitudeException(double longitude) : base("Invalid longitude coordinate. Value: " + longitude) { }
+    public InvalidCoordinateLongitudeException() : base("Invalid longitude coordinate.") {}
+    public InvalidCoordinateLongitudeException(string message) : base(message) {}
+    public InvalidCoordinateLongitudeException(string message, Exception inner) : base(message, inner) {}
 }

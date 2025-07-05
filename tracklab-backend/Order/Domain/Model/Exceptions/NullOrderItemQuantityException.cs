@@ -3,6 +3,7 @@
 [Serializable]
 public class NullOrderItemQuantityException : Exception
 {
-    public NullOrderItemQuantityException() : base("Item quantity can't be zero or null.")
-    {}
+    public NullOrderItemQuantityException() : base("Order item quantity cannot be null or zero.") {}
+    public NullOrderItemQuantityException(string message) : base(message) {}
+    public NullOrderItemQuantityException(string message, Exception inner) : base(message, inner) {}
 }

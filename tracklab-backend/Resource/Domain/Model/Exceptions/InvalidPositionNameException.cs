@@ -3,5 +3,7 @@
 [Serializable]
 public class InvalidPositionNameException : Exception
 {
-    public InvalidPositionNameException(string name) : base("Invalid position name. Value: " + name) { }
+    public InvalidPositionNameException() : base("Invalid position name.") {}
+    public InvalidPositionNameException(string message) : base(message) {}
+    public InvalidPositionNameException(string message, Exception inner) : base(message, inner) {}
 }

@@ -18,5 +18,5 @@ public record SignUpResource(
     string Email,
     string? FirstName,
     string? LastName,
-    string? TenantType
+    string? TenantType // LOGISTIC, CLIENT, PROVIDER
 );

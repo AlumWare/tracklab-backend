@@ -3,5 +3,7 @@
 [Serializable]
 public class InvalidContainerIdException : Exception
 {
-    public InvalidContainerIdException(int containerId) : base("Invalid container id. Value: " + containerId) {}
+    public InvalidContainerIdException() : base("Invalid container ID.") {}
+    public InvalidContainerIdException(string message) : base(message) {}
+    public InvalidContainerIdException(string message, Exception inner) : base(message, inner) {}
 }

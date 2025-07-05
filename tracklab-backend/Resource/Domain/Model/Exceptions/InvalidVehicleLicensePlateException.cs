@@ -3,5 +3,7 @@
 [Serializable]
 public class InvalidVehicleLicensePlateException : Exception
 {
-    public  InvalidVehicleLicensePlateException(string licensePlate) : base("Invalid vehicle license plate. Value: " + licensePlate) { }
+    public InvalidVehicleLicensePlateException() : base("Invalid vehicle license plate.") {}
+    public InvalidVehicleLicensePlateException(string message) : base(message) {}
+    public InvalidVehicleLicensePlateException(string message, Exception inner) : base(message, inner) {}
 }

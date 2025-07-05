@@ -3,5 +3,7 @@
 [Serializable]
 public class InvalidStatusValueException : Exception
 {
-    public InvalidStatusValueException(int statusValue) : base("Invalid status value. Value: " + statusValue) { }
+    public InvalidStatusValueException() : base("Invalid status value for order.") {}
+    public InvalidStatusValueException(string message) : base(message) {}
+    public InvalidStatusValueException(string message, Exception inner) : base(message, inner) {}
 }

@@ -8,7 +8,7 @@ namespace Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 public partial class Employee
 {
     public long Id { get; private set; }
-    public TenantId TenantId { get; private set; } = null!;
+    public long TenantId { get; private set; }
     public TrackLab.IAM.Domain.Model.Aggregates.Tenant Tenant { get; set; } = null!;
     public Dni Dni { get; private set; } = null!;
     public SharedEmail Email { get; private set; } = null!;
@@ -45,7 +45,7 @@ public partial class Employee
         PositionId = command.NewPositionId;
     }
 
-    public void SetTenantId(TenantId tenantId)
+    public void SetTenantId(long tenantId)
     {
         TenantId = tenantId;
     }

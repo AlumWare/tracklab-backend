@@ -30,7 +30,7 @@ public class EmployeeCommandService : IEmployeeCommandService
         // Establecer el tenant_id desde el contexto actual
         if (_tenantContext.HasTenant)
         {
-            employee.SetTenantId(new TrackLab.Shared.Domain.ValueObjects.TenantId(_tenantContext.CurrentTenantId!.Value));
+            employee.SetTenantId(_tenantContext.CurrentTenantId!.Value);
         }
         
         await _employeeRepository.AddAsync(employee);

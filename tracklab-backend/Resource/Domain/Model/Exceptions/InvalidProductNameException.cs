@@ -3,5 +3,7 @@
 [Serializable]
 public class InvalidProductNameException : Exception
 {
-    public InvalidProductNameException(string name) : base("Invalid product name. Value: " + name) { }
+    public InvalidProductNameException() : base("Invalid product name.") {}
+    public InvalidProductNameException(string message) : base(message) {}
+    public InvalidProductNameException(string message, Exception inner) : base(message, inner) {}
 }

@@ -3,6 +3,7 @@
 [Serializable]
 public class InvalidTenantIdException : Exception
 {
-    public InvalidTenantIdException(long tenantId) : base("Invalid tenant id. Id: " + tenantId)
-    {}
+    public InvalidTenantIdException() : base("Invalid tenant ID for order.") {}
+    public InvalidTenantIdException(string message) : base(message) {}
+    public InvalidTenantIdException(string message, Exception inner) : base(message, inner) {}
 }

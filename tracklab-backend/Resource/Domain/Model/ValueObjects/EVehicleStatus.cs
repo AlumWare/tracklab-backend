@@ -3,6 +3,5 @@
 public enum EVehicleStatus
 {
     Available,
-    Occupied,
-    Maintenance
+    NotAvailable
 }

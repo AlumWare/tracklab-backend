@@ -3,5 +3,7 @@
 [Serializable]
 public class InvalidPriceAmountException : Exception
 {
-    public InvalidPriceAmountException(int priceAmount) : base("Invalid price amount. Price: " + priceAmount) {}
+    public InvalidPriceAmountException() : base("Invalid price amount for order.") {}
+    public InvalidPriceAmountException(string message) : base(message) {}
+    public InvalidPriceAmountException(string message, Exception inner) : base(message, inner) {}
 }
