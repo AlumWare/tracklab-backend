@@ -16,7 +16,7 @@ public static class OrderResourceFromEntityAssembler
             order.OrderDate,
             order.Status.ToString(),
             order.GetTotalOrderPrice(),
-            order.OrderItems.Select(orderItem => new OrderItemResource(
+            (order.OrderItems ?? new List<OrderItem>()).Select(orderItem => new OrderItemResource(
                 orderItem.Id,
                 orderItem.ProductId,
                 orderItem.Quantity,

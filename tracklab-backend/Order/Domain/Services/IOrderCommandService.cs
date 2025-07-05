@@ -9,4 +9,7 @@ public interface IOrderCommandService
     Task<OrderAggregate> AddOrderItemAsync(AddOrderItemCommand command);
     Task<OrderAggregate> UpdateStatusAsync(UpdateOrderStatusCommand command);
     Task DeleteAsync(DeleteOrderCommand command);
+    Task<OrderAggregate> AssignLogisticsAndVehicleAsync(AssignLogisticsAndVehicleCommand command);
+    Task<OrderAggregate> AssignVehicleAsync(AssignVehicleCommand command);
+    Task<OrderAggregate> SetRouteAsync(SetRouteCommand command);
 } 

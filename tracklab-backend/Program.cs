@@ -14,10 +14,21 @@ using Alumware.Tracklab.API.Order.Domain.Repositories;
 using Alumware.Tracklab.API.Order.Domain.Services;
 using Alumware.Tracklab.API.Order.Application.Internal.CommandServices;
 using Alumware.Tracklab.API.Order.Infrastructure.Persistence.Repositories;
+using Alumware.Tracklab.API.Order.Infrastructure.Persistence.EFC.Repositories;
+using Alumware.Tracklab.API.Order.Application.Internal.QueryServices;
 using Alumware.Tracklab.API.Tracking.Domain.Repositories;
 using Alumware.Tracklab.API.Tracking.Domain.Services;
 using Alumware.Tracklab.API.Tracking.Application.Internal.CommandServices;
 using Alumware.Tracklab.API.Tracking.Infrastructure.Persistence.EFC.Repositories;
+using Alumware.Tracklab.API.IAM.Infrastructure.Pipeline.Middleware.Components;
+using TrackingEventRepositoryTracking = Alumware.Tracklab.API.Tracking.Infrastructure.Persistence.EFC.Repositories.TrackingEventRepository;
+using TrackingEventRepositoryOrder = Alumware.Tracklab.API.Order.Infrastructure.Persistence.EFC.Repositories.TrackingEventRepository;
+using ITrackingEventRepositoryTracking = Alumware.Tracklab.API.Tracking.Domain.Repositories.ITrackingEventRepository;
+using ITrackingEventRepositoryOrder = Alumware.Tracklab.API.Order.Domain.Repositories.ITrackingEventRepository;
+using ITrackingEventCommandServiceTracking = Alumware.Tracklab.API.Tracking.Domain.Services.ITrackingEventCommandService;
+using ITrackingEventCommandServiceOrder = Alumware.Tracklab.API.Order.Domain.Services.ITrackingEventCommandService;
+using TrackingEventCommandServiceTracking = Alumware.Tracklab.API.Tracking.Application.Internal.CommandServices.TrackingEventCommandService;
+using TrackingEventCommandServiceOrder = Alumware.Tracklab.API.Order.Application.Internal.CommandServices.TrackingEventCommandService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,11 +52,12 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 // Order Context
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<ITrackingEventRepositoryOrder, TrackingEventRepositoryOrder>();
 
 // Tracking Context
 builder.Services.AddScoped<IContainerRepository, ContainerRepository>();
 builder.Services.AddScoped<IRouteRepository, RouteRepository>();
-builder.Services.AddScoped<ITrackingEventRepository, TrackingEventRepository>();
+builder.Services.AddScoped<ITrackingEventRepositoryTracking, TrackingEventRepositoryTracking>();
 
 // Query services
 builder.Services.AddScoped<IVehicleQueryService, VehicleQueryService>();
@@ -63,11 +75,13 @@ builder.Services.AddScoped<IProductCommandService, ProductCommandService>();
 
 // Order Command services
 builder.Services.AddScoped<IOrderCommandService, OrderCommandService>();
+builder.Services.AddScoped<IOrderQueryService, OrderQueryService>();
+builder.Services.AddScoped<ITrackingEventCommandServiceOrder, TrackingEventCommandServiceOrder>();
 
 // Tracking Command services
 builder.Services.AddScoped<IContainerCommandService, ContainerCommandService>();
 builder.Services.AddScoped<IRouteCommandService, RouteCommandService>();
-builder.Services.AddScoped<ITrackingEventCommandService, TrackingEventCommandService>();
+builder.Services.AddScoped<ITrackingEventCommandServiceTracking, TrackingEventCommandServiceTracking>();
 
 // Add IAM Configuration
 builder.Services.AddIamConfiguration(builder.Configuration);
@@ -88,8 +102,8 @@ using (var scope = app.Services.CreateScope())
     var hashingService = scope.ServiceProvider.GetRequiredService<IHashingService>();
     
     // Delete and recreate the database (for development)
-    Console.WriteLine("Deleting existing database...");
-    await dbContext.Database.EnsureDeletedAsync();
+    //Console.WriteLine("Deleting existing database...");
+    //await dbContext.Database.EnsureDeletedAsync();
     Console.WriteLine("Creating new database...");
     await dbContext.Database.EnsureCreatedAsync();
 
@@ -117,6 +131,7 @@ app.UseSwaggerUI(c =>
 });
 
 // Middleware pipeline
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseHttpsRedirection();
 
 // Add IAM middleware (authentication + authorization)

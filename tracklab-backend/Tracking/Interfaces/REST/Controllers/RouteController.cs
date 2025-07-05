@@ -5,6 +5,7 @@ using Alumware.Tracklab.API.Tracking.Interfaces.REST.Resources;
 using Alumware.Tracklab.API.Tracking.Interfaces.REST.Transformers;
 using Microsoft.AspNetCore.Mvc;
 using Alumware.Tracklab.API.Order.Domain.Services;
+using Alumware.Tracklab.API.Order.Domain.Model.Queries;
 
 namespace Alumware.Tracklab.API.Tracking.Interfaces.REST.Controllers;
 
@@ -65,7 +66,7 @@ public class RouteController : ControllerBase
     [HttpPost("{id}/orders")]
     public async Task<ActionResult<RouteResource>> AddOrder(long id, [FromBody] AddOrderToRouteCommand command)
     {
-        var order = await _orderQueryService.Handle(new Alumware.Tracklab.API.Order.Domain.Model.Queries.GetOrderByIdQuery(command.OrderId));
+        var order = await _orderQueryService.Handle(new GetOrderByIdQuery(command.OrderId));
         if (order == null) return NotFound($"Order {command.OrderId} not found");
         var route = await _routeCommandService.AddOrderAsync(id, order);
         var resource = RouteResourceFromEntityAssembler.ToResourceFromEntity(route);

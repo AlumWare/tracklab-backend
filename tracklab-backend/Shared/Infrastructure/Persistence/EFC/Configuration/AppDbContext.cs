@@ -13,6 +13,8 @@ using Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates;
 using Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects;
 using RouteAggregate = Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates.Route;
 using Alumware.Tracklab.API.Tracking.Domain.Model.Entities;
+using TrackingEventOrder = Alumware.Tracklab.API.Order.Domain.Model.Aggregates.TrackingEvent;
+using TrackingEventTracking = Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates.TrackingEvent;
 
 namespace TrackLab.Shared.Infrastructure.Persistence.EFC.Configuration;
 
@@ -37,7 +39,10 @@ public class AppDbContext : DbContext
     // Tracking Context
     public DbSet<RouteAggregate> Routes => Set<RouteAggregate>();
     public DbSet<Container> Containers => Set<Container>();
-    public DbSet<TrackingEvent> TrackingEvents => Set<TrackingEvent>();
+    public DbSet<TrackingEventTracking> TrackingEvents => Set<TrackingEventTracking>();
+
+    // Order Tracking Events
+    public DbSet<TrackingEventOrder> OrderTrackingEvents => Set<TrackingEventOrder>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
@@ -106,8 +111,14 @@ public class AppDbContext : DbContext
         // === ORDER ===
         builder.Entity<Order>().ToTable("orders");
         builder.Entity<Order>().HasKey(o => o.OrderId);
+        builder.Entity<Order>().Property(o => o.TenantId).HasColumnName("customer_id");
+        builder.Entity<Order>().Property(o => o.LogisticsId).HasColumnName("logistics_id");
+        builder.Entity<Order>().Property(o => o.ShippingAddress).HasColumnName("shipping_address");
         builder.Entity<Order>().Property(o => o.OrderDate).HasColumnName("order_date");
         builder.Entity<Order>().Property(o => o.Status).HasColumnName("status");
+        builder.Entity<Order>().Property(o => o.VehicleId).HasColumnName("vehicle_id");
+        builder.Entity<Order>().Property(o => o.CreatedAt).HasColumnName("created_at");
+        builder.Entity<Order>().Property(o => o.UpdatedAt).HasColumnName("updated_at");
 
         // === ORDER ITEM ===
         builder.Entity<OrderItem>().ToTable("order_items");
@@ -202,16 +213,16 @@ public class AppDbContext : DbContext
             si.HasKey("Id");
         });
 
-        builder.Entity<TrackingEvent>().ToTable("tracking_events");
-        builder.Entity<TrackingEvent>().HasKey(e => e.EventId);
-        builder.Entity<TrackingEvent>().Property(e => e.ContainerId).HasColumnName("container_id");
-        builder.Entity<TrackingEvent>().OwnsOne(e => e.WarehouseId, w =>
+        builder.Entity<TrackingEventTracking>().ToTable("tracking_events");
+        builder.Entity<TrackingEventTracking>().HasKey(e => e.EventId);
+        builder.Entity<TrackingEventTracking>().Property(e => e.ContainerId).HasColumnName("container_id");
+        builder.Entity<TrackingEventTracking>().OwnsOne(e => e.WarehouseId, w =>
         {
             w.Property(p => p.Value).HasColumnName("warehouse_id");
             w.WithOwner().HasForeignKey("EventId");
         });
-        builder.Entity<TrackingEvent>().Property(e => e.Type).HasColumnName("type");
-        builder.Entity<TrackingEvent>().Property(e => e.EventTime).HasColumnName("event_time");
+        builder.Entity<TrackingEventTracking>().Property(e => e.Type).HasColumnName("type");
+        builder.Entity<TrackingEventTracking>().Property(e => e.EventTime).HasColumnName("event_time");
 
         // === RELACIONES UNO A MUCHOS ===
         // Tenant → Vehicles
@@ -306,14 +317,14 @@ public class AppDbContext : DbContext
             .OnDelete(DeleteBehavior.Restrict);
 
         // Container → TrackingEvents
-        builder.Entity<TrackingEvent>()
+        builder.Entity<TrackingEventTracking>()
             .HasOne(te => te.Container)
             .WithMany(c => c.TrackingEvents)
             .HasForeignKey(te => te.ContainerId)
             .OnDelete(DeleteBehavior.Cascade);
 
         // Warehouse → TrackingEvents
-        builder.Entity<TrackingEvent>()
+        builder.Entity<TrackingEventTracking>()
             .HasOne(te => te.Warehouse)
             .WithMany()
             .HasForeignKey("warehouse_id")
@@ -356,14 +367,22 @@ public class AppDbContext : DbContext
         builder.Entity<Order>()
             .HasOne(o => o.Customer)
             .WithMany()
-            .HasForeignKey("customer_id")
+            .HasForeignKey(o => o.TenantId)
             .OnDelete(DeleteBehavior.Restrict);
 
         // Tenant → Orders (Logistics)
         builder.Entity<Order>()
             .HasOne(o => o.Logistics)
             .WithMany()
-            .HasForeignKey("logistics_id")
+            .HasForeignKey(o => o.LogisticsId)
             .OnDelete(DeleteBehavior.Restrict);
+
+        builder.Entity<TrackingEventOrder>().ToTable("order_tracking_events");
+        builder.Entity<TrackingEventOrder>().HasKey(e => e.Id);
+        builder.Entity<TrackingEventOrder>().Property(e => e.OrderId).HasColumnName("order_id");
+        builder.Entity<TrackingEventOrder>().Property(e => e.EventType).HasColumnName("event_type");
+        builder.Entity<TrackingEventOrder>().Property(e => e.WarehouseId).HasColumnName("warehouse_id");
+        builder.Entity<TrackingEventOrder>().Property(e => e.EventTime).HasColumnName("event_time");
+        builder.Entity<TrackingEventOrder>().Property(e => e.Sequence).HasColumnName("sequence");
     }
 }

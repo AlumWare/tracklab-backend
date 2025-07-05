@@ -72,4 +72,56 @@ public class OrderCommandService : IOrderCommandService
         _orderRepository.Remove(order);
         await _unitOfWork.CompleteAsync(); // Persistir los cambios
     }
+
+    public async Task<OrderAggregate> AssignLogisticsAndVehicleAsync(AssignLogisticsAndVehicleCommand command)
+    {
+        var order = await _orderRepository.FindByIdAsync(command.OrderId);
+        if (order == null)
+            throw new KeyNotFoundException($"Orden {command.OrderId} no encontrada.");
+        if (order.Status != Alumware.Tracklab.API.Order.Domain.Model.ValueObjects.OrderStatus.Pending)
+            throw new InvalidOperationException("Solo se puede asignar logística y vehículo a órdenes pendientes.");
+        // Aquí deberías obtener el vehículo y validar tonelaje, estado, etc. (pseudo-código):
+        // var vehicle = await _vehicleRepository.FindByIdAsync(command.VehicleId);
+        // if (vehicle == null || vehicle.Status != Available || vehicle.Tonnage < order.GetTotalWeight())
+        //     throw new InvalidOperationException("Vehículo no disponible o tonelaje insuficiente.");
+        order.AssignLogisticsAndVehicle(command.LogisticsId, command.VehicleId);
+        _orderRepository.Update(order);
+        await _unitOfWork.CompleteAsync();
+        return order;
+    }
+
+    public async Task<OrderAggregate> SetRouteAsync(SetRouteCommand command)
+    {
+        var order = await _orderRepository.FindByIdAsync(command.OrderId);
+        if (order == null)
+            throw new KeyNotFoundException($"Orden {command.OrderId} no encontrada.");
+        if (order.Status != Alumware.Tracklab.API.Order.Domain.Model.ValueObjects.OrderStatus.InProcess)
+            throw new InvalidOperationException("Solo se puede definir/modificar la ruta de órdenes en proceso.");
+        if (command.Warehouses == null || command.Warehouses.Count == 0)
+            throw new InvalidOperationException("La ruta debe tener al menos un almacén.");
+        order.SetRoute(command.VehicleId, command.Warehouses);
+        _orderRepository.Update(order);
+        await _unitOfWork.CompleteAsync();
+        return order;
+    }
+
+    public async Task<OrderAggregate> AssignVehicleAsync(AssignVehicleCommand command)
+    {
+        var order = await _orderRepository.FindByIdAsync(command.OrderId);
+        if (order == null)
+            throw new KeyNotFoundException($"Orden {command.OrderId} no encontrada.");
+        
+        if (order.Status != Alumware.Tracklab.API.Order.Domain.Model.ValueObjects.OrderStatus.Pending)
+            throw new InvalidOperationException("Solo se puede asignar vehículo a órdenes pendientes.");
+        
+        // Aquí deberías validar que el vehículo existe y está disponible
+        // var vehicle = await _vehicleRepository.FindByIdAsync(command.VehicleId);
+        // if (vehicle == null || vehicle.Status != Available)
+        //     throw new InvalidOperationException("Vehículo no disponible.");
+        
+        order.AssignVehicle(command.VehicleId);
+        _orderRepository.Update(order);
+        await _unitOfWork.CompleteAsync();
+        return order;
+    }
 } 

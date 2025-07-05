@@ -12,7 +12,9 @@ public static class UpdateProductInfoCommandFromResourceAssembler
             resource.Name,
             resource.Description,
             resource.PriceAmount,
-            resource.PriceCurrency
+            resource.PriceCurrency,
+            resource.Category,
+            resource.Stock
         );
     }
 } 

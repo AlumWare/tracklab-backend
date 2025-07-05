@@ -17,6 +17,9 @@ public partial class Order
     public OrderStatus Status { get; private set; }
     public List<OrderItem> OrderItems { get; private set; } = null!;
     public List<Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates.Route> Routes { get; set; } = new();
+    public long? VehicleId { get; private set; } // Nuevo campo para vehículo asignado
+    public DateTimeOffset CreatedAt { get; private set; }
+    public DateTimeOffset UpdatedAt { get; private set; }
 
     // Constructor requerido por EF Core
     public Order() { }
@@ -30,6 +33,8 @@ public partial class Order
         OrderDate = DateTime.UtcNow;
         Status = OrderStatus.Pending;
         OrderItems = new List<OrderItem>();
+        CreatedAt = DateTimeOffset.UtcNow;
+        UpdatedAt = DateTimeOffset.UtcNow;
     }
 
     public void AddOrderItem(AddOrderItemCommand command)
@@ -41,15 +46,45 @@ public partial class Order
     public void UpdateStatus(UpdateOrderStatusCommand command)
     {
         Status = command.NewStatus;
+        UpdateTimestamp();
     }
 
     public decimal GetTotalOrderPrice()
     {
-        return OrderItems.Sum(item => item.GetTotalPrice());
+        return OrderItems?.Sum(item => item.GetTotalPrice()) ?? 0m;
     }
 
     public void SetTenantId(long tenantId)
     {
         TenantId = tenantId;
+        UpdateTimestamp();
+    }
+
+    public void AssignLogisticsAndVehicle(long logisticsId, long vehicleId)
+    {
+        LogisticsId = logisticsId;
+        VehicleId = vehicleId;
+        Status = OrderStatus.InProcess; // Cambia el estado a En proceso
+        UpdateTimestamp();
+    }
+
+    public void AssignVehicle(long vehicleId)
+    {
+        VehicleId = vehicleId;
+        UpdateTimestamp();
+    }
+
+    public void SetRoute(long vehicleId, List<long> warehouses)
+    {
+        VehicleId = vehicleId;
+        // Aquí deberías crear o actualizar la entidad Route asociada a la orden
+        // y asignar la lista de almacenes (warehouses) en orden.
+        // Este es un placeholder para la lógica real de rutas.
+        UpdateTimestamp();
+    }
+
+    private void UpdateTimestamp()
+    {
+        UpdatedAt = DateTimeOffset.UtcNow;
     }
 } 
