@@ -4,5 +4,6 @@ public enum EventType
 {
     Arrival,
     Departure,
-    Creation
+    Creation,
+    Delivered
 } 

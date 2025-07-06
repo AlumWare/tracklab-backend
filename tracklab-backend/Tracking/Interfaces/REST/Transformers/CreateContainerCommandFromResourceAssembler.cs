@@ -11,7 +11,17 @@ public static class CreateContainerCommandFromResourceAssembler
         return new CreateContainerCommand(
             resource.OrderId,
             resource.WarehouseId,
+            resource.ShipItems.Select(ToShipItemCommandFromResource),
             resource.TotalWeight
+        );
+    }
+
+    private static CreateShipItemCommand ToShipItemCommandFromResource(CreateShipItemResource resource)
+    {
+        return new CreateShipItemCommand(
+            resource.ProductId,
+            resource.Quantity,
+            resource.UnitWeight
         );
     }
 } 

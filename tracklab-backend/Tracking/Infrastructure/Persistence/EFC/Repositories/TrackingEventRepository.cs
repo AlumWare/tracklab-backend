@@ -44,4 +44,11 @@ public class TrackingEventRepository : BaseRepository<TrackingEvent>, ITrackingE
     {
         return await GetTenantFilteredQuery().FirstOrDefaultAsync(e => e.EventId == query.Id);
     }
+
+    public async Task<IEnumerable<TrackingEvent>> GetByContainerIdAsync(long containerId)
+    {
+        return await GetTenantFilteredQuery()
+            .Where(e => e.ContainerId == containerId)
+            .ToListAsync();
+    }
 } 

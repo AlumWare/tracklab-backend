@@ -14,7 +14,8 @@ namespace Alumware.Tracklab.API.Order.Infrastructure.Persistence.Repositories;
  *     The order repository
  * </summary>
  * <remarks>
- *     This repository is used to manage orders with tenant awareness
+ *     This repository is used to manage orders with tenant awareness.
+ *     Orders can be accessed by both the customer (TenantId) and the logistics company (LogisticsId)
  * </remarks>
  */
 public class OrderRepository : BaseRepository<OrderAggregate>, IOrderRepository
@@ -27,7 +28,8 @@ public class OrderRepository : BaseRepository<OrderAggregate>, IOrderRepository
     }
 
     /// <summary>
-    /// Get queryable with tenant filter applied
+    /// Get queryable with tenant filter applied.
+    /// Orders can be accessed by both the customer (TenantId) and the logistics company (LogisticsId)
     /// </summary>
     private IQueryable<OrderAggregate> GetTenantFilteredQuery()
     {
@@ -36,7 +38,8 @@ public class OrderRepository : BaseRepository<OrderAggregate>, IOrderRepository
         if (_tenantContext.HasTenant)
         {
             var currentTenantId = _tenantContext.CurrentTenantId!.Value;
-            query = query.Where(o => o.TenantId == currentTenantId);
+            // Permitir acceso si el tenant actual es el cliente O la empresa logística
+            query = query.Where(o => o.TenantId == currentTenantId || o.LogisticsId == currentTenantId);
         }
         
         return query;
@@ -87,10 +90,23 @@ public class OrderRepository : BaseRepository<OrderAggregate>, IOrderRepository
             .Include(o => o.OrderItems)
             .FirstOrDefaultAsync(o => o.OrderId == query.Id);
     }
-
+    
     public new async Task<OrderAggregate?> FindByIdAsync(long id)
     {
-        return await GetTenantFilteredQuery()
+        // IMPORTANTE: Este método bypassa el filtro de tenant, solo debe usarse en contextos internos
+        // donde ya se ha validado el acceso (como en el ACL)
+        return await Context.Set<OrderAggregate>()
+            .Include(o => o.OrderItems)
+            .FirstOrDefaultAsync(o => o.OrderId == id);
+    }
+
+    /// <summary>
+    /// Gets order by ID for ACL validations, bypassing tenant filter
+    /// This method should only be used by ACL services for cross-tenant validation
+    /// </summary>
+    public async Task<OrderAggregate?> GetByIdForACLAsync(long id)
+    {
+        return await Context.Set<OrderAggregate>()
             .Include(o => o.OrderItems)
             .FirstOrDefaultAsync(o => o.OrderId == id);
     }

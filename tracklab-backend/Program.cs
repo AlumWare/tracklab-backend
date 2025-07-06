@@ -35,6 +35,25 @@ using ITrackingEventCommandServiceOrder = Alumware.Tracklab.API.Order.Domain.Ser
 using TrackingEventCommandServiceTracking = Alumware.Tracklab.API.Tracking.Application.Internal.CommandServices.TrackingEventCommandService;
 using TrackingEventCommandServiceOrder = Alumware.Tracklab.API.Order.Application.Internal.CommandServices.TrackingEventCommandService;
 using Alumware.Tracklab.API.Tracking.Infrastructure.Configuration;
+using Alumware.Tracklab.API.Order.Interfaces.ACL;
+using Alumware.Tracklab.API.Order.Application.ACL;
+using Alumware.Tracklab.API.Tracking.Application.Internal.OutboundServices.ACL;
+using Alumware.Tracklab.API.Tracking.Interfaces.ACL;
+using Alumware.Tracklab.API.Tracking.Application.ACL;
+using Alumware.Tracklab.API.Order.Application.Internal.OutboundServices.ACL;
+using Alumware.Tracklab.API.Resource.Interfaces.ACL;
+using Alumware.Tracklab.API.Resource.Application.ACL;
+using IResourceContextServiceOrder = Alumware.Tracklab.API.Order.Application.Internal.OutboundServices.ACL.IResourceContextService;
+using ResourceContextServiceOrder = Alumware.Tracklab.API.Order.Application.Internal.OutboundServices.ACL.ResourceContextService;
+using IResourceContextServiceTracking = Alumware.Tracklab.API.Tracking.Application.Internal.OutboundServices.ACL.IResourceContextService;
+using ResourceContextServiceTracking = Alumware.Tracklab.API.Tracking.Application.Internal.OutboundServices.ACL.ResourceContextService;
+
+// Event Handlers
+using Alumware.Tracklab.API.Notifications.Application.Internal.EventHandlers;
+using Alumware.Tracklab.API.Order.Domain.Events;
+using Alumware.Tracklab.API.Tracking.Domain.Events;
+using Alumware.Tracklab.API.Notifications.Infrastructure.Email.Services;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -93,6 +112,23 @@ builder.Services.AddScoped<ITrackingEventCommandServiceTracking, TrackingEventCo
 builder.Services.AddScoped<IContainerQueryService, ContainerQueryService>();
 builder.Services.AddScoped<IRouteQueryService, RouteQueryService>();
 builder.Services.AddScoped<ITrackingEventQueryService, TrackingEventQueryService>();
+
+// ACL Services
+builder.Services.AddScoped<IOrderContextFacade, OrderContextFacade>();
+builder.Services.AddScoped<IOrderContextService, OrderContextService>();
+builder.Services.AddScoped<ITrackingContextFacade, TrackingContextFacade>();
+builder.Services.AddScoped<ITrackingContextService, TrackingContextService>();
+builder.Services.AddScoped<IResourceContextFacade, ResourceContextFacade>();
+builder.Services.AddScoped<IResourceContextServiceOrder, ResourceContextServiceOrder>();
+builder.Services.AddScoped<IResourceContextServiceTracking, ResourceContextServiceTracking>();
+
+// Event Handlers
+builder.Services.AddScoped<INotificationHandler<OrderCreatedEvent>, OrderCreatedEmailHandler>();
+builder.Services.AddScoped<INotificationHandler<OrderStatusChangedEvent>, OrderStatusChangedEmailHandler>();
+builder.Services.AddScoped<INotificationHandler<OrderCompletedEvent>, OrderCompletedEmailHandler>();
+
+// Email Template Service
+builder.Services.AddScoped<IEmailTemplateService, EmailTemplateService>();
 
 // Add IAM Configuration
 builder.Services.AddIamConfiguration(builder.Configuration);

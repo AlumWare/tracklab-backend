@@ -8,4 +8,5 @@ public interface ITrackingEventRepository : IBaseRepository<TrackingEvent>
 {
     Task<IEnumerable<TrackingEvent>> GetAllAsync(GetAllTrackingEventsQuery query);
     Task<TrackingEvent?> GetByIdAsync(GetTrackingEventByIdQuery query);
+    Task<IEnumerable<TrackingEvent>> GetByContainerIdAsync(long containerId);
 } 

@@ -3,8 +3,9 @@ using Alumware.Tracklab.API.Order.Domain.Model.Queries;
 using Alumware.Tracklab.API.Order.Domain.Services;
 using Alumware.Tracklab.API.Order.Interfaces.REST.Resources;
 using Alumware.Tracklab.API.Order.Interfaces.REST.Transformers;
-using Alumware.Tracklab.API.Resource.Domain.Repositories;
+using Alumware.Tracklab.API.Order.Application.Internal.OutboundServices.ACL;
 using Microsoft.AspNetCore.Mvc;
+using IResourceContextServiceOrder = Alumware.Tracklab.API.Order.Application.Internal.OutboundServices.ACL.IResourceContextService;
 
 namespace Alumware.Tracklab.API.Order.Interfaces.REST;
 
@@ -15,18 +16,18 @@ public class OrderController : ControllerBase
     private readonly IOrderCommandService _orderCommandService;
     private readonly IOrderQueryService _orderQueryService;
     private readonly ITrackingEventCommandService _trackingEventCommandService;
-    private readonly IProductRepository _productRepository;
+    private readonly ITrackingContextService _trackingContextService;
 
     public OrderController(
         IOrderCommandService orderCommandService, 
         IOrderQueryService orderQueryService, 
         ITrackingEventCommandService trackingEventCommandService,
-        IProductRepository productRepository)
+        ITrackingContextService trackingContextService)
     {
         _orderCommandService = orderCommandService;
         _orderQueryService = orderQueryService;
         _trackingEventCommandService = trackingEventCommandService;
-        _productRepository = productRepository;
+        _trackingContextService = trackingContextService;
     }
 
     [HttpGet]
@@ -61,12 +62,35 @@ public class OrderController : ControllerBase
         return Ok(resource);
     }
 
+    [HttpGet("{id}/tracking-info")]
+    public async Task<ActionResult<OrderTrackingInfoResource>> GetTrackingInfo(long id)
+    {
+        try
+        {
+            var trackingInfo = await _trackingContextService.GetOrderTrackingInfoAsync(id);
+            var resource = new OrderTrackingInfoResource(
+                trackingInfo.OrderId,
+                trackingInfo.TotalContainers,
+                trackingInfo.DeliveredContainers,
+                trackingInfo.InTransitContainers,
+                trackingInfo.PendingContainers,
+                trackingInfo.OverallStatus,
+                trackingInfo.LastUpdated
+            );
+            return Ok(resource);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { error = ex.Message });
+        }
+    }
+
     [HttpPost]
     public async Task<ActionResult<OrderResource>> Create([FromBody] CreateOrderResource resource)
     {
         try
         {
-            var command = await CreateOrderCommandFromResourceAssembler.ToCommandFromResourceAsync(resource, _productRepository);
+            var command = CreateOrderCommandFromResourceAssembler.ToCommandFromResource(resource);
             var order = await _orderCommandService.CreateWithProductInfoAsync(command);
             var orderResource = OrderResourceFromEntityAssembler.ToResourceFromEntity(order);
             return CreatedAtAction(nameof(GetById), new { id = order.OrderId }, orderResource);
@@ -90,7 +114,7 @@ public class OrderController : ControllerBase
     {
         try
         {
-            var command = await AddOrderItemCommandFromResourceAssembler.ToCommandFromResourceAsync(id, resource, _productRepository);
+            var command = AddOrderItemCommandFromResourceAssembler.ToCommandFromResource(id, resource);
             var order = await _orderCommandService.AddOrderItemAsync(command);
             var orderResource = OrderResourceFromEntityAssembler.ToResourceFromEntity(order);
             return Ok(orderResource);

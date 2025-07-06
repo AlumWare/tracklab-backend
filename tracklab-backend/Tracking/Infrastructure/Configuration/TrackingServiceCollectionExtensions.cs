@@ -3,6 +3,9 @@ using Alumware.Tracklab.API.Tracking.Application.Internal.QueryServices;
 using Alumware.Tracklab.API.Tracking.Domain.Services;
 using Alumware.Tracklab.API.Tracking.Infrastructure.Persistence.EFC.Repositories;
 using Alumware.Tracklab.API.Tracking.Domain.Repositories;
+using Alumware.Tracklab.API.Tracking.Infrastructure.QrCode.Configuration;
+using Alumware.Tracklab.API.Tracking.Interfaces.ACL;
+using Alumware.Tracklab.API.Tracking.Application.ACL;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Alumware.Tracklab.API.Tracking.Infrastructure.Configuration;
@@ -23,6 +26,13 @@ public static class TrackingServiceCollectionExtensions
         services.AddScoped<IRouteQueryService, RouteQueryService>();
         services.AddScoped<ITrackingEventCommandService, TrackingEventCommandService>();
         services.AddScoped<ITrackingEventQueryService, TrackingEventQueryService>();
+        
+        // Registrar servicios QR Code
+        services.AddQrCodeServices();
+        
+        // Registrar ACL facade
+        services.AddScoped<ITrackingContextFacade, TrackingContextFacade>();
+        
         return services;
     }
 } 

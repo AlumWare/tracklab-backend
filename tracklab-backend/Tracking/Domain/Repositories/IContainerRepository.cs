@@ -8,4 +8,5 @@ public interface IContainerRepository : IBaseRepository<Container>
 {
     Task<IEnumerable<Container>> GetAllAsync(GetAllContainersQuery query);
     Task<Container?> GetByIdAsync(GetContainerByIdQuery query);
+    Task<IEnumerable<Container>> GetByOrderIdAsync(long orderId);
 } 

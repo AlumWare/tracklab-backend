@@ -19,7 +19,10 @@ public class RouteRepository : BaseRepository<RouteAggregate>, IRouteRepository
 
     private IQueryable<RouteAggregate> GetTenantFilteredQuery()
     {
-        var query = Context.Set<RouteAggregate>().AsQueryable();
+        var query = Context.Set<RouteAggregate>()
+            .Include(r => r.RouteItems)
+            .Include(r => r.Orders)
+            .AsQueryable();
         // Aquí podrías filtrar por tenant si corresponde
         return query;
     }

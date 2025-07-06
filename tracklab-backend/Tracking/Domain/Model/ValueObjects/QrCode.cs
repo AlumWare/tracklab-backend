@@ -4,8 +4,10 @@ namespace Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects;
 
 public record QrCode
 {
-    public string Url { get; }
-    public DateTime GeneratedAt { get; }
+    public string Url { get; private set; } = string.Empty;
+    public DateTime GeneratedAt { get; private set; }
+
+    private QrCode() { }
 
     public QrCode(string url)
     {
