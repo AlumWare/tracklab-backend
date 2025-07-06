@@ -4,6 +4,7 @@ using EFCore.NamingConventions;
 
 using Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 using Alumware.Tracklab.API.Resource.Domain.Model.ValueObjects;
+using Alumware.Tracklab.API.Resource.Domain.Model.Entities;
 using Alumware.Tracklab.API.Order.Domain.Model.Aggregates;
 using Alumware.Tracklab.API.Order.Domain.Model.Entities;
 using TrackLab.Shared.Domain.ValueObjects;
@@ -23,6 +24,7 @@ public class AppDbContext : DbContext
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
     public DbSet<Vehicle> Vehicles => Set<Vehicle>();
+    public DbSet<VehicleImage> VehicleImages => Set<VehicleImage>();
     public DbSet<Employee> Employees => Set<Employee>();
     public DbSet<Warehouse> Warehouses => Set<Warehouse>();
     public DbSet<Position> Positions => Set<Position>();
@@ -77,6 +79,10 @@ public class AppDbContext : DbContext
             loc.Property(p => p.Longitude).HasColumnName("location_longitude");
             loc.WithOwner().HasForeignKey("Id");
         });
+
+        // === VEHICLE IMAGE ===
+        builder.Entity<VehicleImage>().ToTable("vehicle_images");
+        builder.Entity<VehicleImage>().HasKey(vi => vi.Id);
 
         // === WAREHOUSE ===
         builder.Entity<Warehouse>().ToTable("warehouses");
@@ -205,6 +211,12 @@ public class AppDbContext : DbContext
             w.Property(p => p.Value).HasColumnName("warehouse_id");
             w.WithOwner().HasForeignKey("ContainerId");
         });
+        builder.Entity<Container>().OwnsOne(c => c.QrCode, qr =>
+        {
+            qr.Property(p => p.Url).HasColumnName("qr_code_url");
+            qr.Property(p => p.GeneratedAt).HasColumnName("qr_code_generated_at");
+            qr.WithOwner().HasForeignKey("ContainerId");
+        });
         builder.Entity<Container>().OwnsMany(c => c.ShipItems, si =>
         {
             si.WithOwner().HasForeignKey("ContainerId");
@@ -231,6 +243,13 @@ public class AppDbContext : DbContext
             .WithMany(t => t.Vehicles)
             .HasForeignKey(v => v.TenantId)
             .OnDelete(DeleteBehavior.Restrict);
+
+        // Vehicle → VehicleImages
+        builder.Entity<VehicleImage>()
+            .HasOne<Vehicle>()
+            .WithMany(v => v.Images)
+            .HasForeignKey(vi => vi.VehicleId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         // Tenant → Warehouses
         builder.Entity<Warehouse>()

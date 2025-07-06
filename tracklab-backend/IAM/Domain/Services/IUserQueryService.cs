@@ -1,5 +1,6 @@
 using TrackLab.IAM.Domain.Model.Aggregates;
 using TrackLab.IAM.Domain.Model.Queries;
+using TrackLab.IAM.Domain.Model.ValueObjects;
 
 namespace TrackLab.IAM.Domain.Services;
 
@@ -22,4 +23,9 @@ public interface IUserQueryService
     /// Handle get all users query
     /// </summary>
     Task<IEnumerable<User>> Handle(GetAllUsersQuery query);
+    
+    /// <summary>
+    /// Handle get users by filter query
+    /// </summary>
+    Task<IEnumerable<User>> Handle(GetUsersByFilterQuery query);
 }

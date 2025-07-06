@@ -29,7 +29,9 @@ public class VehicleRepository : BaseRepository<Vehicle>, IVehicleRepository
     /// </summary>
     private IQueryable<Vehicle> GetTenantFilteredQuery()
     {
-        var query = Context.Set<Vehicle>().AsQueryable();
+        var query = Context.Set<Vehicle>()
+            .Include(v => v.Images)
+            .AsQueryable();
         
         if (_tenantContext.HasTenant)
         {

@@ -4,6 +4,8 @@ using Alumware.Tracklab.API.Order.Domain.Services;
 using Alumware.Tracklab.API.Order.Domain.Repositories;
 using TrackLab.Shared.Domain.Repositories;
 using TrackLab.Shared.Infrastructure.Multitenancy;
+using TrackLab.Shared.Domain.Events;
+using Alumware.Tracklab.API.Order.Domain.Events;
 using OrderAggregate = Alumware.Tracklab.API.Order.Domain.Model.Aggregates.Order;
 
 namespace Alumware.Tracklab.API.Order.Application.Internal.CommandServices;
@@ -13,15 +15,18 @@ public class OrderCommandService : IOrderCommandService
     private readonly IOrderRepository _orderRepository;
     private readonly IUnitOfWork _unitOfWork;
     private readonly ITenantContext _tenantContext;
+    private readonly IDomainEventDispatcher _eventDispatcher;
 
     public OrderCommandService(
         IOrderRepository orderRepository,
         IUnitOfWork unitOfWork,
-        ITenantContext tenantContext)
+        ITenantContext tenantContext,
+        IDomainEventDispatcher eventDispatcher)
     {
         _orderRepository = orderRepository;
         _unitOfWork = unitOfWork;
         _tenantContext = tenantContext;
+        _eventDispatcher = eventDispatcher;
     }
 
     public async Task<OrderAggregate> CreateAsync(CreateOrderCommand command)
@@ -36,6 +41,8 @@ public class OrderCommandService : IOrderCommandService
         
         await _orderRepository.AddAsync(order);
         await _unitOfWork.CompleteAsync(); // Persistir los cambios
+        
+        
         return order;
     }
 
