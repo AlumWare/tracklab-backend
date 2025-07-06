@@ -31,4 +31,14 @@ public class UserQueryService : IUserQueryService
     {
         return await _userRepository.FindAllAsync();
     }
+
+    public async Task<IEnumerable<User>> Handle(GetUsersByFilterQuery query)
+    {
+        var users = await _userRepository.FindAllAsync();
+
+        return users.Where(u => 
+            (!query.UserId.HasValue || u.Id == query.UserId) &&
+            (!query.TenantId.HasValue || u.TenantId == query.TenantId) &&
+            (string.IsNullOrEmpty(query.Role) || u.HasRole(query.Role)));
+    }
 } 
