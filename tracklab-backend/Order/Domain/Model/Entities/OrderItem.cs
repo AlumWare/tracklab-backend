@@ -1,4 +1,3 @@
-using Alumware.Tracklab.API.Order.Domain.Model.ValueObjects;
 using TrackLab.Shared.Domain.ValueObjects;
 
 namespace Alumware.Tracklab.API.Order.Domain.Model.Entities;
@@ -6,7 +5,7 @@ namespace Alumware.Tracklab.API.Order.Domain.Model.Entities;
 public partial class OrderItem
 {
     public long Id { get; private set; }
-    public ProductId ProductId { get; private set; } = null!;
+    public long ProductId { get; private set; }
     public Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Product Product { get; set; } = null!;
     public int Quantity { get; private set; }
     public Price Price { get; private set; } = null!;
@@ -20,7 +19,7 @@ public partial class OrderItem
         if (quantity <= 0)
             throw new ArgumentException("La cantidad debe ser mayor a 0", nameof(quantity));
         
-        ProductId = new ProductId(productId);
+        ProductId = productId;
         Quantity = quantity;
         Price = price;
     }

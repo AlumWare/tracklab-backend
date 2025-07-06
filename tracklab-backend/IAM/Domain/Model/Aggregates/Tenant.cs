@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using TrackLab.Shared.Domain.ValueObjects;
+using TrackLab.IAM.Domain.Model.ValueObjects;
 
 namespace TrackLab.IAM.Domain.Model.Aggregates;
 
@@ -45,6 +46,9 @@ public class Tenant
     [Required]
     public bool Active { get; set; }
     
+    [Required]
+    public TenantType Type { get; set; } = TenantType.LOGISTIC;
+    
     // Navigation properties
     public ICollection<User> Users { get; set; } = new List<User>();
     public List<Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Vehicle> Vehicles { get; set; } = new();
@@ -56,11 +60,13 @@ public class Tenant
     public Tenant()
     {
         Active = true;
+        Type = TenantType.LOGISTIC;
     }
     
     public Tenant(string ruc, string legalName, string? commercialName, 
                   string? address, string? city, string? country, 
-                  PhoneNumber? phone, Email? email, string? website) : this()
+                  PhoneNumber? phone, Email? email, string? website, 
+                  TenantType type = TenantType.LOGISTIC) : this()
     {
         Ruc = ruc;
         LegalName = legalName;
@@ -72,6 +78,7 @@ public class Tenant
         PhoneNumber = phone;
         Email = email;
         Website = website;
+        Type = type;
     }
     
     /// <summary>
@@ -112,4 +119,8 @@ public class Tenant
     public string? GetEmail() => Email?.Value;
     
     public string? GetPhone() => PhoneNumber?.Value;
+    
+    public bool IsLogistic() => Type == TenantType.LOGISTIC;
+    public bool IsClient() => Type == TenantType.CLIENT;
+    public bool IsProvider() => Type == TenantType.PROVIDER;
 }

@@ -4,10 +4,18 @@ public record ContainerResource(
     long ContainerId,
     long OrderId,
     long WarehouseId,
-    IEnumerable<ShipItemResource> ShipItems
+    IEnumerable<ShipItemResource> ShipItems,
+    decimal TotalWeight
+);
+
+public record CreateContainerResource(
+    long OrderId,
+    long WarehouseId,
+    decimal TotalWeight
 );
 
 public record ShipItemResource(
     long ProductId,
-    long Quantity
+    int Quantity,
+    decimal UnitWeight
 ); 

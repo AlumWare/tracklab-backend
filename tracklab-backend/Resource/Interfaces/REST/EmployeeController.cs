@@ -45,11 +45,27 @@ public class EmployeeController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult> Create([FromBody] CreateEmployeeResource resource)
+    public async Task<ActionResult<EmployeeResource>> Create([FromBody] CreateEmployeeResource resource)
     {
-        var command = CreateEmployeeCommandFromResourceAssembler.ToCommandFromResource(resource);
-        var created = await _commandService.Handle(command);
-        return CreatedAtAction(nameof(GetById), new { id = created.Id }, null);
+        try
+        {
+            var command = CreateEmployeeCommandFromResourceAssembler.ToCommandFromResource(resource);
+            var created = await _commandService.Handle(command);
+            var resourceResponse = EmployeeResourceFromEntityAssembler.ToResourceFromEntity(created);
+            return CreatedAtAction(nameof(GetById), new { id = created.Id }, resourceResponse);
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new { error = ex.Message });
+        }
+        catch (InvalidOperationException ex)
+        {
+            return Conflict(new { error = ex.Message });
+        }
+        catch (Exception)
+        {
+            return StatusCode(500, new { error = "Error interno del servidor al crear el empleado." });
+        }
     }
 
     [HttpPut("{id}")]

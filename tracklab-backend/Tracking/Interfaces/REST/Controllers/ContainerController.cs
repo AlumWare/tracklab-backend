@@ -44,11 +44,27 @@ public class ContainerController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<ContainerResource>> Create([FromBody] CreateContainerCommand command)
+    public async Task<ActionResult<ContainerResource>> Create([FromBody] CreateContainerResource resource)
     {
-        var container = await _containerCommandService.CreateAsync(command);
-        var resource = ContainerResourceFromEntityAssembler.ToResourceFromEntity(container);
-        return CreatedAtAction(nameof(GetById), new { id = container.ContainerId }, resource);
+        try
+        {
+            var command = CreateContainerCommandFromResourceAssembler.ToCommandFromResource(resource);
+            var container = await _containerCommandService.CreateAsync(command);
+            var containerResource = ContainerResourceFromEntityAssembler.ToResourceFromEntity(container);
+            return CreatedAtAction(nameof(GetById), new { id = container.ContainerId }, containerResource);
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new { error = ex.Message });
+        }
+        catch (InvalidOperationException ex)
+        {
+            return Conflict(new { error = ex.Message });
+        }
+        catch (Exception)
+        {
+            return StatusCode(500, new { error = "Error interno del servidor al crear el contenedor." });
+        }
     }
 
     [HttpPut("{id}/nodes")]

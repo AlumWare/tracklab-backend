@@ -8,4 +8,5 @@ public interface IProductRepository : IBaseRepository<Product>
 {
     Task<IEnumerable<Product>> GetAllAsync(GetAllProductsQuery query);
     Task<Product?> GetByIdAsync(GetProductByIdQuery query);
+    Task<IEnumerable<Product>> GetAvailableAsync(GetAvailableProductsQuery query);
 } 

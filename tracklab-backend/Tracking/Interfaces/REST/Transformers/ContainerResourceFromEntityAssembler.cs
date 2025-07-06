@@ -11,7 +11,8 @@ public static class ContainerResourceFromEntityAssembler
             container.ContainerId,
             container.OrderId.Value,
             container.WarehouseId.Value,
-            container.ShipItems.Select(ToShipItemResourceFromEntity)
+            container.ShipItems.Select(ToShipItemResourceFromEntity),
+            container.TotalWeight
         );
     }
 
@@ -24,7 +25,8 @@ public static class ContainerResourceFromEntityAssembler
     {
         return new ShipItemResource(
             item.ProductId,
-            item.Quantity
+            (int)item.Quantity,
+            item.UnitWeight
         );
     }
 } 

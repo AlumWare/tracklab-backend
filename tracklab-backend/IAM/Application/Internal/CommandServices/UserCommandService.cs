@@ -4,6 +4,7 @@ using TrackLab.IAM.Domain.Model.Commands;
 using TrackLab.IAM.Domain.Model.ValueObjects;
 using TrackLab.IAM.Domain.Repositories;
 using TrackLab.IAM.Domain.Services;
+using TrackLab.Shared.Domain.Repositories;
 using TrackLab.Shared.Domain.ValueObjects;
 using TrackLab.Shared.Infrastructure.Multitenancy;
 
@@ -42,6 +43,7 @@ public class UserCommandService : IUserCommandService
             throw new Exception("Username is already taken");
 
         // Create tenant
+        var tenantType = Enum.TryParse<TenantType>(command.TenantType ?? "LOGISTIC", true, out var parsedType) ? parsedType : TenantType.LOGISTIC;
         var tenant = new Tenant(
             command.Ruc,
             command.LegalName,
@@ -51,7 +53,8 @@ public class UserCommandService : IUserCommandService
             command.Country ?? "Peru",
             command.TenantPhone != null ? new PhoneNumber(command.TenantPhone) : null,
             command.TenantEmail != null ? new TrackLab.Shared.Domain.ValueObjects.Email(command.TenantEmail) : null,
-            command.Website
+            command.Website,
+            tenantType
         );
 
         // Save tenant first to get ID
@@ -151,11 +154,12 @@ public class UserCommandService : IUserCommandService
 
     private static IEnumerable<Role> GetRolesForTenantType(string tenantType)
     {
-        return tenantType.ToUpper() switch
+        var type = Enum.TryParse<TenantType>(tenantType ?? "LOGISTIC", true, out var parsedType) ? parsedType : TenantType.LOGISTIC;
+        return type switch
         {
-            "CLIENT" => [Role.Client],
-            "PROVIDER" => [Role.Provider],
-            "LOGISTIC" or _ => [Role.Admin] // Default to admin for logistic companies
+            TenantType.CLIENT => new[] { Role.Client },
+            TenantType.PROVIDER => new[] { Role.Provider },
+            TenantType.LOGISTIC or _ => new[] { Role.Admin }
         };
     }
 } 

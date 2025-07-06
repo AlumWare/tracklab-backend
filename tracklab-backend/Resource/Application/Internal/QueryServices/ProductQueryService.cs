@@ -23,4 +23,9 @@ public class ProductQueryService : IProductQueryService
     {
         return await _productRepository.FindByIdAsync(query.Id);
     }
+
+    public async Task<IEnumerable<Product>> Handle(GetAvailableProductsQuery query)
+    {
+        return await _productRepository.GetAvailableAsync(query);
+    }
 } 

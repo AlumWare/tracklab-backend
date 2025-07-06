@@ -83,4 +83,31 @@ public class ProductRepository : BaseRepository<Product>, IProductRepository
         return await GetTenantFilteredQuery()
             .FirstOrDefaultAsync(p => p.Id == id);
     }
+
+    public async Task<IEnumerable<Product>> GetAvailableAsync(GetAvailableProductsQuery query)
+    {
+        var productsQuery = GetTenantFilteredQuery()
+            .Where(p => p.Stock > 0); // Solo productos con stock disponible
+
+        // Aplicar filtros
+        if (!string.IsNullOrWhiteSpace(query.Name))
+        {
+            productsQuery = productsQuery.Where(p => p.Name.Contains(query.Name));
+        }
+
+        if (!string.IsNullOrWhiteSpace(query.Category))
+        {
+            productsQuery = productsQuery.Where(p => p.Category == query.Category);
+        }
+
+        // Aplicar paginación
+        if (query.PageSize.HasValue && query.PageNumber.HasValue)
+        {
+            productsQuery = productsQuery
+                .Skip((query.PageNumber.Value - 1) * query.PageSize.Value)
+                .Take(query.PageSize.Value);
+        }
+
+        return await productsQuery.ToListAsync();
+    }
 } 
