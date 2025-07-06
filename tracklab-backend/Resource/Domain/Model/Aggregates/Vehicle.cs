@@ -1,5 +1,6 @@
 ﻿using  Alumware.Tracklab.API.Resource.Domain.Model.Commands;
 using  Alumware.Tracklab.API.Resource.Domain.Model.ValueObjects;
+using  Alumware.Tracklab.API.Resource.Domain.Model.Entities;
 using System.Text.RegularExpressions;
 
 namespace Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
@@ -14,7 +15,7 @@ public partial class Vehicle
     public int PaxCapacity { get; private set; }
     public EVehicleStatus Status { get; private set; }
     public Coordinates Location { get; private set; } = null!;
-    public List<long> ImageAssetIds { get; private set; } = null!;
+    public List<VehicleImage> Images { get; private set; } = new();
     public decimal Tonnage { get; private set; }
     
     public Vehicle() { }
@@ -34,7 +35,7 @@ public partial class Vehicle
         PaxCapacity = command.PaxCapacity;
         Location = command.Location;
         Status = EVehicleStatus.Available;
-        ImageAssetIds = new List<long>();
+        Images = new List<VehicleImage>();
         Tonnage = command.Tonnage;
     }
 
@@ -55,6 +56,38 @@ public partial class Vehicle
 
     public void Delete(DeleteVehicleCommand command)
     {
+    }
+
+    public void AddImage(string imageUrl, string publicId)
+    {
+        if (!CanAddImage())
+            throw new InvalidOperationException("A vehicle cannot have more than 3 images.");
+        
+        var vehicleImage = new VehicleImage(Id, imageUrl, publicId);
+        Images.Add(vehicleImage);
+    }
+    
+    public void RemoveImage(string publicId)
+    {
+        var image = Images.FirstOrDefault(img => img.PublicId == publicId);
+        if (image != null)
+        {
+            Images.Remove(image);
+        }
+    }
+    
+    public void UpdateImage(string oldPublicId, string newImageUrl, string newPublicId)
+    {
+        var image = Images.FirstOrDefault(img => img.PublicId == oldPublicId);
+        if (image != null)
+        {
+            image.UpdateImageUrl(newImageUrl, newPublicId);
+        }
+    }
+    
+    public bool CanAddImage()
+    {
+        return Images.Count < 3;
     }
 
     public void SetTenantId(long tenantId)

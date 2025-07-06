@@ -8,5 +8,5 @@ public record VehicleResource(
     string Status,
     double Latitude,
     double Longitude,
-    List<long> ImageAssetIds
+    List<VehicleImageResource> Images
 );

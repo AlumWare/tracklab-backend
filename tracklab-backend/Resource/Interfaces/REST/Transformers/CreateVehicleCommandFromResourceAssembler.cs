@@ -13,7 +13,8 @@ public static class CreateVehicleCommandFromResourceAssembler
             resource.LoadCapacity,
             resource.PaxCapacity,
             new Coordinates(resource.Latitude, resource.Longitude),
-            resource.Tonnage
+            resource.Tonnage,
+            resource.Images
         );
     }
 }

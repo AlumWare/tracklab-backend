@@ -33,8 +33,6 @@ public class VehicleQueryService : IVehicleQueryService
             vehicles = vehicles.Where(v => v.LicensePlate.Contains(query.LicensePlate, StringComparison.OrdinalIgnoreCase));
         }
         
-        // Nota: El filtro Type no existe en el modelo actual de Vehicle
-        // Solo aplicamos paginación
         
         // Aplicar paginación si está especificada
         if (query.PageSize.HasValue && query.PageNumber.HasValue)

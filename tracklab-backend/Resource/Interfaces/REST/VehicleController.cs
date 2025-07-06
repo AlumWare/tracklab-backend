@@ -45,7 +45,8 @@ public class VehicleController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<VehicleResource>> Create([FromBody] CreateVehicleResource resource)
+    [Consumes("multipart/form-data")]
+    public async Task<ActionResult<VehicleResource>> Create([FromForm] CreateVehicleResource resource)
     {
         var command = CreateVehicleCommandFromResourceAssembler.ToCommandFromResource(resource);
         var vehicle = await _commandService.Handle(command);
@@ -66,5 +67,22 @@ public class VehicleController : ControllerBase
     {
         await _commandService.Handle(new DeleteVehicleCommand(id));
         return NoContent();
+    }
+
+    [HttpPost("{id}/images")]
+    [Consumes("multipart/form-data")]
+    public async Task<ActionResult> AddImage(long id, [FromForm] AddVehicleImageResource resource)
+    {
+        var command = AddVehicleImageCommandFromResourceAssembler.ToCommandFromResource(id, resource);
+        await _commandService.Handle(command);
+        return Ok(new { message = "Imagen agregada exitosamente" });
+    }
+
+    [HttpDelete("{id}/images/{publicId}")]
+    public async Task<ActionResult> RemoveImage(long id, string publicId)
+    {
+        var command = new RemoveVehicleImageCommand(id, publicId);
+        await _commandService.Handle(command);
+        return Ok(new { message = "Imagen removida exitosamente" });
     }
 }

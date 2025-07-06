@@ -1,4 +1,6 @@
-﻿namespace Alumware.Tracklab.API.Resource.Interfaces.REST.Resources;
+﻿using Microsoft.AspNetCore.Http;
+
+namespace Alumware.Tracklab.API.Resource.Interfaces.REST.Resources;
 
 public record CreateVehicleResource(
     string LicensePlate,
@@ -6,5 +8,6 @@ public record CreateVehicleResource(
     int PaxCapacity,
     double Latitude,
     double Longitude,
-    decimal Tonnage
+    decimal Tonnage,
+    IFormFile[]? Images = null
 );
