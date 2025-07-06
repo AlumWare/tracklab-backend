@@ -116,6 +116,14 @@ app.UseSwaggerUI(c =>
     }
 });
 
+// Configure CORS to allow all origins
+app.UseCors(builder =>
+{
+    builder.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+});
+
 // Middleware pipeline
 app.UseHttpsRedirection();
 
