@@ -75,18 +75,23 @@ public class OrderRepository : BaseRepository<OrderAggregate>, IOrderRepository
                 .Take(query.PageSize.Value);
         }
 
+        // Incluir OrderItems al final
+        ordersQuery = ordersQuery.Include(o => o.OrderItems);
+
         return await ordersQuery.ToListAsync();
     }
 
     public async Task<OrderAggregate?> GetByIdAsync(GetOrderByIdQuery query)
     {
         return await GetTenantFilteredQuery()
+            .Include(o => o.OrderItems)
             .FirstOrDefaultAsync(o => o.OrderId == query.Id);
     }
 
     public new async Task<OrderAggregate?> FindByIdAsync(long id)
     {
         return await GetTenantFilteredQuery()
+            .Include(o => o.OrderItems)
             .FirstOrDefaultAsync(o => o.OrderId == id);
     }
 } 

@@ -19,6 +19,7 @@ using Alumware.Tracklab.API.Order.Application.Internal.QueryServices;
 using Alumware.Tracklab.API.Tracking.Domain.Repositories;
 using Alumware.Tracklab.API.Tracking.Domain.Services;
 using Alumware.Tracklab.API.Tracking.Application.Internal.CommandServices;
+using Alumware.Tracklab.API.Tracking.Application.Internal.QueryServices;
 using Alumware.Tracklab.API.Tracking.Infrastructure.Persistence.EFC.Repositories;
 using Alumware.Tracklab.API.IAM.Infrastructure.Pipeline.Middleware.Components;
 using TrackingEventRepositoryTracking = Alumware.Tracklab.API.Tracking.Infrastructure.Persistence.EFC.Repositories.TrackingEventRepository;
@@ -83,6 +84,11 @@ builder.Services.AddScoped<IContainerCommandService, ContainerCommandService>();
 builder.Services.AddScoped<IRouteCommandService, RouteCommandService>();
 builder.Services.AddScoped<ITrackingEventCommandServiceTracking, TrackingEventCommandServiceTracking>();
 
+// Tracking Query services
+builder.Services.AddScoped<IContainerQueryService, ContainerQueryService>();
+builder.Services.AddScoped<IRouteQueryService, RouteQueryService>();
+builder.Services.AddScoped<ITrackingEventQueryService, TrackingEventQueryService>();
+
 // Add IAM Configuration
 builder.Services.AddIamConfiguration(builder.Configuration);
 
@@ -101,9 +107,9 @@ using (var scope = app.Services.CreateScope())
     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     var hashingService = scope.ServiceProvider.GetRequiredService<IHashingService>();
     
-    // Delete and recreate the database (for development)
-    //Console.WriteLine("Deleting existing database...");
-    //await dbContext.Database.EnsureDeletedAsync();
+    //Delete and recreate the database (for development)
+    Console.WriteLine("Deleting existing database...");
+    await dbContext.Database.EnsureDeletedAsync();
     Console.WriteLine("Creating new database...");
     await dbContext.Database.EnsureCreatedAsync();
 

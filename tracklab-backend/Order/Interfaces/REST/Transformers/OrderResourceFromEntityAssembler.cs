@@ -35,7 +35,7 @@ public static class OrderResourceFromEntityAssembler
     {
         return new OrderItemResource(
             orderItem.Id,
-            orderItem.ProductId.Value,
+            orderItem.ProductId,
             orderItem.Quantity,
             orderItem.Price.Amount,
             orderItem.Price.Currency

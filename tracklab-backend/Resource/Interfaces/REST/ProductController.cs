@@ -35,6 +35,19 @@ public class ProductController : ControllerBase
         return Ok(resources);
     }
 
+    [HttpGet("available")]
+    public async Task<ActionResult<IEnumerable<ProductResource>>> GetAvailableProducts(
+        [FromQuery] int? pageSize = null,
+        [FromQuery] int? pageNumber = null,
+        [FromQuery] string? name = null,
+        [FromQuery] string? category = null)
+    {
+        var query = new GetAvailableProductsQuery(pageSize, pageNumber, name, category);
+        var products = await _productQueryService.Handle(query);
+        var resources = ProductResourceFromEntityAssembler.ToResourceFromEntities(products);
+        return Ok(resources);
+    }
+
     [HttpGet("{id}")]
     public async Task<ActionResult<ProductResource>> GetById(long id)
     {

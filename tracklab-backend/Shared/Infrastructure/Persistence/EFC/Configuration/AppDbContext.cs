@@ -67,6 +67,18 @@ public class AppDbContext : DbContext
             e.Property(p => p.Value).HasColumnName("email");
             e.WithOwner().HasForeignKey("Id");
         });
+        builder.Entity<Employee>().Property(e => e.FirstName).HasColumnName("first_name");
+        builder.Entity<Employee>().Property(e => e.LastName).HasColumnName("last_name");
+        builder.Entity<Employee>().Property(e => e.PhoneNumber).HasColumnName("phone_number");
+        builder.Entity<Employee>().Property(e => e.PositionId).HasColumnName("position_id");
+        builder.Entity<Employee>().Property(e => e.Status).HasColumnName("status").HasConversion<string>();
+        
+        // Configurar la relación con Position
+        builder.Entity<Employee>()
+            .HasOne(e => e.Position)
+            .WithMany()
+            .HasForeignKey(e => e.PositionId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         // === VEHICLE ===
         builder.Entity<Vehicle>().ToTable("vehicles");
@@ -112,7 +124,6 @@ public class AppDbContext : DbContext
         builder.Entity<Order>().ToTable("orders");
         builder.Entity<Order>().HasKey(o => o.OrderId);
         builder.Entity<Order>().Property(o => o.TenantId).HasColumnName("customer_id");
-        builder.Entity<Order>().Property(o => o.LogisticsId).HasColumnName("logistics_id");
         builder.Entity<Order>().Property(o => o.ShippingAddress).HasColumnName("shipping_address");
         builder.Entity<Order>().Property(o => o.OrderDate).HasColumnName("order_date");
         builder.Entity<Order>().Property(o => o.Status).HasColumnName("status");
@@ -123,11 +134,20 @@ public class AppDbContext : DbContext
         // === ORDER ITEM ===
         builder.Entity<OrderItem>().ToTable("order_items");
         builder.Entity<OrderItem>().HasKey(oi => oi.Id);
-        builder.Entity<OrderItem>().OwnsOne(oi => oi.ProductId, p =>
-        {
-            p.Property(pid => pid.Value).HasColumnName("product_id");
-            p.WithOwner().HasForeignKey("Id");
-        });
+        
+        // Mapear ProductId como propiedad simple
+        builder.Entity<OrderItem>()
+            .Property(oi => oi.ProductId)
+            .HasColumnName("product_id");
+        
+        // Configurar la relación con Product
+        builder.Entity<OrderItem>()
+            .HasOne(oi => oi.Product)
+            .WithMany()
+            .HasForeignKey(oi => oi.ProductId)
+            .OnDelete(DeleteBehavior.Restrict);
+        
+        // Mapear Price como owned entity
         builder.Entity<OrderItem>().OwnsOne(oi => oi.Price, price =>
         {
             price.Property(p => p.Amount).HasColumnName("price_amount");
@@ -183,6 +203,9 @@ public class AppDbContext : DbContext
             p.Property(p => p.Value).HasColumnName("phone_number");
             p.WithOwner().HasForeignKey("Id");
         });
+        builder.Entity<Tenant>().Property(t => t.Type)
+            .HasColumnName("tenant_type")
+            .HasConversion<string>();
 
         // === TRACKING ===
         builder.Entity<RouteAggregate>().ToTable("routes");
@@ -195,16 +218,25 @@ public class AppDbContext : DbContext
 
         builder.Entity<Container>().ToTable("containers");
         builder.Entity<Container>().HasKey(c => c.ContainerId);
-        builder.Entity<Container>().OwnsOne(c => c.OrderId, o =>
-        {
-            o.Property(p => p.Value).HasColumnName("order_id");
-            o.WithOwner().HasForeignKey("ContainerId");
-        });
-        builder.Entity<Container>().OwnsOne(c => c.WarehouseId, w =>
-        {
-            w.Property(p => p.Value).HasColumnName("warehouse_id");
-            w.WithOwner().HasForeignKey("ContainerId");
-        });
+        builder.Entity<Container>().Property(c => c.TotalWeight).HasColumnName("total_weight");
+        
+        // Mapear OrderId y WarehouseId como propiedades simples con conversión
+        builder.Entity<Container>()
+            .Property(c => c.OrderId)
+            .HasConversion(
+                v => v.Value,
+                v => new Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects.OrderId(v)
+            )
+            .HasColumnName("order_id");
+            
+        builder.Entity<Container>()
+            .Property(c => c.WarehouseId)
+            .HasConversion(
+                v => v.Value,
+                v => new Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects.WarehouseId(v)
+            )
+            .HasColumnName("warehouse_id");
+            
         builder.Entity<Container>().OwnsMany(c => c.ShipItems, si =>
         {
             si.WithOwner().HasForeignKey("ContainerId");
@@ -267,13 +299,6 @@ public class AppDbContext : DbContext
             .HasForeignKey(e => e.PositionId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // Product → OrderItems
-        builder.Entity<OrderItem>()
-            .HasOne(oi => oi.Product)
-            .WithMany()
-            .HasForeignKey("product_id")
-            .OnDelete(DeleteBehavior.Restrict);
-
         // Order → OrderItems
         builder.Entity<OrderItem>()
             .HasOne<Order>()
@@ -302,19 +327,7 @@ public class AppDbContext : DbContext
             .HasForeignKey(ri => ri.RouteId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        // Order → Containers
-        builder.Entity<Container>()
-            .HasOne(c => c.Order)
-            .WithMany()
-            .HasForeignKey("order_id")
-            .OnDelete(DeleteBehavior.Restrict);
 
-        // Warehouse → Containers
-        builder.Entity<Container>()
-            .HasOne(c => c.Warehouse)
-            .WithMany()
-            .HasForeignKey("warehouse_id")
-            .OnDelete(DeleteBehavior.Restrict);
 
         // Container → TrackingEvents
         builder.Entity<TrackingEventTracking>()
@@ -368,13 +381,6 @@ public class AppDbContext : DbContext
             .HasOne(o => o.Customer)
             .WithMany()
             .HasForeignKey(o => o.TenantId)
-            .OnDelete(DeleteBehavior.Restrict);
-
-        // Tenant → Orders (Logistics)
-        builder.Entity<Order>()
-            .HasOne(o => o.Logistics)
-            .WithMany()
-            .HasForeignKey(o => o.LogisticsId)
             .OnDelete(DeleteBehavior.Restrict);
 
         builder.Entity<TrackingEventOrder>().ToTable("order_tracking_events");

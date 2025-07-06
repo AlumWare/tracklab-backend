@@ -25,6 +25,15 @@ public partial class Employee
     // Constructor de dominio
     public Employee(CreateEmployeeCommand command)
     {
+        if (string.IsNullOrWhiteSpace(command.FirstName))
+            throw new ArgumentException("El nombre no puede estar vacío", nameof(command.FirstName));
+        if (string.IsNullOrWhiteSpace(command.LastName))
+            throw new ArgumentException("El apellido no puede estar vacío", nameof(command.LastName));
+        if (string.IsNullOrWhiteSpace(command.PhoneNumber))
+            throw new ArgumentException("El número de teléfono no puede estar vacío", nameof(command.PhoneNumber));
+        if (command.PositionId <= 0)
+            throw new ArgumentException("El ID de posición debe ser válido", nameof(command.PositionId));
+        
         Dni = new Dni(command.Dni);
         Email = new SharedEmail(command.Email);
         FirstName = command.FirstName;
@@ -48,5 +57,15 @@ public partial class Employee
     public void SetTenantId(long tenantId)
     {
         TenantId = tenantId;
+    }
+
+    public string GetFullName()
+    {
+        return $"{FirstName} {LastName}".Trim();
+    }
+
+    public bool IsAvailable()
+    {
+        return Status == EEmployeeStatus.Available;
     }
 }

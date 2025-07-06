@@ -5,6 +5,9 @@ using Alumware.Tracklab.API.Order.Domain.Repositories;
 using TrackLab.Shared.Domain.Repositories;
 using TrackLab.Shared.Infrastructure.Multitenancy;
 using OrderAggregate = Alumware.Tracklab.API.Order.Domain.Model.Aggregates.Order;
+using TrackLab.IAM.Domain.Model.Aggregates;
+using TrackLab.IAM.Domain.Repositories;
+using TrackLab.IAM.Domain.Model.ValueObjects;
 
 namespace Alumware.Tracklab.API.Order.Application.Internal.CommandServices;
 
@@ -13,19 +16,27 @@ public class OrderCommandService : IOrderCommandService
     private readonly IOrderRepository _orderRepository;
     private readonly IUnitOfWork _unitOfWork;
     private readonly ITenantContext _tenantContext;
+    private readonly ITenantRepository _tenantRepository;
 
     public OrderCommandService(
         IOrderRepository orderRepository,
         IUnitOfWork unitOfWork,
-        ITenantContext tenantContext)
+        ITenantContext tenantContext,
+        ITenantRepository tenantRepository)
     {
         _orderRepository = orderRepository;
         _unitOfWork = unitOfWork;
         _tenantContext = tenantContext;
+        _tenantRepository = tenantRepository;
     }
 
-    public async Task<OrderAggregate> CreateAsync(CreateOrderCommand command)
+    public async Task<OrderAggregate> CreateWithProductInfoAsync(CreateOrderWithProductInfoCommand command)
     {
+        // Validar que el logisticsId corresponde a un tenant de tipo LOGISTIC
+        var logisticsTenant = await _tenantRepository.FindByIdAsync(command.LogisticsId);
+        if (logisticsTenant == null || !logisticsTenant.IsLogistic())
+            throw new InvalidOperationException("El LogisticsId no corresponde a una empresa logística válida.");
+
         var order = new OrderAggregate(command);
         
         // Establecer el tenant_id desde el contexto actual
@@ -71,23 +82,6 @@ public class OrderCommandService : IOrderCommandService
 
         _orderRepository.Remove(order);
         await _unitOfWork.CompleteAsync(); // Persistir los cambios
-    }
-
-    public async Task<OrderAggregate> AssignLogisticsAndVehicleAsync(AssignLogisticsAndVehicleCommand command)
-    {
-        var order = await _orderRepository.FindByIdAsync(command.OrderId);
-        if (order == null)
-            throw new KeyNotFoundException($"Orden {command.OrderId} no encontrada.");
-        if (order.Status != Alumware.Tracklab.API.Order.Domain.Model.ValueObjects.OrderStatus.Pending)
-            throw new InvalidOperationException("Solo se puede asignar logística y vehículo a órdenes pendientes.");
-        // Aquí deberías obtener el vehículo y validar tonelaje, estado, etc. (pseudo-código):
-        // var vehicle = await _vehicleRepository.FindByIdAsync(command.VehicleId);
-        // if (vehicle == null || vehicle.Status != Available || vehicle.Tonnage < order.GetTotalWeight())
-        //     throw new InvalidOperationException("Vehículo no disponible o tonelaje insuficiente.");
-        order.AssignLogisticsAndVehicle(command.LogisticsId, command.VehicleId);
-        _orderRepository.Update(order);
-        await _unitOfWork.CompleteAsync();
-        return order;
     }
 
     public async Task<OrderAggregate> SetRouteAsync(SetRouteCommand command)
