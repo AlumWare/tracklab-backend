@@ -11,6 +11,9 @@ using TrackLab.IAM.Infrastructure.Configuration;
 using TrackLab.IAM.Application.Internal.OutboundServices;
 using TrackLab.Shared.Infrastructure.Documentation.OpenApi.Configuration;
 using TrackLab.Shared.Infrastructure.Images.Cloudinary.Configuration;
+using TrackLab.Notifications.Infrastructure.Email.Configuration;
+using TrackLab.Shared.Infrastructure.Events.Configuration;
+using TrackLab.Shared.Domain.Events;
 using Alumware.Tracklab.API.Order.Domain.Repositories;
 using Alumware.Tracklab.API.Order.Domain.Services;
 using Alumware.Tracklab.API.Order.Application.Internal.CommandServices;
@@ -89,6 +92,15 @@ builder.Services.AddIamConfiguration(builder.Configuration);
 
 // Add Cloudinary Image Service
 builder.Services.AddCloudinaryImageService(builder.Configuration);
+
+// Add Email Service
+builder.Services.AddEmailService(builder.Configuration);
+
+// Add Domain Events System
+builder.Services.AddDomainEvents(
+    typeof(Program).Assembly, // Current assembly
+    typeof(IDomainEventDispatcher).Assembly // Shared assembly
+);
 
 // Add Controllers
 builder.Services.AddControllers();
