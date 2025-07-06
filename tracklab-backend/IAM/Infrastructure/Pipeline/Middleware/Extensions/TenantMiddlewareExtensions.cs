@@ -1,4 +1,5 @@
 using TrackLab.IAM.Infrastructure.Pipeline.Middleware.Components;
+using Alumware.Tracklab.API.IAM.Infrastructure.Pipeline.Middleware.Components;
 
 namespace TrackLab.IAM.Infrastructure.Pipeline.Middleware.Extensions;
 
@@ -25,5 +26,13 @@ public static class TenantMiddlewareExtensions
                               TrackLab.Shared.Infrastructure.Multitenancy.TenantContext>();
         
         return services;
+    }
+
+    /// <summary>
+    /// Add exception handling middleware to the pipeline
+    /// </summary>
+    public static IApplicationBuilder UseExceptionHandlingMiddleware(this IApplicationBuilder builder)
+    {
+        return builder.UseMiddleware<ExceptionHandlingMiddleware>();
     }
 } 

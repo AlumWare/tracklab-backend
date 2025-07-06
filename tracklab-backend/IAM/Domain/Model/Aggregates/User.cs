@@ -31,7 +31,8 @@ public class User
     [Required]
     public bool Active { get; set; }
     
-    public TenantId TenantId { get; set; } = default!;
+    public long TenantId { get; set; }
+    public Tenant Tenant { get; set; } = null!;
     
     // Roles as a collection of value objects
     private readonly List<Role> _roles = [];

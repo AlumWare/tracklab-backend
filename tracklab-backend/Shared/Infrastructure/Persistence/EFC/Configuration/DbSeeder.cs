@@ -24,44 +24,69 @@ public static class DbSeeder
             new Email("info@tracklab.com"),
             "https://tracklab.com"
         );
-        context.Tenants.Add(defaultTenant);
+        
+        var secondTenant = new Tenant(
+            "20123456790", 
+            "Empresa Test S.A.C.", 
+            "EmpresaTest", 
+            "Av. Test 456", 
+            "Lima", 
+            "Perú",
+            new PhoneNumber("+51987654321"),
+            new Email("info@empresatest.com"),
+            "https://empresatest.com"
+        );
+        
+        context.Tenants.AddRange(defaultTenant, secondTenant);
 
-        // Guardar primero el tenant para obtener su ID
+        // Guardar primero los tenants para obtener sus IDs
         await context.SaveChangesAsync();
 
-        // Hash the passwords correctly using the hashing service
-        var adminPasswordHash = hashingService.HashPassword("Admin123!");
-        var userPasswordHash = hashingService.HashPassword("User123!");
+        // Seed Users para el primer tenant
+        var adminUser = new User
+        {
+            Username = "admin",
+            PasswordHash = hashingService.HashPassword("admin123"),
+            Email = new Email("admin@tracklab.com"),
+            FirstName = "Admin",
+            LastName = "User",
+            Active = true,
+            TenantId = defaultTenant.Id
+        };
 
-        // Seed Users
-        var adminUser = new User(
-            "admin",
-            adminPasswordHash,
-            new Email("admin@tracklab.com"),
-            "Admin",
-            "TrackLab",
-            new TenantId(defaultTenant.Id)
-        );
-        adminUser.AddRole(Role.Admin);
+        var testUser = new User
+        {
+            Username = "test",
+            PasswordHash = hashingService.HashPassword("test123"),
+            Email = new Email("test@tracklab.com"),
+            FirstName = "Test",
+            LastName = "User",
+            Active = true,
+            TenantId = defaultTenant.Id
+        };
 
-        var regularUser = new User(
-            "user",
-            userPasswordHash,
-            new Email("user@tracklab.com"),
-            "Usuario",
-            "Estándar",
-            new TenantId(defaultTenant.Id)
-        );
-        regularUser.AddRole(Role.Operator);
+        // Seed Users para el segundo tenant
+        var hakiUser = new User
+        {
+            Username = "haki",
+            PasswordHash = hashingService.HashPassword("haki123"),
+            Email = new Email("usuario@empresa.com"),
+            FirstName = "Juan",
+            LastName = "Pérez",
+            Active = true,
+            TenantId = secondTenant.Id
+        };
 
-        context.Users.AddRange(adminUser, regularUser);
+        context.Users.AddRange(adminUser, testUser, hakiUser);
 
         // Guardar todos los cambios
         await context.SaveChangesAsync();
         
         Console.WriteLine("✅ Base de datos inicializada con datos de prueba");
-        Console.WriteLine($"   👤 Usuario admin: admin / Admin123!");
-        Console.WriteLine($"   👤 Usuario operador: user / User123!");
-        Console.WriteLine($"   🏢 Tenant: {defaultTenant.GetDisplayName()}");
+        Console.WriteLine($"   👤 Usuario admin: admin / admin123 (Tenant {defaultTenant.Id})");
+        Console.WriteLine($"   👤 Usuario test: test / test123 (Tenant {defaultTenant.Id})");
+        Console.WriteLine($"   👤 Usuario haki: haki / haki123 (Tenant {secondTenant.Id})");
+        Console.WriteLine($"   🏢 Tenant 1: {defaultTenant.GetDisplayName()}");
+        Console.WriteLine($"   🏢 Tenant 2: {secondTenant.GetDisplayName()}");
     }
 } 

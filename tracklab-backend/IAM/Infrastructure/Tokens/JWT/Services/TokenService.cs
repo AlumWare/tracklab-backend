@@ -40,7 +40,7 @@ public class TokenService : ITokenService
             new(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new(ClaimTypes.Name, user.Username),
             new(ClaimTypes.Email, user.GetEmail() ?? ""),
-            new("tenant_id", user.TenantId.Value.ToString()), // Key claim for tenant resolution
+            new("tenant_id", user.TenantId.ToString()), // Key claim for tenant resolution
             new("user_id", user.Id.ToString()),
             new("username", user.Username),
             new("full_name", user.GetFullName()),
@@ -72,7 +72,7 @@ public class TokenService : ITokenService
         var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
         
         _logger.LogDebug("Generated JWT token for user {UserId} in tenant {TenantId}", 
-            user.Id, user.TenantId.Value);
+            user.Id, user.TenantId);
         
         return tokenString;
     }

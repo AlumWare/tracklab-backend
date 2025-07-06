@@ -30,7 +30,7 @@ public class WarehouseCommandService : IWarehouseCommandService
         // Establecer el tenant_id desde el contexto actual
         if (_tenantContext.HasTenant)
         {
-            warehouse.SetTenantId(new TrackLab.Shared.Domain.ValueObjects.TenantId(_tenantContext.CurrentTenantId!.Value));
+            warehouse.SetTenantId(_tenantContext.CurrentTenantId!.Value);
         }
         
         await _warehouseRepository.AddAsync(warehouse);

@@ -4,6 +4,8 @@ using TrackLab.IAM.Domain.Services;
 using TrackLab.IAM.Infrastructure.Pipeline.Middleware.Attributes;
 using TrackLab.IAM.Interfaces.REST.Resources;
 using TrackLab.IAM.Interfaces.REST.Transform;
+using TrackLab.IAM.Domain.Model.Commands;
+using TrackLab.IAM.Domain.Model.Aggregates;
 
 namespace TrackLab.IAM.Interfaces.REST;
 
@@ -145,7 +147,7 @@ public class AuthenticationController : ControllerBase
         try
         {
             // Get current user from HttpContext (set by middleware)
-            var currentUser = HttpContext.Items["User"] as Domain.Model.Aggregates.User;
+            var currentUser = HttpContext.Items["User"] as User;
             
             if (currentUser == null)
                 return Unauthorized(new { message = "User not found in context" });
@@ -157,5 +159,27 @@ public class AuthenticationController : ControllerBase
         {
             return BadRequest(new { message = ex.Message });
         }
+    }
+}
+
+[ApiController]
+[Route("api/v1/logistics")]
+public class LogisticsRegistrationController : ControllerBase
+{
+    private readonly IUserCommandService _userCommandService;
+    public LogisticsRegistrationController(IUserCommandService userCommandService)
+    {
+        _userCommandService = userCommandService;
+    }
+
+    [HttpPost("register")]
+    [AllowAnonymous]
+    public async Task<IActionResult> RegisterLogisticsCompany([FromBody] SignUpResource resource)
+    {
+        if (resource.TenantType?.ToUpper() != "LOGISTIC")
+            return BadRequest(new { error = "TenantType must be 'LOGISTIC' for logistics company registration." });
+        var command = SignUpCommandFromResourceAssembler.ToCommandFromResource(resource);
+        await _userCommandService.Handle(command);
+        return StatusCode(201, new { message = "Logistics company registered successfully." });
     }
 } 

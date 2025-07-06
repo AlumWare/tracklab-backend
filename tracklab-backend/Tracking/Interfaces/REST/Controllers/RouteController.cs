@@ -4,6 +4,8 @@ using Alumware.Tracklab.API.Tracking.Domain.Services;
 using Alumware.Tracklab.API.Tracking.Interfaces.REST.Resources;
 using Alumware.Tracklab.API.Tracking.Interfaces.REST.Transformers;
 using Microsoft.AspNetCore.Mvc;
+using Alumware.Tracklab.API.Order.Domain.Services;
+using Alumware.Tracklab.API.Order.Domain.Model.Queries;
 
 namespace Alumware.Tracklab.API.Tracking.Interfaces.REST.Controllers;
 
@@ -13,11 +15,13 @@ public class RouteController : ControllerBase
 {
     private readonly IRouteCommandService _routeCommandService;
     private readonly IRouteQueryService _routeQueryService;
+    private readonly IOrderQueryService _orderQueryService;
 
-    public RouteController(IRouteCommandService routeCommandService, IRouteQueryService routeQueryService)
+    public RouteController(IRouteCommandService routeCommandService, IRouteQueryService routeQueryService, IOrderQueryService orderQueryService)
     {
         _routeCommandService = routeCommandService;
         _routeQueryService = routeQueryService;
+        _orderQueryService = orderQueryService;
     }
 
     [HttpGet]
@@ -62,7 +66,9 @@ public class RouteController : ControllerBase
     [HttpPost("{id}/orders")]
     public async Task<ActionResult<RouteResource>> AddOrder(long id, [FromBody] AddOrderToRouteCommand command)
     {
-        var route = await _routeCommandService.AddOrderAsync(command with { RouteId = id });
+        var order = await _orderQueryService.Handle(new GetOrderByIdQuery(command.OrderId));
+        if (order == null) return NotFound($"Order {command.OrderId} not found");
+        var route = await _routeCommandService.AddOrderAsync(id, order);
         var resource = RouteResourceFromEntityAssembler.ToResourceFromEntity(route);
         return Ok(resource);
     }

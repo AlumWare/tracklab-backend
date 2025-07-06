@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 using Alumware.Tracklab.API.Resource.Domain.Repositories;
-using TrackLab.Shared.Domain.ValueObjects;
 using TrackLab.Shared.Infrastructure.Multitenancy;
 using TrackLab.Shared.Infrastructure.Persistence.EFC.Configuration;
 using TrackLab.Shared.Infrastructure.Persistence.EFC.Repositories;
@@ -35,7 +34,7 @@ public class VehicleRepository : BaseRepository<Vehicle>, IVehicleRepository
         if (_tenantContext.HasTenant)
         {
             var currentTenantId = _tenantContext.CurrentTenantId!.Value;
-            query = query.Where(v => v.TenantId.Value == currentTenantId);
+            query = query.Where(v => v.TenantId == currentTenantId);
         }
         
         return query;
@@ -57,9 +56,9 @@ public class VehicleRepository : BaseRepository<Vehicle>, IVehicleRepository
     public Vehicle SaveAsync(Vehicle vehicle)
     {
         // Ensure tenant is set if creating new vehicle
-        if (vehicle.Id == 0 && _tenantContext.HasTenant && vehicle.TenantId.Value == 0)
+        if (vehicle.Id == 0 && _tenantContext.HasTenant && vehicle.TenantId == 0)
         {
-            vehicle.SetTenantId(new TenantId(_tenantContext.CurrentTenantId!.Value));
+            vehicle.SetTenantId(_tenantContext.CurrentTenantId!.Value);
         }
 
         if (vehicle.Id == 0)
@@ -77,7 +76,7 @@ public class VehicleRepository : BaseRepository<Vehicle>, IVehicleRepository
     public void DeleteAsync(Vehicle vehicle)
     {
         // Verify vehicle belongs to current tenant for security
-        if (_tenantContext.HasTenant && vehicle.TenantId.Value != _tenantContext.CurrentTenantId!.Value)
+        if (_tenantContext.HasTenant && vehicle.TenantId != _tenantContext.CurrentTenantId!.Value)
         {
             throw new UnauthorizedAccessException("Cannot delete vehicle from different tenant");
         }

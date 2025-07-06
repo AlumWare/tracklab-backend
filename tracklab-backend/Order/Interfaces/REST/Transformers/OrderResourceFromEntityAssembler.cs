@@ -10,13 +10,19 @@ public static class OrderResourceFromEntityAssembler
     {
         return new OrderResource(
             order.OrderId,
-            order.TenantId.Value,
-            order.LogisticsId.Value,
+            order.TenantId,
+            order.LogisticsId,
             order.ShippingAddress,
             order.OrderDate,
             order.Status.ToString(),
             order.GetTotalOrderPrice(),
-            order.OrderItems.Select(ToOrderItemResourceFromEntity)
+            (order.OrderItems ?? new List<OrderItem>()).Select(orderItem => new OrderItemResource(
+                orderItem.Id,
+                orderItem.ProductId,
+                orderItem.Quantity,
+                orderItem.Price.Amount,
+                orderItem.Price.Currency
+            )).ToList()
         );
     }
 

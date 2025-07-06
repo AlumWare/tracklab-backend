@@ -12,7 +12,9 @@ public static class ProductResourceFromEntityAssembler
             product.Name,
             product.Description,
             product.Price.Amount,
-            product.Price.Currency
+            product.Price.Currency,
+            product.Category,
+            product.Stock
         );
     }
 

@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 using Alumware.Tracklab.API.Resource.Domain.Repositories;
-using TrackLab.Shared.Domain.ValueObjects;
 using TrackLab.Shared.Infrastructure.Multitenancy;
 using TrackLab.Shared.Infrastructure.Persistence.EFC.Configuration;
 using TrackLab.Shared.Infrastructure.Persistence.EFC.Repositories;
@@ -35,7 +34,7 @@ public class EmployeeRepository : BaseRepository<Employee>, IEmployeeRepository
         if (_tenantContext.HasTenant)
         {
             var currentTenantId = _tenantContext.CurrentTenantId!.Value;
-            query = query.Where(e => e.TenantId.Value == currentTenantId);
+            query = query.Where(e => e.TenantId == currentTenantId);
         }
         
         return query;
@@ -58,9 +57,9 @@ public class EmployeeRepository : BaseRepository<Employee>, IEmployeeRepository
     public Employee SaveAsync(Employee employee)
     {
         // Ensure tenant is set if creating new employee
-        if (employee.Id == 0 && _tenantContext.HasTenant && employee.TenantId.Value == 0)
+        if (employee.Id == 0 && _tenantContext.HasTenant && employee.TenantId == 0)
         {
-            employee.SetTenantId(new TenantId(_tenantContext.CurrentTenantId!.Value));
+            employee.SetTenantId(_tenantContext.CurrentTenantId!.Value);
         }
 
         if (employee.Id == 0)
@@ -78,7 +77,7 @@ public class EmployeeRepository : BaseRepository<Employee>, IEmployeeRepository
     public void DeleteAsync(Employee employee)
     {
         // Verify employee belongs to current tenant for security
-        if (_tenantContext.HasTenant && employee.TenantId.Value != _tenantContext.CurrentTenantId!.Value)
+        if (_tenantContext.HasTenant && employee.TenantId != _tenantContext.CurrentTenantId!.Value)
         {
             throw new UnauthorizedAccessException("Cannot delete employee from different tenant");
         }

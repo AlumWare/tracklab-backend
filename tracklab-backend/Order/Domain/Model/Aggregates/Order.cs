@@ -5,15 +5,21 @@ using TrackLab.Shared.Domain.ValueObjects;
 
 namespace Alumware.Tracklab.API.Order.Domain.Model.Aggregates;
 
-public class Order
+public partial class Order
 {
     public long OrderId { get; private set; }
-    public TenantId TenantId { get; private set; } = null!; // CustomerId
-    public TenantId LogisticsId { get; private set; } = null!; // LogisticsId
+    public long TenantId { get; private set; } // CustomerId
+    public TrackLab.IAM.Domain.Model.Aggregates.Tenant Customer { get; set; } = null!;
+    public long LogisticsId { get; private set; } // LogisticsId
+    public TrackLab.IAM.Domain.Model.Aggregates.Tenant Logistics { get; set; } = null!;
     public string ShippingAddress { get; private set; } = null!;
     public DateTime OrderDate { get; private set; }
     public OrderStatus Status { get; private set; }
     public List<OrderItem> OrderItems { get; private set; } = null!;
+    public List<Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates.Route> Routes { get; set; } = new();
+    public long? VehicleId { get; private set; } // Nuevo campo para vehículo asignado
+    public DateTimeOffset CreatedAt { get; private set; }
+    public DateTimeOffset UpdatedAt { get; private set; }
 
     // Constructor requerido por EF Core
     public Order() { }
@@ -21,12 +27,14 @@ public class Order
     // Constructor de dominio
     public Order(CreateOrderCommand command)
     {
-        TenantId = new TenantId(command.CustomerId);
-        LogisticsId = new TenantId(command.LogisticsId);
+        TenantId = command.CustomerId;
+        LogisticsId = command.LogisticsId;
         ShippingAddress = command.ShippingAddress;
         OrderDate = DateTime.UtcNow;
         Status = OrderStatus.Pending;
         OrderItems = new List<OrderItem>();
+        CreatedAt = DateTimeOffset.UtcNow;
+        UpdatedAt = DateTimeOffset.UtcNow;
     }
 
     public void AddOrderItem(AddOrderItemCommand command)
@@ -38,15 +46,45 @@ public class Order
     public void UpdateStatus(UpdateOrderStatusCommand command)
     {
         Status = command.NewStatus;
+        UpdateTimestamp();
     }
 
     public decimal GetTotalOrderPrice()
     {
-        return OrderItems.Sum(item => item.GetTotalPrice());
+        return OrderItems?.Sum(item => item.GetTotalPrice()) ?? 0m;
     }
 
-    public void SetTenantId(TenantId tenantId)
+    public void SetTenantId(long tenantId)
     {
         TenantId = tenantId;
+        UpdateTimestamp();
+    }
+
+    public void AssignLogisticsAndVehicle(long logisticsId, long vehicleId)
+    {
+        LogisticsId = logisticsId;
+        VehicleId = vehicleId;
+        Status = OrderStatus.InProcess; // Cambia el estado a En proceso
+        UpdateTimestamp();
+    }
+
+    public void AssignVehicle(long vehicleId)
+    {
+        VehicleId = vehicleId;
+        UpdateTimestamp();
+    }
+
+    public void SetRoute(long vehicleId, List<long> warehouses)
+    {
+        VehicleId = vehicleId;
+        // Aquí deberías crear o actualizar la entidad Route asociada a la orden
+        // y asignar la lista de almacenes (warehouses) en orden.
+        // Este es un placeholder para la lógica real de rutas.
+        UpdateTimestamp();
+    }
+
+    private void UpdateTimestamp()
+    {
+        UpdatedAt = DateTimeOffset.UtcNow;
     }
 } 

@@ -45,6 +45,14 @@ public class Tenant
     [Required]
     public bool Active { get; set; }
     
+    // Navigation properties
+    public ICollection<User> Users { get; set; } = new List<User>();
+    public List<Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Vehicle> Vehicles { get; set; } = new();
+    public List<Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Warehouse> Warehouses { get; set; } = new();
+    public List<Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Product> Products { get; set; } = new();
+    public List<Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Employee> Employees { get; set; } = new();
+    public List<Alumware.Tracklab.API.Resource.Domain.Model.Aggregates.Position> Positions { get; set; } = new();
+    
     public Tenant()
     {
         Active = true;

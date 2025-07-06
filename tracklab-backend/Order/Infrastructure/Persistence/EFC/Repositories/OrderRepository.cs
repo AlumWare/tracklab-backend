@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using Alumware.Tracklab.API.Order.Domain.Model.Aggregates;
 using Alumware.Tracklab.API.Order.Domain.Model.Queries;
 using Alumware.Tracklab.API.Order.Domain.Repositories;
-using TrackLab.Shared.Domain.ValueObjects;
 using TrackLab.Shared.Infrastructure.Multitenancy;
 using TrackLab.Shared.Infrastructure.Persistence.EFC.Configuration;
 using TrackLab.Shared.Infrastructure.Persistence.EFC.Repositories;
@@ -37,7 +36,7 @@ public class OrderRepository : BaseRepository<OrderAggregate>, IOrderRepository
         if (_tenantContext.HasTenant)
         {
             var currentTenantId = _tenantContext.CurrentTenantId!.Value;
-            query = query.Where(o => o.TenantId.Value == currentTenantId);
+            query = query.Where(o => o.TenantId == currentTenantId);
         }
         
         return query;
@@ -55,7 +54,7 @@ public class OrderRepository : BaseRepository<OrderAggregate>, IOrderRepository
 
         if (query.CustomerId.HasValue)
         {
-            ordersQuery = ordersQuery.Where(o => o.TenantId.Value == query.CustomerId.Value);
+            ordersQuery = ordersQuery.Where(o => o.TenantId == query.CustomerId.Value);
         }
 
         if (query.FromDate.HasValue)

@@ -4,10 +4,11 @@ using TrackLab.Shared.Domain.ValueObjects;
 
 namespace Alumware.Tracklab.API.Resource.Domain.Model.Aggregates;
 
-public class Warehouse
+public partial class Warehouse
 {
     public long Id { get; private set; }
-    public TenantId TenantId { get; private set; } = null!;
+    public long TenantId { get; private set; }
+    public TrackLab.IAM.Domain.Model.Aggregates.Tenant Tenant { get; set; } = null!;
 
     public string Name { get; private set; } = null!;
     public EWarehouseType Type { get; private set; }
@@ -34,7 +35,7 @@ public class Warehouse
         Address = new StreetAddress(command.Address);
     }
 
-    public void SetTenantId(TenantId tenantId)
+    public void SetTenantId(long tenantId)
     {
         TenantId = tenantId;
     }

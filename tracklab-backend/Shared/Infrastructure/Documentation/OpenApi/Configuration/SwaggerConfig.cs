@@ -29,6 +29,9 @@ public static class SwaggerConfig
                 }
             });
 
+            // Custom schema IDs
+            options.CustomSchemaIds(type => type.FullName);
+
             // JWT Bearer Authentication
             options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {

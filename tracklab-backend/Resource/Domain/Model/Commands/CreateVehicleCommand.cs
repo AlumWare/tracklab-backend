@@ -6,5 +6,6 @@ public record CreateVehicleCommand(
     string LicensePlate,
     decimal LoadCapacity,
     int PaxCapacity,
-    Coordinates Location
+    Coordinates Location,
+    decimal Tonnage
 );

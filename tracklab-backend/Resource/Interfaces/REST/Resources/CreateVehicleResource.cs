@@ -5,5 +5,6 @@ public record CreateVehicleResource(
     decimal LoadCapacity,
     int PaxCapacity,
     double Latitude,
-    double Longitude
+    double Longitude,
+    decimal Tonnage
 );
