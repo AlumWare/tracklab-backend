@@ -1,6 +1,7 @@
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
+using Microsoft.AspNetCore.Http;
 
 namespace TrackLab.Shared.Infrastructure.Documentation.OpenApi.Configuration;
 
@@ -67,7 +68,7 @@ public static class SwaggerConfig
                 options.IncludeXmlComments(xmlPath);
             }
 
-            // Custom operation filter for better documentation
+            // Custom operation filters
             options.OperationFilter<AuthorizeOperationFilter>();
         });
 

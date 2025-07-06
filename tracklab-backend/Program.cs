@@ -10,6 +10,7 @@ using Alumware.Tracklab.API.Resource.Application.Internal.QueryServices;
 using TrackLab.IAM.Infrastructure.Configuration;
 using TrackLab.IAM.Application.Internal.OutboundServices;
 using TrackLab.Shared.Infrastructure.Documentation.OpenApi.Configuration;
+using TrackLab.Shared.Infrastructure.Images.Cloudinary.Configuration;
 using Alumware.Tracklab.API.Order.Domain.Repositories;
 using Alumware.Tracklab.API.Order.Domain.Services;
 using Alumware.Tracklab.API.Order.Application.Internal.CommandServices;
@@ -85,6 +86,9 @@ builder.Services.AddScoped<ITrackingEventCommandServiceTracking, TrackingEventCo
 
 // Add IAM Configuration
 builder.Services.AddIamConfiguration(builder.Configuration);
+
+// Add Cloudinary Image Service
+builder.Services.AddCloudinaryImageService(builder.Configuration);
 
 // Add Controllers
 builder.Services.AddControllers();
