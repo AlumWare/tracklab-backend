@@ -4,6 +4,8 @@ using Alumware.Tracklab.API.Order.Domain.Services;
 using Alumware.Tracklab.API.Order.Domain.Repositories;
 using TrackLab.Shared.Domain.Repositories;
 using TrackLab.Shared.Infrastructure.Multitenancy;
+using TrackLab.Shared.Domain.Events;
+using Alumware.Tracklab.API.Order.Domain.Events;
 using OrderAggregate = Alumware.Tracklab.API.Order.Domain.Model.Aggregates.Order;
 using TrackLab.IAM.Domain.Model.Aggregates;
 using TrackLab.IAM.Domain.Repositories;
@@ -47,6 +49,8 @@ public class OrderCommandService : IOrderCommandService
         
         await _orderRepository.AddAsync(order);
         await _unitOfWork.CompleteAsync(); // Persistir los cambios
+        
+        
         return order;
     }
 

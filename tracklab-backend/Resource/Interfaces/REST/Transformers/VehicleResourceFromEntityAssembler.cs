@@ -8,6 +8,14 @@ public static class VehicleResourceFromEntityAssembler
     public static VehicleResource ToResourceFromEntity(Vehicle vehicle)
     {
         string statusText = vehicle.Status == EVehicleStatus.Available ? "Available" : "Not available";
+        
+        var images = vehicle.Images.Select(img => new VehicleImageResource(
+            img.Id,
+            img.ImageUrl,
+            img.PublicId,
+            img.CreatedAt
+        )).ToList();
+        
         return new VehicleResource(
             vehicle.Id,
             vehicle.LicensePlate,
@@ -16,7 +24,7 @@ public static class VehicleResourceFromEntityAssembler
             statusText,
             vehicle.Location.Latitude,
             vehicle.Location.Longitude,
-            vehicle.ImageAssetIds
+            images
         );
     }
 }

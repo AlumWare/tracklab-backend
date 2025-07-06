@@ -23,7 +23,6 @@ public static class TrackingServiceCollectionExtensions
         services.AddScoped<IRouteQueryService, RouteQueryService>();
         services.AddScoped<ITrackingEventCommandService, TrackingEventCommandService>();
         services.AddScoped<ITrackingEventQueryService, TrackingEventQueryService>();
-
         return services;
     }
 } 

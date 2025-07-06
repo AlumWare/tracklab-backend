@@ -9,4 +9,6 @@ public interface IVehicleCommandService
     Task Handle(UpdateVehicleStatusCommand command);
     Task Handle(UpdateVehicleInfoCommand command);
     Task Handle(DeleteVehicleCommand command);
+    Task Handle(AddVehicleImageCommand command);
+    Task Handle(RemoveVehicleImageCommand command);
 }

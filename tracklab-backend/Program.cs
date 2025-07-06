@@ -10,6 +10,10 @@ using Alumware.Tracklab.API.Resource.Application.Internal.QueryServices;
 using TrackLab.IAM.Infrastructure.Configuration;
 using TrackLab.IAM.Application.Internal.OutboundServices;
 using TrackLab.Shared.Infrastructure.Documentation.OpenApi.Configuration;
+using TrackLab.Shared.Infrastructure.Images.Cloudinary.Configuration;
+using TrackLab.Notifications.Infrastructure.Email.Configuration;
+using TrackLab.Shared.Infrastructure.Events.Configuration;
+using TrackLab.Shared.Domain.Events;
 using Alumware.Tracklab.API.Order.Domain.Repositories;
 using Alumware.Tracklab.API.Order.Domain.Services;
 using Alumware.Tracklab.API.Order.Application.Internal.CommandServices;
@@ -30,6 +34,7 @@ using ITrackingEventCommandServiceTracking = Alumware.Tracklab.API.Tracking.Doma
 using ITrackingEventCommandServiceOrder = Alumware.Tracklab.API.Order.Domain.Services.ITrackingEventCommandService;
 using TrackingEventCommandServiceTracking = Alumware.Tracklab.API.Tracking.Application.Internal.CommandServices.TrackingEventCommandService;
 using TrackingEventCommandServiceOrder = Alumware.Tracklab.API.Order.Application.Internal.CommandServices.TrackingEventCommandService;
+using Alumware.Tracklab.API.Tracking.Infrastructure.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -92,6 +97,21 @@ builder.Services.AddScoped<ITrackingEventQueryService, TrackingEventQueryService
 // Add IAM Configuration
 builder.Services.AddIamConfiguration(builder.Configuration);
 
+// Add Cloudinary Image Service
+builder.Services.AddCloudinaryImageService(builder.Configuration);
+
+// Add Email Service
+builder.Services.AddEmailService(builder.Configuration);
+
+// Add Tracking Services (including QR Code)
+builder.Services.AddTrackingServices();
+
+// Add Domain Events System
+builder.Services.AddDomainEvents(
+    typeof(Program).Assembly, // Current assembly
+    typeof(IDomainEventDispatcher).Assembly // Shared assembly
+);
+
 // Add Controllers
 builder.Services.AddControllers();
 
@@ -134,6 +154,14 @@ app.UseSwaggerUI(c =>
         c.DisplayRequestDuration();
         c.ShowExtensions();
     }
+});
+
+// Configure CORS to allow all origins
+app.UseCors(builder =>
+{
+    builder.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader();
 });
 
 // Middleware pipeline

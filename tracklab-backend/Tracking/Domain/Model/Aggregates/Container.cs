@@ -13,6 +13,7 @@ public partial class Container
     public List<ShipItem> ShipItems { get; private set; } = new();
     public List<Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates.TrackingEvent> TrackingEvents { get; set; } = new();
     public decimal TotalWeight { get; private set; }
+    public QrCode? QrCode { get; private set; }
 
     public Container() { }
 
@@ -56,7 +57,6 @@ public partial class Container
         
         WarehouseId = new WarehouseId(command.WarehouseId);
     }
-
     public int GetTotalItems()
     {
         return ShipItems.Sum(item => (int)item.Quantity);
