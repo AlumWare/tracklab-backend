@@ -211,6 +211,12 @@ public class AppDbContext : DbContext
             w.Property(p => p.Value).HasColumnName("warehouse_id");
             w.WithOwner().HasForeignKey("ContainerId");
         });
+        builder.Entity<Container>().OwnsOne(c => c.QrCode, qr =>
+        {
+            qr.Property(p => p.Url).HasColumnName("qr_code_url");
+            qr.Property(p => p.GeneratedAt).HasColumnName("qr_code_generated_at");
+            qr.WithOwner().HasForeignKey("ContainerId");
+        });
         builder.Entity<Container>().OwnsMany(c => c.ShipItems, si =>
         {
             si.WithOwner().HasForeignKey("ContainerId");

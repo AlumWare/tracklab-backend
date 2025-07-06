@@ -33,6 +33,7 @@ using ITrackingEventCommandServiceTracking = Alumware.Tracklab.API.Tracking.Doma
 using ITrackingEventCommandServiceOrder = Alumware.Tracklab.API.Order.Domain.Services.ITrackingEventCommandService;
 using TrackingEventCommandServiceTracking = Alumware.Tracklab.API.Tracking.Application.Internal.CommandServices.TrackingEventCommandService;
 using TrackingEventCommandServiceOrder = Alumware.Tracklab.API.Order.Application.Internal.CommandServices.TrackingEventCommandService;
+using Alumware.Tracklab.API.Tracking.Infrastructure.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -95,6 +96,9 @@ builder.Services.AddCloudinaryImageService(builder.Configuration);
 
 // Add Email Service
 builder.Services.AddEmailService(builder.Configuration);
+
+// Add Tracking Services (including QR Code)
+builder.Services.AddTrackingServices();
 
 // Add Domain Events System
 builder.Services.AddDomainEvents(
