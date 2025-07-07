@@ -216,11 +216,19 @@ public class AppDbContext : DbContext
         // === TRACKING ===
         builder.Entity<RouteAggregate>().ToTable("routes");
         builder.Entity<RouteAggregate>().HasKey(r => r.RouteId);
-        builder.Entity<RouteAggregate>().OwnsOne(r => r.VehicleId, v =>
-        {
-            v.Property(p => p.Value).HasColumnName("vehicle_id");
-            v.WithOwner().HasForeignKey("RouteId");
-        });
+        
+        // Configurar VehicleId como propiedad simple con conversión
+        builder.Entity<RouteAggregate>()
+            .Property(r => r.VehicleId)
+            .HasConversion(
+                v => v.Value,
+                v => new Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects.VehicleId(v)
+            )
+            .HasColumnName("vehicle_id");
+
+        // Ignorar la propiedad de navegación Vehicle para evitar conflictos
+        builder.Entity<RouteAggregate>()
+            .Ignore(r => r.Vehicle);
 
         builder.Entity<Container>().ToTable("containers");
         builder.Entity<Container>().HasKey(c => c.ContainerId);
@@ -249,6 +257,14 @@ public class AppDbContext : DbContext
             si.Property(p => p.ProductId).HasColumnName("product_id");
             si.Property(p => p.Quantity).HasColumnName("quantity");
             si.HasKey("Id");
+        });
+
+        // Configurar QrCode como owned entity
+        builder.Entity<Container>().OwnsOne(c => c.QrCode, qr =>
+        {
+            qr.Property(p => p.Url).HasColumnName("qr_code_url");
+            qr.Property(p => p.GeneratedAt).HasColumnName("qr_code_generated_at");
+            qr.WithOwner().HasForeignKey("ContainerId");
         });
 
         builder.Entity<TrackingEventTracking>().ToTable("tracking_events");
@@ -319,28 +335,25 @@ public class AppDbContext : DbContext
             .HasForeignKey("OrderId")
             .OnDelete(DeleteBehavior.Cascade);
 
-        // Vehicle → Routes
-        builder.Entity<RouteAggregate>()
-            .HasOne(r => r.Vehicle)
-            .WithMany()
-            .HasForeignKey("vehicle_id")
-            .OnDelete(DeleteBehavior.Restrict);
-
-        // Warehouse → RouteItems
+        // === ROUTE ITEM ===
         builder.Entity<RouteItem>()
-            .HasOne(ri => ri.Warehouse)
-            .WithMany()
-            .HasForeignKey("warehouse_id")
-            .OnDelete(DeleteBehavior.Restrict);
+            .Property(ri => ri.WarehouseId)
+            .HasConversion(
+                v => v.Value,
+                v => new Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects.WarehouseId(v)
+            )
+            .HasColumnName("warehouse_id");
 
-        // Route → RouteItems
+        // Ignorar la propiedad de navegación Warehouse para evitar conflictos
+        builder.Entity<RouteItem>()
+            .Ignore(ri => ri.Warehouse);
+
+        // Configurar solo la relación Route → RouteItems
         builder.Entity<RouteItem>()
             .HasOne(ri => ri.Route)
             .WithMany(r => r.RouteItems)
             .HasForeignKey(ri => ri.RouteId)
             .OnDelete(DeleteBehavior.Cascade);
-
-
 
         // Container → TrackingEvents
         builder.Entity<TrackingEventTracking>()
@@ -348,13 +361,6 @@ public class AppDbContext : DbContext
             .WithMany(c => c.TrackingEvents)
             .HasForeignKey(te => te.ContainerId)
             .OnDelete(DeleteBehavior.Cascade);
-
-        // Warehouse → TrackingEvents
-        builder.Entity<TrackingEventTracking>()
-            .HasOne(te => te.Warehouse)
-            .WithMany()
-            .HasForeignKey("warehouse_id")
-            .OnDelete(DeleteBehavior.Restrict);
 
         // === RELACIÓN MUCHOS A MUCHOS: Order ↔ Route ===
         builder.Entity<Order>()
@@ -380,14 +386,6 @@ public class AppDbContext : DbContext
                     j.ToTable("routes_orders");
                 }
             );
-
-        builder.Entity<RouteItem>()
-            .Property(ri => ri.WarehouseId)
-            .HasConversion(
-                v => v.Value,
-                v => new Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects.WarehouseId(v)
-            )
-            .HasColumnName("warehouse_id");
 
         // Tenant → Orders (Customer)
         builder.Entity<Order>()

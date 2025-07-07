@@ -2,7 +2,6 @@ namespace Alumware.Tracklab.API.Order.Domain.Model.Commands;
 using System.Collections.Generic;
 
 public record CreateOrderWithProductInfoCommand(
-    long CustomerId,
     long LogisticsId,
     string ShippingAddress,
     List<AddOrderItemWithPriceCommand> Items

@@ -74,4 +74,36 @@ public class ContainerController : ControllerBase
         var resource = ContainerResourceFromEntityAssembler.ToResourceFromEntity(container);
         return Ok(resource);
     }
+
+    /// <summary>
+    /// Completes a container when delivered at a CLIENT warehouse
+    /// This triggers order completion validation if all containers are delivered
+    /// </summary>
+    [HttpPost("{id}/complete")]
+    public async Task<ActionResult<ContainerResource>> CompleteContainer(long id, [FromBody] CompleteContainerResource resource)
+    {
+        try
+        {
+            var command = CompleteContainerCommandFromResourceAssembler.ToCommandFromResource(resource, id);
+            var container = await _containerCommandService.CompleteContainerAsync(command);
+            var containerResource = ContainerResourceFromEntityAssembler.ToResourceFromEntity(container);
+            return Ok(containerResource);
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new { error = ex.Message });
+        }
+        catch (InvalidOperationException ex)
+        {
+            return Conflict(new { error = ex.Message });
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new { error = ex.Message });
+        }
+        catch (Exception)
+        {
+            return StatusCode(500, new { error = "Error interno del servidor al completar el contenedor." });
+        }
+    }
 } 

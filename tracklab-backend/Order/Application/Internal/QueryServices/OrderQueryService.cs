@@ -28,7 +28,7 @@ public class OrderQueryService : IOrderQueryService
 
     public async Task<OrderAggregate?> Handle(GetOrderByIdQuery query)
     {
-        return await _orderRepository.FindByIdAsync(query.Id);
+        return await _orderRepository.GetByIdAsync(query);
     }
 
     public async Task<IEnumerable<OrderResource>> GetAllAsync(GetAllOrdersQuery query)

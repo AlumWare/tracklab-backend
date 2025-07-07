@@ -18,6 +18,16 @@ public class OrderCreatedEvent : DomainEventBase
     public long CustomerId { get; }
     
     /// <summary>
+    /// ID de la empresa logística asignada
+    /// </summary>
+    public long LogisticsId { get; }
+    
+    /// <summary>
+    /// Dirección de envío
+    /// </summary>
+    public string ShippingAddress { get; }
+    
+    /// <summary>
     /// Monto total de la orden
     /// </summary>
     public decimal TotalAmount { get; }
@@ -26,20 +36,38 @@ public class OrderCreatedEvent : DomainEventBase
     /// Moneda de la orden
     /// </summary>
     public string Currency { get; }
+    
+    /// <summary>
+    /// Número total de artículos en la orden
+    /// </summary>
+    public int TotalItems { get; }
 
     /// <summary>
     /// Constructor del evento
     /// </summary>
     /// <param name="orderId">ID de la orden creada</param>
     /// <param name="customerId">ID del cliente</param>
+    /// <param name="logisticsId">ID de la empresa logística</param>
+    /// <param name="shippingAddress">Dirección de envío</param>
     /// <param name="totalAmount">Monto total</param>
     /// <param name="currency">Moneda</param>
-    public OrderCreatedEvent(long orderId, long customerId, decimal totalAmount, string currency)
+    /// <param name="totalItems">Número total de artículos</param>
+    public OrderCreatedEvent(
+        long orderId, 
+        long customerId, 
+        long logisticsId,
+        string shippingAddress,
+        decimal totalAmount, 
+        string currency,
+        int totalItems)
         : base(version: 1)
     {
         OrderId = orderId;
         CustomerId = customerId;
+        LogisticsId = logisticsId;
+        ShippingAddress = shippingAddress;
         TotalAmount = totalAmount;
         Currency = currency;
+        TotalItems = totalItems;
     }
 } 

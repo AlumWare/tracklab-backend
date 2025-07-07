@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Alumware.Tracklab.API.Tracking.Domain.Model.Aggregates;
 using Alumware.Tracklab.API.Tracking.Domain.Model.Queries;
+using Alumware.Tracklab.API.Tracking.Domain.Model.ValueObjects;
 using Alumware.Tracklab.API.Tracking.Domain.Repositories;
 using TrackLab.Shared.Infrastructure.Multitenancy;
 using TrackLab.Shared.Infrastructure.Persistence.EFC.Configuration;
@@ -20,24 +21,41 @@ public class ContainerRepository : BaseRepository<Container>, IContainerReposito
     private IQueryable<Container> GetTenantFilteredQuery()
     {
         var query = Context.Set<Container>().AsQueryable();
-        // Aquí podrías filtrar por tenant si corresponde
         return query;
     }
 
     public async Task<IEnumerable<Container>> GetAllAsync(GetAllContainersQuery query)
     {
         var containersQuery = GetTenantFilteredQuery();
+        
         if (query.OrderId.HasValue)
-            containersQuery = containersQuery.Where(c => c.OrderId.Value == query.OrderId.Value);
+        {
+            var orderIdValueObject = new OrderId(query.OrderId.Value);
+            containersQuery = containersQuery.Where(c => c.OrderId == orderIdValueObject);
+        }
+        
         if (query.WarehouseId.HasValue)
-            containersQuery = containersQuery.Where(c => c.WarehouseId.Value == query.WarehouseId.Value);
+        {
+            var warehouseIdValueObject = new WarehouseId(query.WarehouseId.Value);
+            containersQuery = containersQuery.Where(c => c.WarehouseId == warehouseIdValueObject);
+        }
+        
         if (query.PageSize.HasValue && query.PageNumber.HasValue)
             containersQuery = containersQuery.Skip((query.PageNumber.Value - 1) * query.PageSize.Value).Take(query.PageSize.Value);
+        
         return await containersQuery.ToListAsync();
     }
 
     public async Task<Container?> GetByIdAsync(GetContainerByIdQuery query)
     {
         return await GetTenantFilteredQuery().FirstOrDefaultAsync(c => c.ContainerId == query.Id);
+    }
+
+    public async Task<IEnumerable<Container>> GetByOrderIdAsync(long orderId)
+    {
+        var orderIdValueObject = new OrderId(orderId);
+        return await GetTenantFilteredQuery()
+            .Where(c => c.OrderId == orderIdValueObject)
+            .ToListAsync();
     }
 } 
