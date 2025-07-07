@@ -105,7 +105,6 @@ public class OrderCommandService : IOrderCommandService
 
         // Crear el comando con los items validados
         var enrichedCommand = new CreateOrderWithProductInfoCommand(
-            command.CustomerId,
             command.LogisticsId,
             command.ShippingAddress,
             validatedItems
@@ -130,7 +129,7 @@ public class OrderCommandService : IOrderCommandService
         // Publish OrderCreatedEvent
         var orderCreatedEvent = new OrderCreatedEvent(
             order.OrderId,
-            command.CustomerId,
+            order.TenantId,
             command.LogisticsId,
             command.ShippingAddress,
             totalAmount,
@@ -138,7 +137,13 @@ public class OrderCommandService : IOrderCommandService
             totalItems
         );
         
-        await _eventDispatcher.PublishAsync(orderCreatedEvent);
+        _ = _eventDispatcher.PublishAsync(orderCreatedEvent)
+            .ContinueWith(t =>
+            {
+                // opcional: loguea errores si falla el envío
+                if (t.Exception != null)
+                    Console.WriteLine($"Error al despachar OrderCreatedEvent: {t.Exception}");
+            }, TaskScheduler.Default);
         
         return order;
     }
@@ -233,20 +238,6 @@ public class OrderCommandService : IOrderCommandService
         );
         
         await _eventDispatcher.PublishAsync(statusChangedEvent);
-    }
-
-    public async Task<OrderAggregate> SetRouteAsync(SetRouteCommand command)
-    {
-        var order = await GetOrderWithAccessValidationAsync(command.OrderId);
-        
-        if (order.Status != Alumware.Tracklab.API.Order.Domain.Model.ValueObjects.OrderStatus.InProcess)
-            throw new InvalidOperationException("Solo se puede definir/modificar la ruta de órdenes en proceso.");
-        if (command.Warehouses == null || command.Warehouses.Count == 0)
-            throw new InvalidOperationException("La ruta debe tener al menos un almacén.");
-        order.SetRoute(command.VehicleId, command.Warehouses);
-        _orderRepository.Update(order);
-        await _unitOfWork.CompleteAsync();
-        return order;
     }
 
     public async Task<OrderAggregate> AssignVehicleAsync(AssignVehicleCommand command)

@@ -27,7 +27,6 @@ public partial class Order
     public Order(CreateOrderWithProductInfoCommand command)
     {
         OrderId = 0; // Será asignado por EF Core
-        TenantId = command.CustomerId;
         LogisticsId = command.LogisticsId;
         ShippingAddress = command.ShippingAddress;
         OrderDate = DateTime.UtcNow;

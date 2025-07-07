@@ -10,6 +10,5 @@ public interface IOrderCommandService
     Task<OrderAggregate> UpdateStatusAsync(UpdateOrderStatusCommand command);
     Task DeleteAsync(DeleteOrderCommand command);
     Task<OrderAggregate> AssignVehicleAsync(AssignVehicleCommand command);
-    Task<OrderAggregate> SetRouteAsync(SetRouteCommand command);
     Task<OrderAggregate> CompleteOrderAsync(CompleteOrderCommand command);
 } 

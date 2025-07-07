@@ -80,13 +80,13 @@ public class ProductRepository : BaseRepository<Product>, IProductRepository
 
     public new async Task<Product?> FindByIdAsync(long id)
     {
-        return await GetTenantFilteredQuery()
+        return await Context.Set<Product>()
             .FirstOrDefaultAsync(p => p.Id == id);
     }
 
     public async Task<IEnumerable<Product>> GetAvailableAsync(GetAvailableProductsQuery query)
     {
-        var productsQuery = GetTenantFilteredQuery()
+        var productsQuery = Context.Products
             .Where(p => p.Stock > 0); // Solo productos con stock disponible
 
         // Aplicar filtros

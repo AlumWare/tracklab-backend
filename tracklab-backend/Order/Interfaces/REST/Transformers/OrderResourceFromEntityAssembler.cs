@@ -1,5 +1,6 @@
 using Alumware.Tracklab.API.Order.Domain.Model.Entities;
 using Alumware.Tracklab.API.Order.Interfaces.REST.Resources;
+using QRCoder.Extensions;
 using OrderAggregate = Alumware.Tracklab.API.Order.Domain.Model.Aggregates.Order;
 
 namespace Alumware.Tracklab.API.Order.Interfaces.REST.Transformers;

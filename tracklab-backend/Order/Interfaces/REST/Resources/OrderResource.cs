@@ -1,4 +1,4 @@
-using Alumware.Tracklab.API.Order.Interfaces.REST.Resources;
+using Alumware.Tracklab.API.Order.Domain.Model.ValueObjects;
 
 namespace Alumware.Tracklab.API.Order.Interfaces.REST.Resources;
 

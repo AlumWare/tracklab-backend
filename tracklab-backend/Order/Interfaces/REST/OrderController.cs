@@ -208,54 +208,6 @@ public class OrderController : ControllerBase
         }
     }
 
-    [HttpPost("{orderId}/route")]
-    public async Task<ActionResult<OrderResource>> SetRoute(long orderId, [FromBody] RouteResource resource)
-    {
-        try
-        {
-            var command = SetRouteCommandFromResourceAssembler.ToCommandFromResource(resource with { OrderId = orderId });
-            var order = await _orderCommandService.SetRouteAsync(command);
-            var orderResource = OrderResourceFromEntityAssembler.ToResourceFromEntity(order);
-            return Ok(orderResource);
-        }
-        catch (KeyNotFoundException ex)
-        {
-            return NotFound(new { error = ex.Message });
-        }
-        catch (InvalidOperationException ex)
-        {
-            return Conflict(new { error = ex.Message });
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new { error = ex.Message });
-        }
-    }
-
-    [HttpPut("{orderId}/route")]
-    public async Task<ActionResult<OrderResource>> UpdateRoute(long orderId, [FromBody] RouteResource resource)
-    {
-        try
-        {
-            var command = SetRouteCommandFromResourceAssembler.ToCommandFromResource(resource with { OrderId = orderId });
-            var order = await _orderCommandService.SetRouteAsync(command);
-            var orderResource = OrderResourceFromEntityAssembler.ToResourceFromEntity(order);
-            return Ok(orderResource);
-        }
-        catch (KeyNotFoundException ex)
-        {
-            return NotFound(new { error = ex.Message });
-        }
-        catch (InvalidOperationException ex)
-        {
-            return Conflict(new { error = ex.Message });
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new { error = ex.Message });
-        }
-    }
-
     [HttpPost("{orderId}/tracking")]
     public async Task<IActionResult> RegisterTrackingEvent(long orderId, [FromBody] TrackingEventResource resource)
     {

@@ -212,7 +212,7 @@ public static class DbSeeder
         // ==================== ORDERS ====================
         // Orden del cliente comprando productos del proveedor
         var order1 = new Order(new CreateOrderWithProductInfoCommand(
-            clientTenant.Id, logisticTenant.Id, "Av. Comercial 456, Lima",
+            logisticTenant.Id, "Av. Comercial 456, Lima",
             new List<AddOrderItemWithPriceCommand>
             {
                 new(product1.Id, 2, 2500.00m, "PEN"),
@@ -221,23 +221,16 @@ public static class DbSeeder
             }));
 
         var order2 = new Order(new CreateOrderWithProductInfoCommand(
-            clientTenant.Id, logisticTenant.Id, "Av. Comercial 456, Lima",
+            logisticTenant.Id, "Av. Comercial 456, Lima",
             new List<AddOrderItemWithPriceCommand>
             {
                 new(product4.Id, 25, 120.00m, "PEN"),
                 new(product1.Id, 1, 2500.00m, "PEN")
             }));
 
-        // Orden del proveedor enviando productos al cliente
-        var order3 = new Order(new CreateOrderWithProductInfoCommand(
-            providerTenant.Id, logisticTenant.Id, "Av. Industrial 789, Lima",
-            new List<AddOrderItemWithPriceCommand>
-            {
-                new(clientProduct1.Id, 15, 150.00m, "PEN"),
-                new(clientProduct2.Id, 8, 250.00m, "PEN")
-            }));
-
-        context.Orders.AddRange(order1, order2, order3);
+        order1.SetTenantId(clientTenant.Id);
+        order2.SetTenantId(clientTenant.Id);
+        context.Orders.AddRange(order1, order2);
         await context.SaveChangesAsync();
 
         Console.WriteLine("✅ Base de datos inicializada con datos robustos de prueba");

@@ -17,7 +17,6 @@ public static class CreateOrderCommandFromResourceAssembler
         )).ToList();
         
         return new CreateOrderWithProductInfoCommand(
-            resource.CustomerId,
             resource.LogisticsId,
             resource.ShippingAddress,
             items
