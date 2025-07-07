@@ -165,7 +165,7 @@ using (var scope = app.Services.CreateScope())
     
     //Delete and recreate the database (for development)
     Console.WriteLine("Deleting existing database...");
-    await dbContext.Database.EnsureDeletedAsync();
+    //await dbContext.Database.EnsureDeletedAsync();
     Console.WriteLine("Creating new database...");
     await dbContext.Database.EnsureCreatedAsync();
 
